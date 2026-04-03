@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* ===============================
+   Industrial Design Tokens
+================================ */
+
+@theme {
+  --color-industrial-black: #0a0a0a;
+  --color-industrial-gray: #1a1a1a;
+  --color-industrial-blue: #2b6cff;
+}
+
+/* ===============================
+   Base Style
+================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-industrial-black text-white antialiased;
+}
+
+.container-industrial {
+  @apply max-w-7xl mx-auto px-6 lg:px-12;
+}

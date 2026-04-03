@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+---
+
+<BaseLayout title="Services | InChief Printing">
+
+<section class="container-industrial py-24">
+  <SectionTitle title="Our Services" />
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+    <ServiceCard title="Commercial Printing" />
+    <ServiceCard title="Packaging Printing" />
+    <ServiceCard title="Special Processes" />
+    <ServiceCard title="Custom Manufacturing" />
+  </div>
+
+</section>
+
+</BaseLayout>

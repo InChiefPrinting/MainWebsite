@@ -1,17 +1,34 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CTA from "../components/CTA.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="InChief Printing">
+
+  <Hero
+    title="Industrial Printing Engineering"
+    subtitle="High-end manufacturing and precision printing solutions."
+    buttonText="Request Quote"
+    buttonLink="/contact"
+  />
+
+  <section class="container-industrial py-24">
+    <SectionTitle title="Company Overview" />
+    <p class="text-neutral-400 max-w-3xl">
+      InChief Printing delivers industrial-grade print manufacturing,
+      packaging engineering, and advanced finishing technologies.
+    </p>
+  </section>
+
+  <section class="container-industrial py-24 grid md:grid-cols-3 gap-8">
+    <ServiceCard title="Commercial Printing" />
+    <ServiceCard title="Packaging Printing" />
+    <ServiceCard title="Special Finishing" />
+  </section>
+
+  <CTA />
+
+</BaseLayout>

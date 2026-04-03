@@ -1,0 +1,26 @@
+---
+const links = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Contact", href: "/contact" }
+];
+---
+
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-neutral-800">
+  <div class="container-industrial flex justify-between items-center h-16">
+
+    <a href="/" class="font-semibold text-lg tracking-wide">
+      InChief Printing
+    </a>
+
+    <nav class="hidden md:flex gap-8 text-sm">
+      {links.map(link => (
+        <a href={link.href} class="hover:text-industrial-blue transition">
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+  </div>
+</header>
