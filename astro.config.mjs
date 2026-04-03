@@ -5,7 +5,5 @@ export default defineConfig({
   site: "https://jeremythierrychan.github.io",
   base: "/InChief/",
   output: "static",
-  vite: {
-    plugins: [tailwindcss()],
   },
 });
