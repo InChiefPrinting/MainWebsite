@@ -1,26 +1,85 @@
 ---
-const links = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Contact", href: "/contact" }
+const navItems = [
+  {
+    label: "Company",
+    children: [
+      { name: "About", href: "/InChief/about" },
+      { name: "Industries", href: "/InChief/industries" },
+      { name: "Careers", href: "/InChief/careers" },
+      { name: "News", href: "/InChief/news" },
+    ],
+  },
+  {
+    label: "Solutions",
+    children: [
+      { name: "Commercial Printing", href: "/InChief/services" },
+      { name: "Packaging", href: "/InChief/services" },
+      { name: "Special Finishing", href: "/InChief/services" },
+      { name: "Case Studies", href: "/InChief/case-studies" },
+    ],
+  },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-neutral-800">
-  <div class="container-industrial flex justify-between items-center h-16">
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
 
-    <a href="/" class="font-semibold text-lg tracking-wide">
-      InChief Printing
-    </a>
+<nav class="container-industrial flex items-center justify-between h-16">
 
-    <nav class="hidden md:flex gap-8 text-sm">
-      {links.map(link => (
-        <a href={link.href} class="hover:text-industrial-blue transition">
-          {link.name}
-        </a>
-      ))}
-    </nav>
+<!-- Logo -->
+<a href="/InChief/" class="text-xl font-semibold tracking-widest">
+  InChief
+</a>
 
-  </div>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex items-center gap-10">
+
+{navItems.map((item) => (
+<li class="relative group">
+
+<span class="cursor-pointer hover:text-industrial-blue transition">
+{item.label}
+</span>
+
+<div class="absolute left-0 top-full pt-2 hidden group-hover:block">
+<div class="w-56 bg-neutral-900 border border-white/10 shadow-xl">
+
+{item.children.map((child) => (
+<a
+href={child.href}
+class="block px-5 py-3 hover:bg-industrial-blue transition"
+>
+{child.name}
+</a>
+))}
+
+</div>
+</div>
+
+</li>
+))}
+
+<!-- Direct Links -->
+<a href="/InChief/equipment" class="hover:text-industrial-blue">
+Equipment
+</a>
+
+<a href="/InChief/quality" class="hover:text-industrial-blue">
+Quality
+</a>
+
+<a href="/InChief/contact" class="hover:text-industrial-blue">
+Contact
+</a>
+
+<!-- CTA -->
+<a
+href="/InChief/contact"
+class="ml-4 px-5 py-2 bg-industrial-blue text-black font-semibold hover:opacity-80 transition"
+>
+Get Quote
+</a>
+
+</ul>
+
+</nav>
 </header>

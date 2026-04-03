@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<BaseLayout title="Careers | InChief Printing">
+
+<section class="container-industrial py-24">
+  <SectionTitle title="Join Our Team" />
+
+  <p class="text-neutral-400 max-w-3xl">
+    We are constantly looking for engineers, operators,
+    designers and production specialists.
+  </p>
+</section>
+
+<section class="container-industrial py-16 grid md:grid-cols-2 gap-8">
+
+  <div class="border border-neutral-800 p-8">
+    <h3 class="text-xl font-semibold">Printing Engineer</h3>
+    <p class="text-neutral-400 mt-4">
+      Responsible for industrial printing process optimization.
+    </p>
+    <button class="mt-6 px-6 py-3 bg-industrial-blue">
+      Apply Now
+    </button>
+  </div>
+
+  <div class="border border-neutral-800 p-8">
+    <h3 class="text-xl font-semibold">Production Manager</h3>
+    <p class="text-neutral-400 mt-4">
+      Manage manufacturing workflow and quality control.
+    </p>
+    <button class="mt-6 px-6 py-3 bg-industrial-blue">
+      Apply Now
+    </button>
+  </div>
+
+</section>
+
+</BaseLayout>
