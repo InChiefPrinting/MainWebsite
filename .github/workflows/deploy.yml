@@ -2,8 +2,7 @@ name: Deploy Astro to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -16,17 +15,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout your repository
         uses: actions/checkout@v5
 
-      - name: Install and build
+      - name: Install, build, and upload your site
         uses: withastro/action@v5
-        # 默认会安装依赖并运行 astro build
-        # 你也可以显式指定：
-        # with:
-        #   path: .
-        #   node-version: 20
-        #   build-cmd: npm run build
+        with:
+          node-version: 20
+          package-manager: npm
 
   deploy:
     needs: build
