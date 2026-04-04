@@ -23,6 +23,7 @@ const navItems = [
 
 <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
 
+<!-- ================= NAV BAR ================= -->
 <nav class="container-industrial flex items-center justify-between h-16">
 
 <!-- Logo -->
@@ -30,7 +31,12 @@ const navItems = [
   InChief
 </a>
 
-<!-- Desktop Nav -->
+<!-- MOBILE BUTTON -->
+<button id="menuBtn" class="md:hidden text-2xl">
+  ☰
+</button>
+
+<!-- DESKTOP NAV -->
 <ul class="hidden md:flex items-center gap-10">
 
 {navItems.map((item) => (
@@ -58,7 +64,6 @@ class="block px-5 py-3 hover:bg-industrial-blue transition"
 </li>
 ))}
 
-<!-- Direct Links -->
 <a href="/InChief/equipment" class="hover:text-industrial-blue">
 Equipment
 </a>
@@ -71,7 +76,6 @@ Quality
 Contact
 </a>
 
-<!-- CTA -->
 <a
 href="/InChief/contact"
 class="ml-4 px-5 py-2 bg-industrial-blue text-black font-semibold hover:opacity-80 transition"
@@ -83,3 +87,83 @@ Get Quote
 
 </nav>
 </header>
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div
+id="mobileMenu"
+class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden"
+>
+
+<div class="flex flex-col h-screen">
+
+<!-- TOP BAR -->
+<div class="flex justify-between items-center h-16 px-6 border-b border-white/10">
+
+<span class="text-xl tracking-widest">InChief</span>
+
+<button id="closeMenu" class="text-3xl leading-none">
+✕
+</button>
+
+</div>
+
+<!-- MENU CONTENT -->
+<div class="flex-1 overflow-y-auto px-6 py-10 space-y-10">
+
+{navItems.map((item) => (
+<div>
+<p class="text-lg font-semibold mb-4">{item.label}</p>
+
+<div class="space-y-4 pl-2">
+{item.children.map((child) => (
+<a
+href={child.href}
+class="block text-xl hover:text-industrial-blue transition"
+>
+{child.name}
+</a>
+))}
+</div>
+
+</div>
+))}
+
+<div class="space-y-6 pt-6 border-t border-white/10">
+<a href="/InChief/equipment" class="block text-xl">Equipment</a>
+<a href="/InChief/quality" class="block text-xl">Quality</a>
+<a href="/InChief/contact" class="block text-xl">Contact</a>
+</div>
+
+</div>
+
+<!-- CTA 固定底部 -->
+<div class="p-6 border-t border-white/10">
+<a
+href="/InChief/contact"
+class="block w-full text-center py-4 bg-industrial-blue text-black font-semibold"
+>
+Get Quote
+</a>
+</div>
+
+</div>
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const close = document.getElementById("closeMenu");
+
+btn.onclick = () => {
+  menu.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+};
+
+close.onclick = () => {
+  menu.classList.add("hidden");
+  document.body.style.overflow = "";
+};
+</script>
