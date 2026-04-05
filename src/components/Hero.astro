@@ -8,13 +8,14 @@ const {
 ---
 
 <section class="container-industrial py-32">
-
   <h1 class="text-5xl md:text-7xl font-bold leading-tight max-w-4xl">
     {title}
   </h1>
 
   <p class="mt-6 text-neutral-400 max-w-2xl">
-    {subtitle}
+    {Array.isArray(subtitle)
+    ? subtitle.map(line => <span class="block">{line}</span>)
+    : subtitle}
   </p>
 
   <a
@@ -23,5 +24,4 @@ const {
   >
     {buttonText}
   </a>
-
 </section>
