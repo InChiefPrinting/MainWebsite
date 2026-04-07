@@ -7,7 +7,6 @@ import CTA from "../components/CTA.astro";
 ---
 
 <BaseLayout title="InChief Printing Tech.">
-
   <Hero
     title="Technology creates endless possibilities"
     subtitle={[
@@ -22,19 +21,19 @@ import CTA from "../components/CTA.astro";
     <SectionTitle title="Company Overview" />
     <p class="text-neutral-400 max-w-3xl">
       InChief Printing is an integrated high-tech printing and packaging manufacturer established in 2020 in Longgang City, Zhejiang, through the strategic alliance of four leading industrial enterprises.
-
-The company specializes in industrial printing, advanced packaging manufacturing, and intelligent finishing solutions, supported by world-class equipment, automated production systems, and a fully integrated supply chain.
-
-With strong engineering capability and efficient large-scale manufacturing, InChief delivers reliable, high-quality packaging solutions to global partners.
+      The company specializes in industrial printing, advanced packaging manufacturing, and intelligent finishing solutions, supported by world-class equipment, automated production systems, and a fully integrated supply chain.
+      With strong engineering capability and efficient large-scale manufacturing, InChief delivers reliable, high-quality packaging solutions to global partners.
     </p>
   </section>
 
-  <section class="container-industrial py-24 grid md:grid-cols-3 gap-8">
-    <ServiceCard title="Commercial Printing" />
-    <ServiceCard title="Packaging Printing" />
-    <ServiceCard title="Special Finishing" />
+  <section class="container-industrial py-24">
+    <SectionTitle title="Our Services" />
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <ServiceCard title="Commercial Printing" />
+      <ServiceCard title="Packaging Printing" />
+      <ServiceCard title="Special Finishing" />
+    </div>
   </section>
 
   <CTA />
-
 </BaseLayout>
