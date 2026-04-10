@@ -23,14 +23,17 @@ const {
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" href="/MainWebsite/favicon.ico" />
   </head>
 
   <body class="bg-black text-white">
 
     <Navbar />
 
-    <main class="min-h-screen">
+    <main class="min-h-screen flex flex-col gap-24">
+  
       <slot />
+
     </main>
 
     <Footer />
