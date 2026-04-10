@@ -3,19 +3,44 @@ const navItems = [
   {
     label: "Company",
     children: [
-      { name: "About", href: "/MainWebsite/about" },
-      { name: "Industries", href: "/MainWebsite/industries" },
-      { name: "Careers", href: "/MainWebsite/careers" },
-      { name: "News", href: "/MainWebsite/news" },
+      {
+        group: "Overview",
+        items: [
+          { name: "About", href: "/MainWebsite/about" },
+          { name: "Industries", href: "/MainWebsite/industries" },
+        ],
+      },
+      {
+        group: "Join Us",
+        items: [
+          { name: "Careers", href: "/MainWebsite/careers" },
+        ],
+      },
+      {
+        group: "Updates",
+        items: [
+          { name: "News", href: "/MainWebsite/news" },
+        ],
+      },
     ],
   },
   {
     label: "Solutions",
     children: [
-      { name: "Publication Printing", href: "/MainWebsite/services" },
-      { name: "Commercial Printing", href: "/MainWebsite/services" },
-      { name: "Packaging Printing", href: "/MainWebsite/services" },
-      { name: "Specialty Printing", href: "/MainWebsite/services" },
+      {
+        group: "Printing Types",
+        items: [
+          { name: "Publication Printing", href: "/MainWebsite/solutions/publication" },
+          { name: "Commercial Printing", href: "/MainWebsite/solutions/commercial" },
+        ],
+      },
+      {
+        group: "Packaging",
+        items: [
+          { name: "Packaging Printing", href: "/MainWebsite/solutions/packaging" },
+          { name: "Specialty Printing", href: "/MainWebsite/solutions/specialty" },
+        ],
+      },
     ],
   },
 ];
@@ -43,16 +68,30 @@ const navItems = [
             {item.label}
           </span>
 
-          <div class="absolute left-0 top-full pt-2 hidden group-hover:block">
-            <div class="w-56 bg-neutral-900 border border-white/10 shadow-xl">
-              {item.children.map((child) => (
-                <a
-                  href={child.href}
-                  class="block px-5 py-3 hover:bg-industrial-blue transition"
-                >
-                  {child.name}
-                </a>
+          <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+            <div class="w-72 bg-neutral-900 border border-white/10 shadow-xl">
+
+              {item.children.map((group) => (
+                <div class="border-b border-white/10 last:border-none">
+
+                  <!-- group title -->
+                  <div class="px-5 py-2 text-xs text-neutral-400 uppercase tracking-wider">
+                    {group.group}
+                  </div>
+
+                  <!-- items -->
+                  {group.items.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-5 py-3 hover:bg-industrial-blue transition"
+                    >
+                      {child.name}
+                    </a>
+                  ))}
+
+                </div>
               ))}
+
             </div>
           </div>
         </li>
@@ -62,6 +101,7 @@ const navItems = [
       <a href="/MainWebsite/case-studies" class="hover:text-industrial-blue">Case Studies</a>
       <a href="/MainWebsite/quality" class="hover:text-industrial-blue">Quality</a>
       <a href="/MainWebsite/contact" class="hover:text-industrial-blue">Contact</a>
+
       <a
         href="/MainWebsite/contact"
         class="ml-4 px-5 py-2 bg-industrial-blue text-black font-semibold hover:opacity-80 transition"
@@ -82,24 +122,35 @@ const navItems = [
 
     <!-- TOP BAR -->
     <div class="flex justify-between items-center h-16 px-6 border-b border-white/10">
-      <span class="text-xl tracking-widest">MainWebsite</span>
+      <span class="text-xl tracking-widest">InChief</span>
       <button id="closeMenu" class="text-3xl leading-none">✕</button>
     </div>
 
     <!-- MENU CONTENT -->
-    <div class="flex-1 overflow-y-auto px-6 py-10 space-y-10">
+    <div class="flex-1 overflow-y-auto px-6 py-10 space-y-12">
 
       {navItems.map((item) => (
         <div>
-          <p class="text-lg font-semibold mb-4">{item.label}</p>
-          <div class="space-y-4 pl-2">
-            {item.children.map((child) => (
-              <a
-                href={child.href}
-                class="block text-xl hover:text-industrial-blue transition"
-              >
-                {child.name}
-              </a>
+          <p class="text-lg font-semibold mb-6">{item.label}</p>
+
+          <div class="space-y-8">
+            {item.children.map((group) => (
+              <div>
+                <p class="text-sm text-neutral-400 uppercase mb-3">
+                  {group.group}
+                </p>
+
+                <div class="space-y-3 pl-2">
+                  {group.items.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block text-xl hover:text-industrial-blue transition"
+                    >
+                      {child.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -107,12 +158,12 @@ const navItems = [
 
       <div class="space-y-6 pt-6 border-t border-white/10">
         <a href="/MainWebsite/equipment" class="block text-xl">Equipment</a>
-        <a href="/MainWebsite/quality" class="block text-xl">Quality</a>
+        <a href="/MainWebsite/case-studies" class="block text-xl">Case Studies</a>
         <a href="/MainWebsite/contact" class="block text-xl">Contact</a>
       </div>
     </div>
 
-    <!-- CTA 固定底部 -->
+    <!-- CTA -->
     <div class="p-6 border-t border-white/10">
       <a
         href="/MainWebsite/contact"
@@ -121,6 +172,7 @@ const navItems = [
         Get Quote
       </a>
     </div>
+
   </div>
 </div>
 
