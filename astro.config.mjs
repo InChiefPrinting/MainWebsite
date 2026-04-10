@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://inchiefprinting.github.io",
-  base: "/",
+  base: "/MainWebsite",
   output: "static",
   vite: {
     plugins: [tailwindcss()],  
