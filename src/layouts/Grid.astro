@@ -1,0 +1,23 @@
+---
+const {
+  cols = 3,
+  gap = "default"
+} = Astro.props;
+
+const colMap = {
+  1: "grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4"
+};
+
+const gapMap = {
+  small: "gap-6",
+  default: "gap-8",
+  large: "gap-12"
+};
+---
+
+<div class={`grid ${colMap[cols]} ${gapMap[gap]} items-stretch`}>
+  <slot />
+</div>

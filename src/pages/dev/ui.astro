@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Section from "../../layouts/Section.astro";
+import Container from "../../layouts/Container.astro";
+import Content from "../../layouts/Content.astro";
+
+import SectionTitle from "../../components/SectionTitle.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<BaseLayout title="UI System">
+
+  <!-- ========================= -->
+  <!-- Typography -->
+  <!-- ========================= -->
+  <Section>
+    <Container>
+      <SectionTitle
+        title="Typography"
+        subtitle="Global text styles"
+      />
+
+      <Content>
+        <h1 class="text-5xl font-bold">Heading 1</h1>
+        <h2 class="text-4xl font-semibold">Heading 2</h2>
+        <h3 class="text-3xl font-semibold">Heading 3</h3>
+
+        <p class="text-neutral-400 max-w-2xl">
+          This is body text used across the website. Maintain readable
+          line length and consistent spacing.
+        </p>
+
+        <a href="#" class="underline">
+          Text Link Example
+        </a>
+      </Content>
+    </Container>
+  </Section>
+
+
+  <!-- ========================= -->
+  <!-- Section Title -->
+  <!-- ========================= -->
+  <Section>
+    <Container>
+      <SectionTitle
+        title="Section Title Component"
+        subtitle="Reusable heading block"
+      />
+    </Container>
+  </Section>
+
+
+  <!-- ========================= -->
+  <!-- Service Cards -->
+  <!-- ========================= -->
+  <Section>
+    <Container>
+      <SectionTitle title="Service Cards" />
+
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <ServiceCard
+          title="Packaging Engineering"
+          description="Structural design and material optimization."
+        />
+
+        <ServiceCard
+          title="Offset Printing"
+          description="High-volume commercial printing solutions."
+        />
+
+        <ServiceCard
+          title="Quality Control"
+          description="Inspection and certification compliance."
+        />
+      </div>
+    </Container>
+  </Section>
+
+
+  <!-- ========================= -->
+  <!-- CTA -->
+  <!-- ========================= -->
+  <Section>
+    <Container>
+      <CTA
+        title="Start Your Project"
+        description="Contact our engineering team for professional solutions."
+        buttonText="Contact Us"
+        buttonLink="/contact"
+      />
+    </Container>
+  </Section>
+
+</BaseLayout>

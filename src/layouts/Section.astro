@@ -1,0 +1,17 @@
+---
+const {
+  padding = "default",
+  background = ""
+} = Astro.props;
+
+const paddingMap = {
+  none: "",
+  small: "py-16",
+  default: "py-24",
+  large: "py-32"
+};
+---
+
+<section class={`${paddingMap[padding]} ${background}`}>
+  <slot />
+</section>

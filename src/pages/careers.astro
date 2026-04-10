@@ -1,80 +1,106 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import Container from "../layouts/Container.astro";
+import Content from "../layouts/Content.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 ---
 
 <BaseLayout title="Careers | InChief Printing">
 
-<section class="container-industrial py-24">
-  <SectionTitle title="Join Our Team" />
+<!-- ================= HEADER ================= -->
+<Section>
+  <Container>
+    <SectionTitle title="Join Our Team" />
 
-  <p class="text-neutral-400 max-w-3xl">
-    We are constantly looking for engineers, operators,
-    designers and production specialists.
-  </p>
-</section>
+    <Content>
+      <p class="text-neutral-400">
+        We are continuously looking for talented engineers, operators,
+        designers, and production specialists who are passionate about
+        industrial manufacturing and printing technology.
+      </p>
+    </Content>
+  </Container>
+</Section>
 
-<section class="container-industrial py-16 grid md:grid-cols-2 gap-8">
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Printing Engineer</h3>
-    <p class="text-neutral-400 mt-4">
-      Responsible for industrial printing process optimization.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
+<!-- ================= OPEN POSITIONS ================= -->
+<Section>
+  <Container>
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Production Manager</h3>
-    <p class="text-neutral-400 mt-4">
-      Manage manufacturing workflow and quality control.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
+    <SectionTitle title="Open Positions" />
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Printing Engineer</h3>
-    <p class="text-neutral-400 mt-4">
-      Responsible for industrial printing process optimization.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Production Manager</h3>
-    <p class="text-neutral-400 mt-4">
-      Manage manufacturing workflow and quality control.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Printing Engineer</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Responsible for industrial printing process optimization,
+          production stability improvement, and technical troubleshooting.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Printing Engineer</h3>
-    <p class="text-neutral-400 mt-4">
-      Responsible for industrial printing process optimization.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Production Manager</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Manage manufacturing workflow, coordinate departments,
+          and ensure consistent quality control performance.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
 
-  <div class="border border-neutral-800 p-8">
-    <h3 class="text-xl font-semibold">Production Manager</h3>
-    <p class="text-neutral-400 mt-4">
-      Manage manufacturing workflow and quality control.
-    </p>
-    <button class="mt-6 px-6 py-3 bg-industrial-blue">
-      Apply Now
-    </button>
-  </div>
-</section>
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Packaging Designer</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Develop structural packaging solutions and collaborate with
+          engineering teams for manufacturable design implementation.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Quality Control Engineer</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Monitor production quality standards, inspection workflows,
+          and continuous improvement initiatives.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Prepress Technician</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Operate digital prepress systems, manage color workflows,
+          and prepare production-ready files.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="border border-neutral-800 p-8 flex flex-col">
+        <h3 class="text-xl font-semibold">Sales Engineer</h3>
+        <p class="text-neutral-400 mt-4 flex-grow">
+          Support international customers with technical consultation,
+          quotation preparation, and project coordination.
+        </p>
+        <button class="mt-6 px-6 py-3 bg-industrial-blue text-white">
+          Apply Now
+        </button>
+      </div>
+
+    </div>
+
+  </Container>
+</Section>
 
 </BaseLayout>

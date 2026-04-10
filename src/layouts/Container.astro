@@ -1,0 +1,14 @@
+---
+const { size = "default" } = Astro.props;
+
+const sizes = {
+  narrow: "max-w-3xl",
+  text: "max-w-4xl",
+  default: "max-w-7xl",
+  wide: "max-w-screen-2xl"
+};
+---
+
+<div class={`mx-auto px-6 ${sizes[size]}`}>
+  <slot />
+</div>

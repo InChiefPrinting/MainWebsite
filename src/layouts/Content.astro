@@ -1,0 +1,12 @@
+---
+const { align = "left" } = Astro.props;
+
+const alignMap = {
+  left: "text-left",
+  center: "text-center mx-auto"
+};
+---
+
+<div class={`max-w-7xl ${alignMap[align]}`}>
+  <slot />
+</div>

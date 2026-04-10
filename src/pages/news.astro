@@ -5,21 +5,85 @@ import SectionTitle from "../components/SectionTitle.astro";
 
 <BaseLayout title="News | InChief Printing">
 
-<section class="container-industrial py-24">
-  <SectionTitle title="Company News" />
+  <section class="container-industrial py-24">
+    <SectionTitle title="Company News" />
 
-  <div class="space-y-8 mt-12">
+    <p class="text-neutral-400 mt-6 max-w-5xl">
+      Latest updates, manufacturing developments, and corporate announcements from InChief Printing.
+    </p>
 
-    <div class="border border-neutral-800 p-8">
-      New Heidelberg Press Installed
+    <div class="grid lg:grid-cols-2 gap-8 mt-12">
+
+      <!-- News Item 1 -->
+      <article class="border border-neutral-800 p-10 space-y-4">
+        <div class="text-neutral-500 text-sm">
+          March 2026
+        </div>
+
+        <h3 class="text-2xl font-medium text-white">
+          New Heidelberg Offset Press Commissioned
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          InChief Printing successfully completed the installation and commissioning
+          of a new Heidelberg multi-color offset printing system, further improving
+          high-volume production efficiency, color consistency, and automated workflow integration.
+        </p>
+      </article>
+
+      <!-- News Item 2 -->
+      <article class="border border-neutral-800 p-10 space-y-4">
+        <div class="text-neutral-500 text-sm">
+          January 2026
+        </div>
+
+        <h3 class="text-2xl font-medium text-white">
+          Packaging Production Line Expansion
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          The company expanded its corrugated and rigid box manufacturing capacity
+          through new folding-gluing and die-cutting equipment upgrades, supporting
+          growing international demand for premium packaging solutions.
+        </p>
+      </article>
+
+      <!-- News Item 3 -->
+      <article class="border border-neutral-800 p-10 space-y-4">
+        <div class="text-neutral-500 text-sm">
+          October 2025
+        </div>
+
+        <h3 class="text-2xl font-medium text-white">
+          Intelligent Prepress Workflow Upgrade
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          Implementation of an upgraded ESKO digital prepress system enabling
+          automated layout optimization, unified color management, and enhanced
+          3D packaging visualization from design to production.
+        </p>
+      </article>
+
+      <!-- News Item 4 -->
+      <article class="border border-neutral-800 p-10 space-y-4">
+        <div class="text-neutral-500 text-sm">
+          June 2025
+        </div>
+
+        <h3 class="text-2xl font-medium text-white">
+          International Market Development Initiative
+        </h3>
+
+        <p class="text-neutral-400 leading-relaxed">
+          InChief Printing launched a global partnership program focusing on
+          European and North American markets, strengthening supply chain
+          collaboration and long-term customer support capabilities.
+        </p>
+      </article>
+
     </div>
 
-    <div class="border border-neutral-800 p-8">
-      Expansion of Packaging Production Line
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 </BaseLayout>

@@ -1,111 +1,144 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import Container from "../layouts/Container.astro";
+import Content from "../layouts/Content.astro";
+import Grid from "../layouts/Grid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 ---
 
 <BaseLayout title="Equipment | InChief Printing">
 
-<section class="container-industrial py-24">
+<!-- ================= INTRO ================= -->
+<Section>
+  <Container>
 
-  <SectionTitle title="Production Equipment" />
+    <SectionTitle title="Production Equipment" />
 
-  <p class="text-neutral-400 max-w-3xl mt-6">
-    Our production facility is equipped with world-class offset printing systems, automated prepress workflow, and precision finishing machinery to ensure stable industrial-grade output.
-  </p>
+    <Content>
+      <p class="text-neutral-400 mt-6">
+        Our production facility is equipped with world-class offset printing systems,
+        automated prepress workflow, and precision finishing machinery to ensure
+        stable industrial-grade output.
+      </p>
+    </Content>
 
-  <!-- ================= OFFSET PRESSES ================= -->
-  <SectionTitle title="Offset Presses" />
+  </Container>
+</Section>
 
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Heidelberg Speedmaster</div>
-      <div class="text-neutral-300">CX 104-8 + LYY-2 + L</div>
-      <div class="text-neutral-500 text-sm">High-speed sheetfed offset press</div>
-    </div>
+<!-- ================= OFFSET PRESSES ================= -->
+<Section>
+  <Container>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Heidelberg Speedmaster</div>
-      <div class="text-neutral-300">XL75-6</div>
-      <div class="text-neutral-500 text-sm">Precision commercial printing system</div>
-    </div>
+    <SectionTitle title="Offset Presses" />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Heidelberg Speedmaster</div>
-      <div class="text-neutral-300">XL106-6</div>
-      <div class="text-neutral-500 text-sm">Large-format sheetfed offset press</div>
-    </div>
+    <Grid cols={3}>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Koenig & Bauer</div>
-      <div class="text-neutral-300">Rapida 105-5+L</div>
-      <div class="text-neutral-500 text-sm">Multi-color offset production line</div>
-    </div>
+      <ServiceCard
+        title="Heidelberg Speedmaster"
+        subtitle="CX 104-8 + LYY-2 + L"
+        description="High-speed sheetfed offset press"
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Koenig & Bauer</div>
-      <div class="text-neutral-300">RA105-8+L</div>
-      <div class="text-neutral-500 text-sm">High-efficiency packaging printing press</div>
-    </div>
+      <ServiceCard
+        title="Heidelberg Speedmaster"
+        subtitle="XL75-6"
+        description="Precision commercial printing system"
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Heidelberg Speedmaster</div>
-      <div class="text-neutral-300">XL75-7+L</div>
-      <div class="text-neutral-500 text-sm">Advanced color control offset system</div>
-    </div>
+      <ServiceCard
+        title="Heidelberg Speedmaster"
+        subtitle="XL106-6"
+        description="Large-format sheetfed offset press"
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Koenig & Bauer</div>
-      <div class="text-neutral-300">RA164-5</div>
-      <div class="text-neutral-500 text-sm">Large-format industrial printing press</div>
-    </div>
+      <ServiceCard
+        title="Koenig & Bauer"
+        subtitle="Rapida 105-5+L"
+        description="Multi-color offset production line"
+      />
 
-  </div>
+      <ServiceCard
+        title="Koenig & Bauer"
+        subtitle="RA105-8+L"
+        description="High-efficiency packaging printing press"
+      />
 
-  <!-- ================= CTP ================= -->
-  <SectionTitle title="CTP Platesetters" />
+      <ServiceCard
+        title="Heidelberg Speedmaster"
+        subtitle="XL75-7+L"
+        description="Advanced color control offset system"
+      />
 
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <ServiceCard
+        title="Koenig & Bauer"
+        subtitle="RA164-5"
+        description="Large-format industrial printing press"
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Eastman Kodak</div>
-      <div class="text-neutral-300">Trendsetter Q800AL</div>
-      <div class="text-neutral-500 text-sm">CTP platesetter with autoloader system</div>
-    </div>
+    </Grid>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Eastman Kodak</div>
-      <div class="text-neutral-300">Trendsetter Q1600</div>
-      <div class="text-neutral-500 text-sm">High-precision CTP imaging system</div>
-    </div>
+  </Container>
+</Section>
 
-  </div>
 
-  <!-- ================= CUTTING ================= -->
-  <SectionTitle title="Finishing Equipment" />
+<!-- ================= CTP ================= -->
+<Section>
+  <Container>
 
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
+    <SectionTitle title="CTP Platesetters" />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Guowang</div>
-      <div class="text-neutral-300">GW137P</div>
-      <div class="text-neutral-500 text-sm">Automated paper guillotine cutter</div>
-    </div>
+    <Grid cols={3}>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Guowang</div>
-      <div class="text-neutral-300">GW137S</div>
-      <div class="text-neutral-500 text-sm">High-precision cutting system</div>
-    </div>
+      <ServiceCard
+        title="Eastman Kodak"
+        subtitle="Trendsetter Q800AL"
+        description="CTP platesetter with autoloader system"
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white font-medium">Guowang</div>
-      <div class="text-neutral-300">GW176S</div>
-      <div class="text-neutral-500 text-sm">Heavy-duty industrial cutter</div>
-    </div>
+      <ServiceCard
+        title="Eastman Kodak"
+        subtitle="Trendsetter Q1600"
+        description="High-precision CTP imaging system"
+      />
 
-  </div>
+    </Grid>
 
-</section>
+  </Container>
+</Section>
+
+
+<!-- ================= FINISHING ================= -->
+<Section>
+  <Container>
+
+    <SectionTitle title="Finishing Equipment" />
+
+    <Grid cols={3}>
+
+      <ServiceCard
+        title="Guowang"
+        subtitle="GW137P"
+        description="Automated paper guillotine cutter"
+      />
+
+      <ServiceCard
+        title="Guowang"
+        subtitle="GW137S"
+        description="High-precision cutting system"
+      />
+
+      <ServiceCard
+        title="Guowang"
+        subtitle="GW176S"
+        description="Heavy-duty industrial cutter"
+      />
+
+    </Grid>
+
+  </Container>
+</Section>
 
 </BaseLayout>

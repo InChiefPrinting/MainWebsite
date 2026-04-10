@@ -1,174 +1,117 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import Container from "../layouts/Container.astro";
+import Content from "../layouts/Content.astro";
+import Grid from "../layouts/Grid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 ---
 
 <BaseLayout title="Quality Control | InChief Printing">
 
-<section class="container-industrial py-24">
+<!-- ================= QUALITY ASSURANCE ================= -->
+<Section>
+  <Container>
 
-  <!-- ================= QUALITY ASSURANCE ================= -->
-  <SectionTitle title="Quality Assurance" />
+    <SectionTitle title="Quality Assurance" />
 
-  <p class="text-neutral-400 max-w-3xl">
-    At InChief Printing, quality is not inspected at the end —
-    it is engineered into every stage of production.
-  </p>
-
-  <div class="grid md:grid-cols-3 gap-8 mt-16">
-    <div class="border border-neutral-800 p-8">Material Inspection</div>
-    <div class="border border-neutral-800 p-8">Process Monitoring</div>
-    <div class="border border-neutral-800 p-8">Final Inspection</div>
-  </div>
-
-
-  <!-- ================= CERTIFICATIONS ================= -->
-  <SectionTitle title="Certifications & Compliance" />
-
-  <!-- Government & National Certifications -->
-  <div class="grid md:grid-cols-3 gap-8 mt-16">
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">Printing License</h3>
-      <p class="text-neutral-400 mt-2">
-        (浙)印证字第1-00698号
+    <Content>
+      <p class="text-neutral-400 mt-6">
+        At InChief Printing, quality is not inspected at the end —
+        it is engineered into every stage of production.
       </p>
-      <p class="text-neutral-500 text-sm mt-4">
-        Valid until 31 Dec 2030
-      </p>
-    </div>
+    </Content>
 
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">High-Tech Enterprise</h3>
-      <p class="text-neutral-400 mt-2">
-        Certificate No. GR202433001592
-      </p>
-      <p class="text-neutral-500 text-sm mt-4">
-        Valid until 6 Dec 2027
-      </p>
-    </div>
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">Technology SME Certification</h3>
-      <p class="text-neutral-400 mt-2">
-        No. 20233303001390
-      </p>
-    </div>
-
-    <div class="border border-neutral-800 p-8">
-  <h3 class="font-semibold">FSC® Chain of Custody Certification</h3>
-
-  <p class="text-neutral-400 mt-2">
-    Issued by SCS Global Services
-  </p>
-
-  <p class="text-neutral-400 text-sm mt-2">
-    Trademark License Code: FSC-C212511<br/>
-    Certificate Code: SCS-COC-702344
-  </p>
-
-  <p class="text-neutral-400 text-sm mt-2">
-    Certified Products: FSC Mix, FSC Recycled
-  </p>
-
-  <p class="text-neutral-500 text-sm mt-4">
-    Valid: 25 Jan 2026 - 22 Jan 2030
-  </p>
-</div>
-
-  </div>
-
-
-  <!-- ================= ISO SYSTEM CERTIFICATIONS ================= -->
-  <SectionTitle title="Management System Certifications" />
-
-  <div class="grid md:grid-cols-3 gap-8 mt-16">
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">ISO 9001:2015</h3>
-      <p class="text-neutral-400 mt-2">
-        Quality Management System
-      </p>
-      <p class="text-neutral-500 text-sm mt-4">
-        Valid: 28 Feb 2026 - 27 Feb 2029
-      </p>
-    </div>
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">ISO 14001:2015</h3>
-      <p class="text-neutral-400 mt-2">
-        Environmental Management System
-      </p>
-      <p class="text-neutral-500 text-sm mt-4">
-        Valid: 28 Feb 2026 - 27 Feb 2029
-      </p>
-    </div>
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">ISO 45001:2018</h3>
-      <p class="text-neutral-400 mt-2">
-        Occupational Health & Safety Management
-      </p>
-      <p class="text-neutral-500 text-sm mt-4">
-        Valid: 28 Feb 2026 - 27 Feb 2029
-      </p>
-    </div>
-
-  </div>
-
+  </Container>
   
-  <!-- ================= CORPORATE INFORMATION ================= -->
-  <SectionTitle title="Corporate Information" />
-
-  <div class="grid md:grid-cols-2 gap-8 mt-16">
-
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">Business Registration</h3>
-
-      <p class="text-neutral-400 mt-2">
-        Company: Zhejiang Yunchuang Printing Technology Co., Ltd.
-      </p>
-
-      <p class="text-neutral-400">
-        Unified Social Credit Code: 91330383MA2HBRJ43K
-      </p>
-
-      <p class="text-neutral-400">
-        Registered Capital: RMB 108.06 Million
-      </p>
-
-      <p class="text-neutral-400">
-        Legal Representative: He Jingkan
-      </p>
-
-      <p class="text-neutral-400">
-        Established: March 31, 2020
-      </p>
-
-      <p class="text-neutral-400">
-        Location: Longgang, Wenzhou, Zhejiang, China
-      </p>
-    </div>
+</Section>
 
 
-    <div class="border border-neutral-800 p-8">
-      <h3 class="font-semibold">Registration Authority</h3>
+<!-- ================= CERTIFICATIONS ================= -->
+<Section>
+  <Container>
 
-      <p class="text-neutral-400 mt-2">
-        Longgang Administrative Approval Bureau
-      </p>
+    <SectionTitle title="Certifications & Compliance" />
 
-      <a
-        href="/licenses/business-license.jpg"
-        target="_blank"
-        class="inline-block mt-6 text-industrial-blue"
-      >
-        View Business License →
-      </a>
-    </div>
+    <Grid cols={3}>
 
-  </div>
+      <ServiceCard
+        title="Printing License"
+        description="(浙)印证字第1-00698号 · Valid until 31 Dec 2030"
+      />
 
-</section>
+      <ServiceCard
+        title="High-Tech Enterprise"
+        description="Certificate No. GR202433001592 · Valid until 6 Dec 2027"
+      />
+
+      <ServiceCard
+        title="Technology SME Certification"
+        description="No. 20233303001390"
+      />
+
+      <ServiceCard
+        title="FSC® Chain of Custody"
+        description="Issued by SCS Global Services · FSC-C212511 · SCS-COC-702344 · FSC Mix / Recycled · Valid: 25 Jan 2026 - 22 Jan 2030"
+      />
+
+    </Grid>
+
+  </Container>
+</Section>
+
+
+<!-- ================= ISO SYSTEM CERTIFICATIONS ================= -->
+<Section>
+  <Container>
+
+    <SectionTitle title="Management System Certifications" />
+
+    <Grid cols={3}>
+
+      <ServiceCard
+        title="ISO 9001:2015"
+        description="Quality Management System · Valid: 28 Feb 2026 - 27 Feb 2029"
+      />
+
+      <ServiceCard
+        title="ISO 14001:2015"
+        description="Environmental Management System · Valid: 28 Feb 2026 - 27 Feb 2029"
+      />
+
+      <ServiceCard
+        title="ISO 45001:2018"
+        description="Occupational Health & Safety Management · Valid: 28 Feb 2026 - 27 Feb 2029"
+      />
+
+    </Grid>
+
+  </Container>
+</Section>
+
+
+<!-- ================= CORPORATE INFORMATION ================= -->
+<Section>
+  <Container>
+
+    <SectionTitle title="Corporate Information" />
+
+    <Grid cols={2}>
+
+      <ServiceCard
+        title="Business Registration"
+        description="Zhejiang Yunchuang Printing Technology Co., Ltd. · Unified Social Credit Code: 91330383MA2HBRJ43K · Registered Capital: RMB 108.06 Million · Legal Representative: He Jingkan · Established: March 31, 2020 · Location: Longgang, Wenzhou, Zhejiang, China"
+      />
+
+      <ServiceCard
+        title="Registration Authority"
+        description="Longgang Administrative Approval Bureau · Business license available in document archive"
+      />
+
+    </Grid>
+
+  </Container>
+</Section>
 
 </BaseLayout>

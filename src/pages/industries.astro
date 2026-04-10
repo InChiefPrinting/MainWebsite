@@ -1,124 +1,140 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import Container from "../layouts/Container.astro";
+import Content from "../layouts/Content.astro";
+import Grid from "../layouts/Grid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 ---
 
 <BaseLayout title="Industries We Serve | InChief Printing">
 
-<section class="container-industrial py-24">
+<!-- ================= INTRO ================= -->
+<Section>
+  <Container>
 
-  <!-- ================= HEADER ================= -->
-  <SectionTitle title="Industries We Serve" />
+    <SectionTitle title="Industries We Serve" />
 
-  <p class="text-neutral-400 max-w-3xl mt-6">
-    We provide high-precision printing and packaging solutions across multiple industries, supporting global brands with stable production capability, advanced technology, and scalable manufacturing systems.
-  </p>
+    <Content>
+      <p class="text-neutral-400 mt-6">
+        We provide high-precision printing and packaging solutions across multiple
+        industries, supporting global brands with stable production capability,
+        advanced technology, and scalable manufacturing systems.
+      </p>
+    </Content>
 
-  <!-- ================= INDUSTRIES GRID ================= -->
-  <div class="grid md:grid-cols-2 gap-8 mt-12">
+  </Container>
+</Section>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Food & Beverage Industry</div>
-      <div class="text-neutral-400 text-sm">
-        Packaging solutions for beverages, snacks, frozen food, and premium food branding systems.
-      </div>
-    </div>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Pharmaceutical Industry</div>
-      <div class="text-neutral-400 text-sm">
-        GMP-compliant folding cartons, anti-counterfeit printing, and traceability packaging systems.
-      </div>
-    </div>
+<!-- ================= INDUSTRIES GRID ================= -->
+<Section>
+  <Container>
+    <SectionTitle title="Case Studies" />
+    <Grid cols={2}>
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Cosmetic Industry</div>
-      <div class="text-neutral-400 text-sm">
-        Luxury cosmetic packaging with foil stamping, embossing, and premium surface finishing.
-      </div>
-    </div>
+      <ServiceCard
+        title="Food & Beverage Industry"
+        description="Packaging solutions for beverages, snacks, frozen food, and premium food branding systems."
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Luxury Goods Industry</div>
-      <div class="text-neutral-400 text-sm">
-        High-end gift boxes and brand packaging for watches, jewelry, and fashion brands.
-      </div>
-    </div>
+      <ServiceCard
+        title="Pharmaceutical Industry"
+        description="GMP-compliant folding cartons, anti-counterfeit printing, and traceability packaging systems."
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">E-commerce Industry</div>
-      <div class="text-neutral-400 text-sm">
-        Durable corrugated packaging designed for logistics optimization and brand experience.
-      </div>
-    </div>
+      <ServiceCard
+        title="Cosmetic Industry"
+        description="Luxury cosmetic packaging with foil stamping, embossing, and premium surface finishing."
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Commercial Printing</div>
-      <div class="text-neutral-400 text-sm">
-        Marketing materials including brochures, posters, catalogs, and corporate identity systems.
-      </div>
-    </div>
+      <ServiceCard
+        title="Luxury Goods Industry"
+        description="High-end gift boxes and brand packaging for watches, jewelry, and fashion brands."
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Publication Industry</div>
-      <div class="text-neutral-400 text-sm">
-        Books, magazines, catalogs, and high-quality editorial printing with color management systems.
-      </div>
-    </div>
+      <ServiceCard
+        title="E-commerce Industry"
+        description="Durable corrugated packaging designed for logistics optimization and brand experience."
+      />
 
-    <div class="border border-neutral-800 p-8 space-y-2">
-      <div class="text-white text-lg font-medium">Industrial Packaging</div>
-      <div class="text-neutral-400 text-sm">
-        Heavy-duty packaging solutions for manufacturing, logistics, and export industries.
-      </div>
-    </div>
+      <ServiceCard
+        title="Commercial Printing"
+        description="Marketing materials including brochures, posters, catalogs, and corporate identity systems."
+      />
 
-  </div>
+      <ServiceCard
+        title="Publication Industry"
+        description="Books, magazines, catalogs, and high-quality editorial printing with color management systems."
+      />
 
-  <!-- ================= CASE HIGHLIGHTS ================= -->
-  <SectionTitle title="Case Highlights" />
+      <ServiceCard
+        title="Industrial Packaging"
+        description="Heavy-duty packaging solutions for manufacturing, logistics, and export industries."
+      />
 
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
+    </Grid>
 
-    <div class="border border-neutral-800 p-6">
-      <div class="text-white font-medium">Luxury Cosmetic Packaging</div>
-      <div class="text-neutral-500 text-sm mt-2">France · Premium Brand Project</div>
-    </div>
+  </Container>
+</Section>
 
-    <div class="border border-neutral-800 p-6">
-      <div class="text-white font-medium">Wine Label Production</div>
-      <div class="text-neutral-500 text-sm mt-2">Spain · UV + Embossing Process</div>
-    </div>
 
-    <div class="border border-neutral-800 p-6">
-      <div class="text-white font-medium">Pharmaceutical Cartons</div>
-      <div class="text-neutral-500 text-sm mt-2">Germany · GMP Compliance Packaging</div>
-    </div>
+<!-- ================= CASE HIGHLIGHTS ================= -->
+<Section>
+  <Container>
 
-  </div>
+    <SectionTitle title="Case Highlights" />
 
-  <!-- ================= CLIENT CATEGORY ================= -->
-  <SectionTitle title="Client Categories" />
+    <Grid cols={3}>
 
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <ServiceCard
+        title="Luxury Cosmetic Packaging"
+        description="France · Premium Brand Project"
+      />
 
-    <div class="border border-neutral-800 p-6 text-center">
-      <div class="text-white">Global Brands</div>
-      <div class="text-neutral-500 text-sm mt-2">International FMCG & Luxury Companies</div>
-    </div>
+      <ServiceCard
+        title="Wine Label Production"
+        description="Spain · UV + Embossing Process"
+      />
 
-    <div class="border border-neutral-800 p-6 text-center">
-      <div class="text-white">Manufacturing Partners</div>
-      <div class="text-neutral-500 text-sm mt-2">OEM / ODM Industrial Clients</div>
-    </div>
+      <ServiceCard
+        title="Pharmaceutical Cartons"
+        description="Germany · GMP Compliance Packaging"
+      />
 
-    <div class="border border-neutral-800 p-6 text-center">
-      <div class="text-white">Regional Enterprises</div>
-      <div class="text-neutral-500 text-sm mt-2">Domestic & Export Trading Companies</div>
-    </div>
+    </Grid>
 
-  </div>
+  </Container>
+</Section>
 
-</section>
+
+<!-- ================= CLIENT CATEGORY ================= -->
+<Section>
+  <Container>
+
+    <SectionTitle title="Client Categories" />
+
+    <Grid cols={3}>
+
+      <ServiceCard
+        title="Global Brands"
+        description="International FMCG & Luxury Companies"
+      />
+
+      <ServiceCard
+        title="Manufacturing Partners"
+        description="OEM / ODM Industrial Clients"
+      />
+
+      <ServiceCard
+        title="Regional Enterprises"
+        description="Domestic & Export Trading Companies"
+      />
+
+    </Grid>
+
+  </Container>
+</Section>
 
 </BaseLayout>

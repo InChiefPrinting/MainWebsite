@@ -1,99 +1,113 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import Container from "../layouts/Container.astro";
+import Content from "../layouts/Content.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 ---
 
 <BaseLayout title="Case Studies | InChief Printing">
 
-  <section class="container-industrial py-24">
-    <SectionTitle title="Case Studies" />
+  <!-- ================= HEADER ================= -->
+  <Section>
+    <Container>
+      <Content>
+        <SectionTitle title="Case Studies" />
 
-    <p class="text-neutral-400 max-w-3xl mt-6">
-      Selected printing and packaging projects demonstrating our capabilities across luxury, industrial, and commercial applications.
-    </p>
+        <p class="text-neutral-400 mt-6">
+          Selected printing and packaging projects demonstrating our capabilities across luxury, industrial, and commercial applications.
+        </p>
+      </Content>
+    </Container>
+  </Section>
 
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
+  <!-- ================= CASE GRID ================= -->
+  <Section>
+    <Container>
 
-      <!-- Case 1 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          Luxury Cosmetic Packaging Project
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Case 1 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            Luxury Cosmetic Packaging Project
+          </div>
+          <div class="text-neutral-400 text-sm">
+            High-end rigid box production with gold foil stamping and soft-touch lamination for a French cosmetics brand.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Packaging Printing · Luxury
+          </div>
         </div>
-        <div class="text-neutral-400 text-sm">
-          High-end rigid box production with gold foil stamping and soft-touch lamination for a French cosmetics brand.
+
+        <!-- Case 2 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            Premium Wine Label Production
+          </div>
+          <div class="text-neutral-400 text-sm">
+            UV coating + embossing wine labels for a European winery, optimized for moisture resistance and premium shelf impact.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Commercial Printing · Labels
+          </div>
         </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Packaging Printing · Luxury
+
+        <!-- Case 3 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            Pharmaceutical Folding Cartons
+          </div>
+          <div class="text-neutral-400 text-sm">
+            GMP-compliant packaging for medical tablets with anti-counterfeit printing and barcode traceability system.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Pharmaceutical Packaging
+          </div>
         </div>
+
+        <!-- Case 4 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            E-commerce Shipping Packaging
+          </div>
+          <div class="text-neutral-400 text-sm">
+            Durable corrugated packaging design optimized for logistics efficiency and branding for a global e-commerce brand.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Industrial Packaging
+          </div>
+        </div>
+
+        <!-- Case 5 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            Art Book Printing Series
+          </div>
+          <div class="text-neutral-400 text-sm">
+            High-resolution color management printing for limited-edition photography art books with matte coating finish.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Publication Printing
+          </div>
+        </div>
+
+        <!-- Case 6 -->
+        <div class="border border-neutral-800 p-8 space-y-3 h-full">
+          <div class="text-white font-medium">
+            Luxury Gift Box Manufacturing
+          </div>
+          <div class="text-neutral-400 text-sm">
+            Magnetic closure rigid boxes with velvet interior lining for premium gift packaging applications.
+          </div>
+          <div class="text-neutral-500 text-xs pt-2">
+            Category: Luxury Packaging
+          </div>
+        </div>
+
       </div>
 
-      <!-- Case 2 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          Premium Wine Label Production
-        </div>
-        <div class="text-neutral-400 text-sm">
-          UV coating + embossing wine labels for a European winery, optimized for moisture resistance and premium shelf impact.
-        </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Commercial Printing · Labels
-        </div>
-      </div>
-
-      <!-- Case 3 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          Pharmaceutical Folding Cartons
-        </div>
-        <div class="text-neutral-400 text-sm">
-          GMP-compliant packaging for medical tablets with anti-counterfeit printing and barcode traceability system.
-        </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Pharmaceutical Packaging
-        </div>
-      </div>
-
-      <!-- Case 4 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          E-commerce Shipping Packaging
-        </div>
-        <div class="text-neutral-400 text-sm">
-          Durable corrugated packaging design optimized for logistics efficiency and branding for a global e-commerce brand.
-        </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Industrial Packaging
-        </div>
-      </div>
-
-      <!-- Case 5 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          Art Book Printing Series
-        </div>
-        <div class="text-neutral-400 text-sm">
-          High-resolution color management printing for limited-edition photography art books with matte coating finish.
-        </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Publication Printing
-        </div>
-      </div>
-
-      <!-- Case 6 -->
-      <div class="border border-neutral-800 p-8 space-y-2">
-        <div class="text-white font-medium">
-          Luxury Gift Box Manufacturing
-        </div>
-        <div class="text-neutral-400 text-sm">
-          Magnetic closure rigid boxes with velvet interior lining for premium gift packaging applications.
-        </div>
-        <div class="text-neutral-500 text-xs">
-          Category: Luxury Packaging
-        </div>
-      </div>
-
-    </div>
-
-  </section>
+    </Container>
+  </Section>
 
 </BaseLayout>
