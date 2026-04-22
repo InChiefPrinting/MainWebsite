@@ -2,6 +2,7 @@
 const navItems = [
   {
     label: "Company",
+    type: "dropdown",
     children: [
       {
         group: "Overview",
@@ -12,33 +13,53 @@ const navItems = [
       },
       {
         group: "Join Us",
-        items: [
-          { name: "Careers", href: "/MainWebsite/careers" },
-        ],
+        items: [{ name: "Careers", href: "/MainWebsite/careers" }],
       },
       {
         group: "Updates",
-        items: [
-          { name: "News", href: "/MainWebsite/news" },
-        ],
+        items: [{ name: "News", href: "/MainWebsite/news" }],
       },
     ],
   },
+
   {
     label: "Solutions",
+    type: "mega",
     children: [
       {
-        group: "Printing Types",
+        group: "Printing Solutions",
         items: [
-          { name: "Publication Printing", href: "/MainWebsite/solutions/publication" },
           { name: "Commercial Printing", href: "/MainWebsite/solutions/commercial" },
+          { name: "Publication Printing", href: "/MainWebsite/solutions/publication" },
+          { name: "Marketing Materials", href: "/MainWebsite/solutions/marketing" },
+          { name: "Variable Data Printing", href: "/MainWebsite/solutions/vdp" },
         ],
       },
       {
-        group: "Packaging",
+        group: "Packaging & Industrial",
         items: [
-          { name: "Packaging Printing", href: "/MainWebsite/solutions/packaging" },
-          { name: "Specialty Printing", href: "/MainWebsite/solutions/specialty" },
+          { name: "Folding Carton Packaging", href: "/MainWebsite/solutions/folding-carton" },
+          { name: "Rigid Box Production", href: "/MainWebsite/solutions/rigid-box" },
+          { name: "Label & Sticker Printing", href: "/MainWebsite/solutions/labels" },
+          { name: "Industrial Packaging", href: "/MainWebsite/solutions/industrial-packaging" },
+        ],
+      },
+      {
+        group: "Finishing & Enhancement",
+        items: [
+          { name: "UV & Varnishing", href: "/MainWebsite/solutions/uv-varnish" },
+          { name: "Foil Stamping", href: "/MainWebsite/solutions/foil-stamping" },
+          { name: "Embossing & Debossing", href: "/MainWebsite/solutions/embossing" },
+          { name: "Die Cutting", href: "/MainWebsite/solutions/die-cutting" },
+        ],
+      },
+      {
+        group: "Manufacturing Services",
+        items: [
+          { name: "Custom Production", href: "/MainWebsite/solutions/custom-production" },
+          { name: "OEM / ODM Printing", href: "/MainWebsite/solutions/oem" },
+          { name: "Supply Chain Integration", href: "/MainWebsite/solutions/supply-chain" },
+          { name: "Global Fulfillment", href: "/MainWebsite/solutions/fulfillment" },
         ],
       },
     ],
@@ -47,8 +68,6 @@ const navItems = [
 ---
 
 <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
-
-  <!-- ================= NAV BAR ================= -->
   <nav class="container-industrial flex items-center justify-between h-16">
 
     <!-- Logo -->
@@ -56,50 +75,113 @@ const navItems = [
       InChief
     </a>
 
-    <!-- MOBILE BUTTON -->
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    <!-- Mobile Button -->
+    <button id="menuBtn" class="md:hidden text-2xl">
+      ☰
+    </button>
 
-    <!-- DESKTOP NAV -->
+    
+    <!-- Desktop Navigation -->
     <ul class="hidden md:flex items-center gap-5">
 
+      
       {navItems.map((item) => (
-        <li class="relative group">
+        <li class="relative group py-2">
+
           <span class="cursor-pointer hover:text-industrial-blue transition">
             {item.label}
           </span>
 
-          <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-            <div class="w-72 bg-neutral-900 border border-white/10 shadow-xl">
+          {/* ================= NORMAL DROPDOWN ================= */}
+          {item.type === "dropdown" && (
+            <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+              <div class="w-72 bg-neutral-900 border border-white/10 shadow-xl">
 
-              {item.children.map((group) => (
-                <div class="border-b border-white/10 last:border-none">
+                {item.children.map((group) => (
+                  <div class="border-b border-white/10 last:border-none">
 
-                  <!-- group title -->
-                  <div class="px-5 py-2 text-xs text-neutral-400 uppercase tracking-wider">
-                    {group.group}
+                    <div class="px-5 py-2 text-xs text-neutral-400 uppercase tracking-wider">
+                      {group.group}
+                    </div>
+
+                    {group.items.map((child) => (
+                      <a
+                        href={child.href}
+                        class="block px-5 py-3 hover:bg-industrial-blue transition"
+                      >
+                        {child.name}
+                      </a>
+                    ))}
+
                   </div>
+                ))}
 
-                  <!-- items -->
-                  {group.items.map((child) => (
-                    <a
-                      href={child.href}
-                      class="block px-5 py-3 hover:bg-industrial-blue transition"
-                    >
-                      {child.name}
-                    </a>
+              </div>
+            </div>
+          )}
+
+          
+
+          {/* ================= MEGA MENU ================= */}
+          {item.type === "mega" && (
+            <div class="absolute left-1/2 -translate-x-3/7 top-full pt-4 hidden group-hover:block">
+
+              <!-- Full width hover buffer -->
+              <div class="w-screen flex justify-center">
+
+                <div
+                  class="
+                    w-[900px]
+                    bg-neutral-900
+                    border border-white/10
+                    shadow-2xl
+                    p-8
+                    grid grid-cols-4 gap-8
+                  "
+                >
+
+                  {item.children.map((group) => (
+                    <div>
+
+                      <p class="text-sm text-neutral-400 uppercase mb-4">
+                        {group.group}
+                      </p>
+
+                      <div class="space-y-3">
+                        {group.items.map((child) => (
+                          <a
+                            href={child.href}
+                            class="block hover:text-industrial-blue transition"
+                          >
+                            {child.name}
+                          </a>
+                        ))}
+                      </div>
+
+                    </div>
                   ))}
 
                 </div>
-              ))}
+
+              </div>
 
             </div>
-          </div>
+          )}
+
         </li>
       ))}
 
-      <a href="/MainWebsite/equipment" class="hover:text-industrial-blue">Equipment</a>
-      <a href="/MainWebsite/case-studies" class="hover:text-industrial-blue">Case Studies</a>
-      <a href="/MainWebsite/quality" class="hover:text-industrial-blue">Quality</a>
+      <a href="/MainWebsite/equipment" class="hover:text-industrial-blue">
+        Equipment
+      </a>
+
+      <a href="/MainWebsite/case-studies" class="hover:text-industrial-blue">
+        Case Studies
+      </a>
+
+      <a href="/MainWebsite/quality" class="hover:text-industrial-blue">
+        Quality
+      </a>
 
       <a
         href="/MainWebsite/contact"
@@ -113,28 +195,27 @@ const navItems = [
 </header>
 
 <!-- ================= MOBILE MENU ================= -->
-<div
-  id="mobileMenu"
-  class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden"
->
+<div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden">
   <div class="flex flex-col h-screen">
 
-    <!-- TOP BAR -->
     <div class="flex justify-between items-center h-16 px-6 border-b border-white/10">
       <span class="text-xl tracking-widest">InChief</span>
       <button id="closeMenu" class="text-3xl leading-none">✕</button>
     </div>
 
-    <!-- MENU CONTENT -->
     <div class="flex-1 overflow-y-auto px-6 py-10 space-y-12">
 
       {navItems.map((item) => (
         <div>
-          <p class="text-lg font-semibold mb-6">{item.label}</p>
+
+          <p class="text-lg font-semibold mb-6">
+            {item.label}
+          </p>
 
           <div class="space-y-8">
             {item.children.map((group) => (
               <div>
+
                 <p class="text-sm text-neutral-400 uppercase mb-3">
                   {group.group}
                 </p>
@@ -149,19 +230,16 @@ const navItems = [
                     </a>
                   ))}
                 </div>
+
               </div>
             ))}
           </div>
+
         </div>
       ))}
 
-      <div class="space-y-6 pt-6 border-t border-white/10">
-        <a href="/MainWebsite/equipment" class="block text-xl">Equipment</a>
-        <a href="/MainWebsite/case-studies" class="block text-xl">Case Studies</a>
-      </div>
     </div>
 
-    <!-- CTA -->
     <div class="p-6 border-t border-white/10">
       <a
         href="/MainWebsite/contact"
@@ -174,19 +252,18 @@ const navItems = [
   </div>
 </div>
 
-<!-- ================= SCRIPT ================= -->
 <script>
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
-  const close = document.getElementById("closeMenu");
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const close = document.getElementById("closeMenu");
 
-  btn.onclick = () => {
-    menu.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-  };
+btn.onclick = () => {
+  menu.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+};
 
-  close.onclick = () => {
-    menu.classList.add("hidden");
-    document.body.style.overflow = "";
-  };
+close.onclick = () => {
+  menu.classList.add("hidden");
+  document.body.style.overflow = "";
+};
 </script>
