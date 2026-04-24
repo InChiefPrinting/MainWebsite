@@ -1,8 +1,28 @@
 ---
-const { title, description = "High precision industrial printing solution." } = Astro.props;
+const {
+  title,
+  subtitle,
+  description = "High precision industrial printing solution."
+} = Astro.props;
 ---
 
 <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
-  <h3 class="text-xl font-semibold mb-4">{title}</h3>
-  <p class="text-neutral-400">{description}</p>
+
+  <!-- Title -->
+  <h3 class="text-xl font-semibold">
+    {title}
+  </h3>
+
+  <!-- Subtitle -->
+  {subtitle && (
+    <p class="text-sm text-industrial-blue mt-1 mb-4 tracking-wide">
+      {subtitle}
+    </p>
+  )}
+
+  <!-- Description -->
+  <p class="text-neutral-400">
+    {description}
+  </p>
+
 </div>
