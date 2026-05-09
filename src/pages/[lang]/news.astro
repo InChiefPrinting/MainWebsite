@@ -10,9 +10,11 @@ const { lang } = Astro.params;
 const T = t(lang);
 
 const articles = [
-  { title: T.news.n1title, date: T.news.n1date, desc: T.news.n1desc },
-  { title: T.news.n2title, date: T.news.n2date, desc: T.news.n2desc },
-  { title: T.news.n3title, date: T.news.n3date, desc: T.news.n3desc },
+  { title: T.news.n1title, date: T.news.n1date, desc: T.news.n1desc, tag: 'ISO · FSC' },
+  { title: T.news.n2title, date: T.news.n2date, desc: T.news.n2desc, tag: 'FSC®' },
+  { title: T.news.n3title, date: T.news.n3date, desc: T.news.n3desc, tag: lang === 'zh' ? '高新企业' : 'Hi-Tech' },
+  { title: T.news.n4title, date: T.news.n4date, desc: T.news.n4desc, tag: lang === 'zh' ? '设备' : 'Equipment' },
+  { title: T.news.n5title, date: T.news.n5date, desc: T.news.n5desc, tag: lang === 'zh' ? '出口' : 'Export' },
 ];
 ---
 
@@ -25,10 +27,13 @@ const articles = [
 
   <section class="container-industrial pb-24 border-t border-neutral-800">
     <div class="space-y-0 mt-16">
-      {articles.map((article, i) => (
+      {articles.map((article) => (
         <article class="border-b border-neutral-800 py-10 grid md:grid-cols-[200px_1fr] gap-8">
           <div>
             <p class="text-sm text-industrial-blue font-semibold">{article.date}</p>
+            <span class="inline-block mt-3 px-2 py-0.5 border border-neutral-700 text-neutral-400 text-xs">
+              {article.tag}
+            </span>
           </div>
           <div>
             <h2 class="text-xl font-semibold mb-3">{article.title}</h2>

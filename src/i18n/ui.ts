@@ -82,6 +82,8 @@ export type UIStrings = {
     n1title: string; n1date: string; n1desc: string;
     n2title: string; n2date: string; n2desc: string;
     n3title: string; n3date: string; n3desc: string;
+    n4title: string; n4date: string; n4desc: string;
+    n5title: string; n5date: string; n5desc: string;
   };
   industries: {
     pageTitle: string; pageSubtitle: string;
@@ -230,6 +232,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'ISO Triple Certification Renewed', n1date: 'March 2026', n1desc: 'InChief Printing successfully renewed ISO 9001, ISO 14001, and ISO 45001 certifications, reaffirming our commitment to quality, environment, and workplace safety.',
       n2title: 'FSC® Certification Extended to 2030', n2date: 'January 2026', n2desc: 'Our FSC Chain of Custody certification (FSC-C212511) has been extended through January 2030, enabling compliant sustainable packaging for export brands.',
       n3title: 'National High-Tech Enterprise Recognition', n3date: 'December 2024', n3desc: 'InChief Printing was officially recognized as a National High-Tech Enterprise (GR202433001592), reflecting our sustained investment in R&D and intelligent manufacturing.',
+      n4title: 'Koenig & Bauer RA164-5 Full-Format Press Commissioned', n4date: 'August 2023', n4desc: 'InChief commissioned the Koenig & Bauer RA164-5 five-color full-format offset press, expanding maximum print format to 1,640 × 1,205 mm and significantly boosting large-format packaging capacity.',
+      n5title: 'First FSC-Compliant Export Order Delivered', n5date: 'June 2022', n5desc: 'InChief completed its first large-volume FSC-certified packaging export order, supplying European retail brand partners with sustainably sourced materials — marking an important milestone in global market expansion.',
     },
     industries: {
       pageTitle: 'Industries Served',
@@ -379,6 +383,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'ISO三体系认证成功续期', n1date: '2026年3月', n1desc: '云创印刷成功完成ISO 9001、ISO 14001及ISO 45001三大体系认证续期，再次彰显公司对质量、环境与职业健康安全的持续承诺。',
       n2title: 'FSC®认证延续至2030年', n2date: '2026年1月', n2desc: '我司FSC产销监管链认证（FSC-C212511）已延续至2030年1月，持续支持出口品牌合规可持续包装需求。',
       n3title: '荣获国家高新技术企业认定', n3date: '2024年12月', n3desc: '云创印刷正式获批国家高新技术企业认定（GR202433001592），充分体现了公司在研发与智能制造领域的持续投入。',
+      n4title: '高宝RA164-5全开五色胶印机正式投产', n4date: '2023年8月', n4desc: '云创印刷引进高宝RA164-5全开五色胶印机，最大印刷幅面扩展至1640×1205mm，大幅提升大幅面高端包装产品产能。',
+      n5title: 'FSC合规首批国际出口订单圆满交付', n5date: '2022年6月', n5desc: '云创印刷完成首批FSC认证大体量包装出口订单，向欧洲零售品牌合作伙伴交付环保认证包装，标志着公司国际市场拓展迈出重要一步。',
     },
     industries: {
       pageTitle: '服务行业',
@@ -528,6 +534,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'Triple certification ISO renouvelée', n1date: 'Mars 2026', n1desc: 'InChief Printing a renouvelé avec succès ses certifications ISO 9001, ISO 14001 et ISO 45001, réaffirmant notre engagement envers la qualité, l\'environnement et la sécurité au travail.',
       n2title: 'Certification FSC® prolongée jusqu\'en 2030', n2date: 'Janvier 2026', n2desc: 'Notre certification FSC Chain of Custody (FSC-C212511) a été prolongée jusqu\'en janvier 2030, permettant des emballages durables conformes pour les marques d\'exportation.',
       n3title: 'Reconnaissance nationale haute technologie', n3date: 'Décembre 2024', n3desc: 'InChief Printing a été officiellement reconnu comme Entreprise nationale de haute technologie (GR202433001592), reflétant notre investissement soutenu en R&D et fabrication intelligente.',
+      n4title: 'Mise en service de la presse plein format Koenig & Bauer RA164-5', n4date: 'Août 2023', n4desc: 'InChief a mis en service la presse offset 5 couleurs plein format Koenig & Bauer RA164-5, portant le format d\'impression maximum à 1 640 × 1 205 mm et renforçant significativement la capacité d\'emballage grand format.',
+      n5title: 'Première commande export certifiée FSC® livrée', n5date: 'Juin 2022', n5desc: 'InChief a livré sa première commande d\'emballage certifié FSC à grande échelle, fournissant des partenaires européens de marques retail avec des matériaux d\'origine durable — une étape clé dans l\'expansion internationale.',
     },
     industries: {
       pageTitle: 'Industries servies',
@@ -677,6 +685,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'تجديد الشهادات ISO الثلاثة', n1date: 'مارس 2026', n1desc: 'جددت InChief Printing شهاداتها ISO 9001 و ISO 14001 و ISO 45001 بنجاح، مؤكدةً التزامها بالجودة والبيئة وسلامة مكان العمل.',
       n2title: 'تمديد شهادة FSC® حتى 2030', n2date: 'يناير 2026', n2desc: 'تم تمديد شهادة FSC لسلسلة الحيازة (FSC-C212511) حتى يناير 2030، مما يتيح تغليفاً مستداماً متوافقاً لعلامات التصدير.',
       n3title: 'الاعتراف بمؤسسة وطنية للتقنية العالية', n3date: 'ديسمبر 2024', n3desc: 'اعترف رسمياً بـ InChief Printing كمؤسسة وطنية للتقنية العالية (GR202433001592)، مما يعكس استثمارنا المستمر في البحث والتطوير والتصنيع الذكي.',
+      n4title: 'تشغيل مطبعة Koenig & Bauer RA164-5 بالتنسيق الكامل', n4date: 'أغسطس 2023', n4desc: 'شغّلت InChief مطبعة أوفست Koenig & Bauer RA164-5 خماسية الألوان بالتنسيق الكامل، مما وسّع الحجم الأقصى للطباعة إلى 1,640 × 1,205 مم وعزّز طاقة تغليف التنسيقات الكبيرة.',
+      n5title: 'تسليم أول طلب تصدير معتمد FSC®', n5date: 'يونيو 2022', n5desc: 'أتمّت InChief أول طلب تصدير تغليف ضخم معتمد من FSC، بتوريد مواد مصادرها مستدامة لشركاء العلامات التجارية الأوروبية — وهو حجر أساس في التوسع بالسوق الدولي.',
     },
     industries: {
       pageTitle: 'الصناعات المخدومة',
@@ -826,6 +836,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'Triple certificación ISO renovada', n1date: 'Marzo 2026', n1desc: 'InChief Printing renovó con éxito sus certificaciones ISO 9001, ISO 14001 e ISO 45001, reafirmando el compromiso con la calidad, el medio ambiente y la seguridad laboral.',
       n2title: 'Certificación FSC® extendida hasta 2030', n2date: 'Enero 2026', n2desc: 'Nuestra certificación FSC Chain of Custody (FSC-C212511) se ha extendido hasta enero de 2030, permitiendo embalajes sostenibles conformes para marcas de exportación.',
       n3title: 'Reconocimiento como empresa nacional de alta tecnología', n3date: 'Diciembre 2024', n3desc: 'InChief Printing fue reconocida oficialmente como Empresa Nacional de Alta Tecnología (GR202433001592), reflejo de nuestra inversión en I+D y fabricación inteligente.',
+      n4title: 'Puesta en marcha de la prensa de formato completo Koenig & Bauer RA164-5', n4date: 'Agosto 2023', n4desc: 'InChief incorporó la prensa offset de 5 colores a formato completo Koenig & Bauer RA164-5, ampliando el formato máximo de impresión a 1.640 × 1.205 mm y reforzando significativamente la capacidad de embalaje en gran formato.',
+      n5title: 'Primer pedido de exportación certificado FSC® entregado', n5date: 'Junio 2022', n5desc: 'InChief completó su primer gran pedido de embalaje certificado FSC para exportación, suministrando a marcas minoristas europeas materiales de origen sostenible — un hito clave en su expansión al mercado internacional.',
     },
     industries: {
       pageTitle: 'Industrias',
@@ -975,6 +987,8 @@ export const ui: Record<Lang, UIStrings> = {
       n1title: 'Tripla certificazione ISO rinnovata', n1date: 'Marzo 2026', n1desc: 'InChief Printing ha rinnovato con successo le certificazioni ISO 9001, ISO 14001 e ISO 45001, riaffermando il nostro impegno per qualità, ambiente e sicurezza sul lavoro.',
       n2title: 'Certificazione FSC® estesa fino al 2030', n2date: 'Gennaio 2026', n2desc: 'La nostra certificazione FSC Chain of Custody (FSC-C212511) è stata estesa fino a gennaio 2030, consentendo packaging sostenibile conforme per i brand di esportazione.',
       n3title: 'Riconoscimento come impresa nazionale ad alta tecnologia', n3date: 'Dicembre 2024', n3desc: 'InChief Printing è stata ufficialmente riconosciuta come Impresa Nazionale ad Alta Tecnologia (GR202433001592), a testimonianza del nostro investimento in R&S e produzione intelligente.',
+      n4title: 'Avviamento della pressa a formato pieno Koenig & Bauer RA164-5', n4date: 'Agosto 2023', n4desc: 'InChief ha messo in funzione la pressa offset a 5 colori a formato pieno Koenig & Bauer RA164-5, estendendo il formato di stampa massimo a 1.640 × 1.205 mm e aumentando significativamente la capacità per imballaggi in grande formato.',
+      n5title: 'Primo ordine export certificato FSC® consegnato', n5date: 'Giugno 2022', n5desc: 'InChief ha completato il suo primo grande ordine di packaging certificato FSC per l\'esportazione, fornendo a partner di marchi retail europei materiali di provenienza sostenibile — una pietra miliare nell\'espansione verso i mercati internazionali.',
     },
     industries: {
       pageTitle: 'Industrie',
