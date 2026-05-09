@@ -99,6 +99,9 @@ export type UIStrings = {
     c1title: string; c1tag: string; c1desc: string;
     c2title: string; c2tag: string; c2desc: string;
     c3title: string; c3tag: string; c3desc: string;
+    c4title: string; c4tag: string; c4desc: string;
+    c5title: string; c5tag: string; c5desc: string;
+    c6title: string; c6tag: string; c6desc: string;
   };
   footer: {
     tagline: string; company: string; solutions: string;
@@ -251,6 +254,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: 'Premium Gift Box — European Luxury Brand', c1tag: 'Rigid Box · Foil Stamping · Embossing', c1desc: 'Designed and produced a premium rigid gift box line for a European luxury brand. 4-color offset print with hot foil stamping, spot UV, and embossed brand logo. 50,000 units delivered within 18 days.',
       c2title: 'Pharmaceutical Track-Code Packaging', c2tag: 'Packaging · Track Code · Compliance', c2desc: 'Printed and finished pharmaceutical-compliant folding cartons with full regulatory track-code integration and automated quality inspection, achieving zero defect rate on 2,000,000 units.',
       c3title: 'OEM Corrugated Export Cartons', c3tag: 'Corrugated · OEM · Supply Chain', c3desc: 'Managed end-to-end OEM production for a North American retailer — from structural design to mass printing, die-cutting, and global logistics coordination for 500,000 corrugated carton units.',
+      c4title: 'FSC-Certified Food & Beverage Packaging', c4tag: 'Food Packaging · FSC® · Sustainable', c4desc: 'Produced FSC-certified folding carton packaging for an export beverage brand using food-safe ink systems, environmentally certified paperboard, and precision color management for shelf appeal across European markets.',
+      c5title: 'Annual Brand Catalog — 8-Color Commercial Print', c5tag: 'Commercial · Catalog · Heidelberg CX104', c5desc: 'Delivered a 256-page full-color brand catalog for an international consumer goods client using the Heidelberg CX104 10-color press with inline UV finishing. 80,000 copies completed in 12 days.',
+      c6title: 'Variable Data Label Program — Retail Supply Chain', c6tag: 'VDP · Labels · Supply Chain', c6desc: 'Implemented a variable data label production program for a retail supply chain client, printing 3,000,000 unique SKU labels with serialized barcodes and QR codes for end-to-end logistics traceability.',
     },
     footer: {
       tagline: 'Industrial Printing Engineering & Manufacturing Solutions.',
@@ -402,6 +408,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: '欧洲奢侈品牌高端礼品盒', c1tag: '硬盒 · 烫金 · 击凸', c1desc: '为欧洲奢侈品牌设计并生产高端礼品盒系列。四色胶印配合热烫金、局部UV及品牌浮雕logo，共5万件，18天内完成交付。',
       c2title: '医药追溯码合规包装', c2tag: '包装 · 追溯码 · 合规', c2desc: '为医药客户印刷并加工符合法规要求的折叠纸盒，全程集成监管码，配合自动化质量检测，200万件实现零缺陷交付。',
       c3title: 'OEM出口瓦楞纸箱', c3tag: '瓦楞纸箱 · OEM · 供应链', c3desc: '为北美零售商提供OEM全程生产服务，覆盖结构设计、批量印刷、模切加工及全球物流协调，共交付50万件瓦楞纸箱。',
+      c4title: 'FSC认证食品饮料包装', c4tag: '食品包装 · FSC® · 可持续', c4desc: '为出口饮料品牌生产FSC认证折叠纸盒，采用食品安全油墨体系及环保认证纸板，配合精准色彩管理，满足欧洲市场货架展示需求。',
+      c5title: '品牌年度画册——八色商务胶印', c5tag: '商务 · 画册 · 海德堡CX104', c5desc: '使用海德堡CX104十色胶印机及联机UV加工，为国际消费品客户完成256页全彩品牌画册生产。8万册，12天交货。',
+      c6title: '零售供应链可变数据标签项目', c6tag: 'VDP · 标签 · 供应链', c6desc: '为零售供应链客户实施可变数据标签生产方案，印刷300万枚含序列条码与二维码的唯一SKU标签，实现全链路物流溯源追踪。',
     },
     footer: {
       tagline: '工业级印刷工程与制造解决方案。',
@@ -553,6 +562,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: 'Boîte cadeau premium — Marque de luxe européenne', c1tag: 'Boîte rigide · Dorure · Gaufrage', c1desc: 'Conception et production d\'une gamme de boîtes cadeaux rigides premium pour une marque de luxe européenne. Impression offset 4 couleurs avec dorure à chaud, UV sélectif et logo en relief. 50 000 unités livrées en 18 jours.',
       c2title: 'Emballage pharmaceutique avec code de traçabilité', c2tag: 'Emballage · Traçabilité · Conformité', c2desc: 'Impression et finition de cartons pliants conformes aux normes pharmaceutiques avec intégration complète des codes réglementaires et inspection qualité automatisée. Zéro défaut sur 2 000 000 unités.',
       c3title: 'Cartons ondulés OEM pour l\'export', c3tag: 'Ondulé · OEM · Chaîne d\'approvisionnement', c3desc: 'Gestion de la production OEM de bout en bout pour un distributeur nord-américain — de la conception structurelle à l\'impression en masse, la découpe et la coordination logistique mondiale pour 500 000 cartons ondulés.',
+      c4title: 'Emballage alimentaire certifié FSC®', c4tag: 'Emballage alimentaire · FSC® · Durable', c4desc: 'Production de cartons pliants certifiés FSC pour une marque de boissons à l\'export, utilisant des encres alimentaires et du carton certifié, avec gestion chromatique de précision pour une attractivité optimale en rayon sur les marchés européens.',
+      c5title: 'Catalogue annuel de marque — Impression commerciale 8 couleurs', c5tag: 'Commercial · Catalogue · Heidelberg CX104', c5desc: 'Livraison d\'un catalogue de marque pleine couleur de 256 pages pour un client international, via la presse Heidelberg CX104 10 couleurs avec finition UV en ligne. 80 000 exemplaires en 12 jours.',
+      c6title: 'Programme d\'étiquettes à données variables — Chaîne d\'approvisionnement', c6tag: 'VDP · Étiquettes · Logistique', c6desc: 'Mise en place d\'un programme d\'étiquettes à données variables pour un client logistique, avec impression de 3 000 000 d\'étiquettes SKU uniques contenant codes-barres sérialisés et QR codes pour une traçabilité totale.',
     },
     footer: {
       tagline: 'Ingénierie d\'impression industrielle & solutions de fabrication.',
@@ -704,6 +716,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: 'صندوق هدايا فاخر — علامة تجارية أوروبية', c1tag: 'صندوق صلب · ختم بالرقائق · نقش', c1desc: 'تصميم وإنتاج خط صناديق هدايا فاخرة لعلامة تجارية أوروبية راقية. طباعة أوفست 4 ألوان مع ختم رقائق ساخنة وUV موضعي وشعار بارز. تم تسليم 50,000 وحدة في 18 يوماً.',
       c2title: 'تغليف دوائي مع رمز تتبع', c2tag: 'تغليف · رمز التتبع · الامتثال', c2desc: 'طباعة وتشطيب كراتين طي متوافقة مع متطلبات الأدوية مع تكامل كامل لرموز التنظيم وفحص الجودة الآلي. صفر عيوب في 2,000,000 وحدة.',
       c3title: 'كراتين مموجة OEM للتصدير', c3tag: 'كراتين مموجة · OEM · سلسلة التوريد', c3desc: 'إدارة إنتاج OEM من البداية للنهاية لموزع أمريكي — من التصميم الهيكلي إلى الطباعة الجماعية والقطع والتنسيق اللوجستي العالمي لـ 500,000 كرتون مموج.',
+      c4title: 'تغليف غذائي معتمد FSC®', c4tag: 'تغليف غذائي · FSC® · مستدام', c4desc: 'إنتاج كراتين طي معتمدة FSC لعلامة مشروبات للتصدير باستخدام أحبار آمنة غذائياً وورق معتمد، مع إدارة ألوان دقيقة لجاذبية عرض المنتج في الأسواق الأوروبية.',
+      c5title: 'كتالوج العلامة السنوي — طباعة تجارية 8 ألوان', c5tag: 'تجاري · كتالوج · Heidelberg CX104', c5desc: 'تسليم كتالوج علامة تجارية ملوّن من 256 صفحة لعميل دولي عبر مطبعة Heidelberg CX104 عشرة ألوان مع تشطيب UV في الخط. 80,000 نسخة في 12 يوماً.',
+      c6title: 'برنامج ملصقات بيانات متغيرة — سلسلة توريد', c6tag: 'VDP · ملصقات · لوجستيات', c6desc: 'تنفيذ برنامج إنتاج ملصقات بيانات متغيرة لعميل لوجستي، بطباعة 3,000,000 ملصق SKU فريد يحتوي على باركود متسلسل ورمز QR لتتبع كامل السلسلة.',
     },
     footer: {
       tagline: 'هندسة الطباعة الصناعية وحلول التصنيع.',
@@ -855,6 +870,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: 'Caja de regalo premium — Marca de lujo europea', c1tag: 'Caja rígida · Estampado · Relieve', c1desc: 'Diseño y producción de una línea de cajas de regalo rígidas premium para una marca de lujo europea. Impresión offset 4 colores con estampado en caliente, UV selectivo y logo en relieve. 50.000 unidades entregadas en 18 días.',
       c2title: 'Embalaje farmacéutico con código de trazabilidad', c2tag: 'Embalaje · Trazabilidad · Cumplimiento', c2desc: 'Impresión y acabado de cajas de cartón conformes a normas farmacéuticas con integración completa de códigos regulatorios e inspección automatizada. Cero defectos en 2.000.000 unidades.',
       c3title: 'Cartones corrugados OEM para exportación', c3tag: 'Corrugado · OEM · Cadena de suministro', c3desc: 'Gestión de producción OEM de extremo a extremo para un distribuidor norteamericano — desde diseño estructural hasta impresión en masa, troquelado y coordinación logística global para 500.000 cartones.',
+      c4title: 'Embalaje alimentario certificado FSC®', c4tag: 'Alimentario · FSC® · Sostenible', c4desc: 'Producción de cajas de cartón certificadas FSC para una marca de bebidas de exportación, con tintas alimentarias y cartón certificado, y gestión cromática de precisión para máximo atractivo en lineales europeos.',
+      c5title: 'Catálogo anual de marca — Impresión comercial 8 colores', c5tag: 'Comercial · Catálogo · Heidelberg CX104', c5desc: 'Entrega de un catálogo de marca a todo color de 256 páginas para un cliente internacional usando la prensa Heidelberg CX104 de 10 colores con acabado UV en línea. 80.000 ejemplares en 12 días.',
+      c6title: 'Programa de etiquetas de datos variables — Cadena de suministro', c6tag: 'VDP · Etiquetas · Logística', c6desc: 'Implementación de un programa de producción de etiquetas de datos variables para un cliente logístico, con impresión de 3.000.000 etiquetas SKU únicas con códigos de barras serializados y códigos QR para trazabilidad total.',
     },
     footer: {
       tagline: 'Ingeniería de impresión industrial y soluciones de fabricación.',
@@ -1006,6 +1024,9 @@ export const ui: Record<Lang, UIStrings> = {
       c1title: 'Confezione regalo premium — Brand di lusso europeo', c1tag: 'Scatola rigida · Stampa a caldo · Goffratura', c1desc: 'Progettazione e produzione di una linea di confezioni regalo rigide premium per un brand di lusso europeo. Stampa offset a 4 colori con stampa a caldo, UV selettivo e logo in rilievo. 50.000 unità consegnate in 18 giorni.',
       c2title: 'Packaging farmaceutico con codice di tracciabilità', c2tag: 'Packaging · Tracciabilità · Conformità', c2desc: 'Stampa e finitura di astucci pieghevoli conformi alle norme farmaceutiche con integrazione completa dei codici normativi e ispezione automatizzata. Zero difetti su 2.000.000 di unità.',
       c3title: 'Cartoni ondulati OEM per export', c3tag: 'Ondulato · OEM · Filiera', c3desc: 'Gestione della produzione OEM end-to-end per un distributore nordamericano — dalla progettazione strutturale alla stampa di massa, fustellatura e coordinamento logistico globale per 500.000 cartoni ondulati.',
+      c4title: 'Packaging alimentare certificato FSC®', c4tag: 'Alimentare · FSC® · Sostenibile', c4desc: 'Produzione di astucci pieghevoli certificati FSC per un brand di bevande per l\'export, con inchiostri food-safe e cartone certificato, e gestione cromatica di precisione per la massima visibilità sugli scaffali europei.',
+      c5title: 'Catalogo annuale del brand — Stampa commerciale 8 colori', c5tag: 'Commerciale · Catalogo · Heidelberg CX104', c5desc: 'Consegna di un catalogo brand a colori di 256 pagine per un cliente internazionale con la pressa Heidelberg CX104 a 10 colori e finitura UV in linea. 80.000 copie in 12 giorni.',
+      c6title: 'Programma etichette a dati variabili — Filiera retail', c6tag: 'VDP · Etichette · Logistica', c6desc: 'Implementazione di un programma di produzione etichette a dati variabili per un cliente logistico, con stampa di 3.000.000 etichette SKU uniche con codici a barre serializzati e QR code per la tracciabilità completa.',
     },
     footer: {
       tagline: 'Ingegneria di stampa industriale e soluzioni produttive.',
