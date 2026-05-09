@@ -1,65 +1,72 @@
 ---
+import { t, url, switchLangUrl, LOCALES, LANG_NAMES, RTL_LANGS } from "../i18n";
+import type { Lang } from "../i18n";
+
+const { lang = "en" } = Astro.props;
+const T = t(lang);
+const isRtl = RTL_LANGS.has(lang as Lang);
+const currentPath = Astro.url.pathname;
+
 const navItems = [
   {
-    label: "Company",
+    label: T.nav.company,
     type: "dropdown",
     children: [
       {
-        group: "Overview",
+        group: T.nav.overview,
         items: [
-          { name: "About", href: "/MainWebsite/about" },
-          { name: "Industries", href: "/MainWebsite/industries" },
+          { name: T.nav.about, href: url(lang, "/about") },
+          { name: T.nav.industries, href: url(lang, "/industries") },
         ],
       },
       {
-        group: "Join Us",
-        items: [{ name: "Careers", href: "/MainWebsite/careers" }],
+        group: T.nav.joinUs,
+        items: [{ name: T.nav.careers, href: url(lang, "/careers") }],
       },
       {
-        group: "Updates",
-        items: [{ name: "News", href: "/MainWebsite/news" }],
+        group: T.nav.updates,
+        items: [{ name: T.nav.news, href: url(lang, "/news") }],
       },
     ],
   },
-
   {
-    label: "Solutions",
+    label: T.nav.solutions,
     type: "mega",
     children: [
       {
-        group: "Printing Solutions",
+        group: T.nav.printingSolutions,
         items: [
-          { name: "Commercial Printing", href: "/MainWebsite/solutions/commercial" },
-          { name: "Publication Printing", href: "/MainWebsite/solutions/publication" },
-          { name: "Marketing Materials", href: "/MainWebsite/solutions/marketing" },
-          { name: "Variable Data Printing", href: "/MainWebsite/solutions/vdp" },
+          { name: T.nav.commercial, href: url(lang, "/solutions/commercial") },
+          { name: T.nav.publication, href: url(lang, "/solutions/publication") },
+          { name: T.nav.marketing, href: url(lang, "/solutions/marketing") },
+          { name: T.nav.vdp, href: url(lang, "/solutions/vdp") },
         ],
       },
       {
-        group: "Packaging & Industrial",
+        group: T.nav.packagingIndustrial,
         items: [
-          { name: "Folding Carton Packaging", href: "/MainWebsite/solutions/folding-carton" },
-          { name: "Rigid Box Production", href: "/MainWebsite/solutions/rigid-box" },
-          { name: "Label & Sticker Printing", href: "/MainWebsite/solutions/labels" },
-          { name: "Industrial Packaging", href: "/MainWebsite/solutions/industrial-packaging" },
+          { name: T.nav.foldingCarton, href: url(lang, "/solutions/folding-carton") },
+          { name: T.nav.rigidBox, href: url(lang, "/solutions/rigid-box") },
+          { name: T.nav.labels, href: url(lang, "/solutions/labels") },
+          { name: T.nav.industrialPkg, href: url(lang, "/solutions/industrial-packaging") },
         ],
       },
       {
-        group: "Finishing & Enhancement",
+        group: T.nav.finishingEnhancement,
         items: [
-          { name: "UV & Varnishing", href: "/MainWebsite/solutions/uv-varnish" },
-          { name: "Foil Stamping", href: "/MainWebsite/solutions/foil-stamping" },
-          { name: "Embossing & Debossing", href: "/MainWebsite/solutions/embossing" },
-          { name: "Die Cutting", href: "/MainWebsite/solutions/die-cutting" },
+          { name: T.nav.uv, href: url(lang, "/solutions/uv-varnish") },
+          { name: T.nav.foil, href: url(lang, "/solutions/foil-stamping") },
+          { name: T.nav.embossing, href: url(lang, "/solutions/embossing") },
+          { name: T.nav.dieCutting, href: url(lang, "/solutions/die-cutting") },
         ],
       },
       {
-        group: "Manufacturing Services",
+        group: T.nav.manufacturingServices,
         items: [
-          { name: "Custom Production", href: "/MainWebsite/solutions/custom-production" },
-          { name: "OEM / ODM Printing", href: "/MainWebsite/solutions/oem" },
-          { name: "Supply Chain Integration", href: "/MainWebsite/solutions/supply-chain" },
-          { name: "Global Fulfillment", href: "/MainWebsite/solutions/fulfillment" },
+          { name: T.nav.customProduction, href: url(lang, "/solutions/custom-production") },
+          { name: T.nav.oem, href: url(lang, "/solutions/oem") },
+          { name: T.nav.supplyChain, href: url(lang, "/solutions/supply-chain") },
+          { name: T.nav.fulfillment, href: url(lang, "/solutions/fulfillment") },
         ],
       },
     ],
@@ -67,134 +74,117 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-white/10">
+<header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-white/10">
   <nav class="container-industrial flex items-center justify-between h-16">
 
     <!-- Logo -->
-    <a href="/MainWebsite/" class="text-xl font-semibold tracking-widest">
+    <a href={url(lang, "/")} class="text-xl font-semibold tracking-widest shrink-0">
       InChief
     </a>
 
-    <!-- Mobile Button -->
-    <button id="menuBtn" class="md:hidden text-2xl">
+    <!-- Mobile toggle -->
+    <button id="menuBtn" class="md:hidden text-2xl leading-none" aria-label="Open menu">
       ☰
     </button>
 
-    
-    <!-- Desktop Navigation -->
-    <ul class="hidden md:flex items-center gap-5">
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-5 text-sm">
 
-      
       {navItems.map((item) => (
         <li class="relative group py-2">
-
-          <span class="cursor-pointer hover:text-industrial-blue transition">
+          <span class="cursor-default select-none hover:text-industrial-blue transition">
             {item.label}
           </span>
 
-          {/* ================= NORMAL DROPDOWN ================= */}
+          {/* ── Normal dropdown ── */}
           {item.type === "dropdown" && (
             <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-              <div class="w-72 bg-neutral-900 border border-white/10 shadow-xl">
-
+              <div class="w-64 bg-neutral-900 border border-white/10 shadow-xl">
                 {item.children.map((group) => (
                   <div class="border-b border-white/10 last:border-none">
-
                     <div class="px-5 py-2 text-xs text-neutral-400 uppercase tracking-wider">
                       {group.group}
                     </div>
-
                     {group.items.map((child) => (
-                      <a
-                        href={child.href}
-                        class="block px-5 py-3 hover:bg-industrial-blue transition"
-                      >
+                      <a href={child.href} class="block px-5 py-3 hover:bg-industrial-blue transition">
                         {child.name}
                       </a>
                     ))}
-
                   </div>
                 ))}
-
               </div>
             </div>
           )}
 
-          
-
-          {/* ================= MEGA MENU ================= */}
+          {/* ── Mega menu ── */}
           {item.type === "mega" && (
-            <div class="absolute left-1/2 -translate-x-3/7 top-full pt-4 hidden group-hover:block">
-
-              <!-- Full width hover buffer -->
-              <div class="w-screen flex justify-center">
-
-                <div
-                  class="
-                    w-[900px]
-                    bg-neutral-900
-                    border border-white/10
-                    shadow-2xl
-                    p-8
-                    grid grid-cols-4 gap-8
-                  "
-                >
-
-                  {item.children.map((group) => (
-                    <div>
-
-                      <p class="text-sm text-neutral-400 uppercase mb-4">
-                        {group.group}
-                      </p>
-
-                      <div class="space-y-3">
-                        {group.items.map((child) => (
-                          <a
-                            href={child.href}
-                            class="block hover:text-industrial-blue transition"
-                          >
-                            {child.name}
-                          </a>
-                        ))}
-                      </div>
-
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 hidden group-hover:block">
+              <div class="w-[860px] bg-neutral-900 border border-white/10 shadow-2xl p-8 grid grid-cols-4 gap-8">
+                {item.children.map((group) => (
+                  <div>
+                    <p class="text-xs text-neutral-400 uppercase tracking-wider mb-4">
+                      {group.group}
+                    </p>
+                    <div class="space-y-3">
+                      {group.items.map((child) => (
+                        <a href={child.href} class="block text-sm hover:text-industrial-blue transition">
+                          {child.name}
+                        </a>
+                      ))}
                     </div>
-                  ))}
-
-                </div>
-
+                  </div>
+                ))}
               </div>
-
             </div>
           )}
-
         </li>
       ))}
 
-      <a href="/MainWebsite/equipment" class="hover:text-industrial-blue">
-        Equipment
+      <a href={url(lang, "/equipment")} class="hover:text-industrial-blue transition text-sm">
+        {T.nav.equipment}
+      </a>
+      <a href={url(lang, "/case-studies")} class="hover:text-industrial-blue transition text-sm">
+        {T.nav.caseStudies}
+      </a>
+      <a href={url(lang, "/quality")} class="hover:text-industrial-blue transition text-sm">
+        {T.nav.quality}
       </a>
 
-      <a href="/MainWebsite/case-studies" class="hover:text-industrial-blue">
-        Case Studies
-      </a>
-
-      <a href="/MainWebsite/quality" class="hover:text-industrial-blue">
-        Quality
-      </a>
+      <!-- Language switcher -->
+      <li class="relative group py-2 list-none">
+        <button class="flex items-center gap-1.5 text-sm hover:text-industrial-blue transition" aria-label="Language">
+          <!-- Globe icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="uppercase">{lang}</span>
+        </button>
+        <div class="absolute right-0 top-full pt-3 hidden group-hover:block">
+          <div class="w-40 bg-neutral-900 border border-white/10 shadow-xl py-2">
+            {LOCALES.map((l) => (
+              <a
+                href={switchLangUrl(currentPath, l as Lang)}
+                class={`block px-5 py-2.5 text-sm hover:bg-industrial-blue transition ${l === lang ? 'text-industrial-blue' : 'text-white'}`}
+              >
+                {LANG_NAMES[l as Lang]}
+              </a>
+            ))}
+          </div>
+        </div>
+      </li>
 
       <a
-        href="/MainWebsite/contact"
-        class="ml-4 px-5 py-2 bg-industrial-blue text-black font-semibold hover:opacity-80 transition"
+        href={url(lang, "/contact")}
+        class="ml-2 px-5 py-2 bg-industrial-blue text-white font-semibold hover:opacity-80 transition text-sm"
       >
-        Contact Us
+        {T.nav.contactUs}
       </a>
-
     </ul>
   </nav>
 </header>
 
-<!-- ================= MOBILE MENU ================= -->
+<!-- ═══ Mobile overlay ═══ -->
 <div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden">
   <div class="flex flex-col h-screen">
 
@@ -203,49 +193,57 @@ const navItems = [
       <button id="closeMenu" class="text-3xl leading-none">✕</button>
     </div>
 
-    <div class="flex-1 overflow-y-auto px-6 py-10 space-y-12">
+    <div class="flex-1 overflow-y-auto px-6 py-10 space-y-10">
 
       {navItems.map((item) => (
         <div>
-
-          <p class="text-lg font-semibold mb-6">
-            {item.label}
-          </p>
-
-          <div class="space-y-8">
+          <p class="text-lg font-semibold mb-5">{item.label}</p>
+          <div class="space-y-6">
             {item.children.map((group) => (
               <div>
-
-                <p class="text-sm text-neutral-400 uppercase mb-3">
-                  {group.group}
-                </p>
-
+                <p class="text-xs text-neutral-400 uppercase tracking-wider mb-3">{group.group}</p>
                 <div class="space-y-3 pl-2">
                   {group.items.map((child) => (
-                    <a
-                      href={child.href}
-                      class="block text-xl hover:text-industrial-blue transition"
-                    >
+                    <a href={child.href} class="block text-lg hover:text-industrial-blue transition">
                       {child.name}
                     </a>
                   ))}
                 </div>
-
               </div>
             ))}
           </div>
-
         </div>
       ))}
+
+      <div class="space-y-3">
+        <a href={url(lang, "/equipment")} class="block text-lg hover:text-industrial-blue">{T.nav.equipment}</a>
+        <a href={url(lang, "/case-studies")} class="block text-lg hover:text-industrial-blue">{T.nav.caseStudies}</a>
+        <a href={url(lang, "/quality")} class="block text-lg hover:text-industrial-blue">{T.nav.quality}</a>
+      </div>
+
+      <!-- Language switcher mobile -->
+      <div>
+        <p class="text-xs text-neutral-400 uppercase tracking-wider mb-3">Language</p>
+        <div class="grid grid-cols-3 gap-3">
+          {LOCALES.map((l) => (
+            <a
+              href={switchLangUrl(currentPath, l as Lang)}
+              class={`text-center py-2 border transition text-sm ${l === lang ? 'border-industrial-blue text-industrial-blue' : 'border-white/20 hover:border-white'}`}
+            >
+              {LANG_NAMES[l as Lang]}
+            </a>
+          ))}
+        </div>
+      </div>
 
     </div>
 
     <div class="p-6 border-t border-white/10">
       <a
-        href="/MainWebsite/contact"
-        class="block w-full text-center py-4 bg-industrial-blue text-black font-semibold"
+        href={url(lang, "/contact")}
+        class="block w-full text-center py-4 bg-industrial-blue text-white font-semibold"
       >
-        Contact Us
+        {T.nav.contactUs}
       </a>
     </div>
 
@@ -253,17 +251,17 @@ const navItems = [
 </div>
 
 <script>
-const btn = document.getElementById("menuBtn");
-const menu = document.getElementById("mobileMenu");
-const close = document.getElementById("closeMenu");
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+  const close = document.getElementById("closeMenu");
 
-btn.onclick = () => {
-  menu.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-};
+  btn?.addEventListener("click", () => {
+    menu?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
 
-close.onclick = () => {
-  menu.classList.add("hidden");
-  document.body.style.overflow = "";
-};
+  close?.addEventListener("click", () => {
+    menu?.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
 </script>

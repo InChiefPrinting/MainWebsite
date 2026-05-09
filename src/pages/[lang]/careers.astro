@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+---
+
+<BaseLayout title={`${T.careers.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.careers.pageTitle}</h1>
+    <p class="text-neutral-400 max-w-2xl">{T.careers.pageSubtitle}</p>
+  </section>
+
+  <!-- Why InChief -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-10">{T.careers.whyTitle}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-lg font-semibold mb-3">{T.careers.r1}</h3>
+        <p class="text-neutral-400">{T.careers.r1d}</p>
+      </div>
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-lg font-semibold mb-3">{T.careers.r2}</h3>
+        <p class="text-neutral-400">{T.careers.r2d}</p>
+      </div>
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-lg font-semibold mb-3">{T.careers.r3}</h3>
+        <p class="text-neutral-400">{T.careers.r3d}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open positions -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-6">{T.careers.openTitle}</h2>
+    <div class="border border-neutral-800 p-8 max-w-2xl">
+      <p class="text-neutral-400 leading-relaxed">{T.careers.openNote}</p>
+      <a
+        href="mailto:info@InChief.cn"
+        class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
+      >
+        {T.careers.cta}
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

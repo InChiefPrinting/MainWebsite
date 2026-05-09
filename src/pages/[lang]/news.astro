@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const articles = [
+  { title: T.news.n1title, date: T.news.n1date, desc: T.news.n1desc },
+  { title: T.news.n2title, date: T.news.n2date, desc: T.news.n2desc },
+  { title: T.news.n3title, date: T.news.n3date, desc: T.news.n3desc },
+];
+---
+
+<BaseLayout title={`${T.news.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.news.pageTitle}</h1>
+    <p class="text-neutral-400">{T.news.pageSubtitle}</p>
+  </section>
+
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <div class="space-y-0 mt-16">
+      {articles.map((article, i) => (
+        <article class="border-b border-neutral-800 py-10 grid md:grid-cols-[200px_1fr] gap-8">
+          <div>
+            <p class="text-sm text-industrial-blue font-semibold">{article.date}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold mb-3">{article.title}</h2>
+            <p class="text-neutral-400 leading-relaxed">{article.desc}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

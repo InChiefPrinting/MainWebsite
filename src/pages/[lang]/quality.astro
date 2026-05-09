@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const certs = [
+  {
+    badge: "ISO 9001:2015",
+    title: T.quality.iso9001,
+    desc: T.quality.iso9001Desc,
+    valid: "2026–2029",
+  },
+  {
+    badge: "ISO 14001:2015",
+    title: T.quality.iso14001,
+    desc: T.quality.iso14001Desc,
+    valid: "2026–2029",
+  },
+  {
+    badge: "ISO 45001:2018",
+    title: T.quality.iso45001,
+    desc: T.quality.iso45001Desc,
+    valid: "2026–2029",
+  },
+  {
+    badge: "FSC®",
+    title: T.quality.fsc,
+    desc: T.quality.fscDesc,
+    valid: "2026–2030",
+  },
+  {
+    badge: "Hi-Tech",
+    title: T.quality.hightech,
+    desc: T.quality.hightechDesc,
+    valid: "2024–2027",
+  },
+  {
+    badge: "License",
+    title: T.quality.printLicense,
+    desc: T.quality.printLicenseDesc,
+    valid: "2025–2030",
+  },
+];
+---
+
+<BaseLayout title={`${T.quality.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <!-- Header -->
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.quality.pageTitle}</h1>
+    <p class="text-neutral-400 max-w-2xl">{T.quality.pageSubtitle}</p>
+  </section>
+
+  <!-- Certifications grid -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-10">{T.quality.certTitle}</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {certs.map((cert) => (
+        <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition group">
+          <span class="inline-block px-3 py-1 bg-industrial-blue text-white text-xs font-bold tracking-wider mb-4">
+            {cert.badge}
+          </span>
+          <h3 class="text-lg font-semibold mb-2">{cert.title}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{cert.desc}</p>
+          <p class="mt-4 text-xs text-neutral-500">{cert.valid}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Detection capability -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-6">{T.quality.detectionTitle}</h2>
+    <p class="text-neutral-400 max-w-3xl leading-relaxed">{T.quality.detectionDesc}</p>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+      {[
+        { icon: "◉", label: lang === 'zh' ? '色彩密度检测' : lang === 'ar' ? 'قياس كثافة الألوان' : 'Color Density', sub: "X-Rite EXACT" },
+        { icon: "⊞", label: lang === 'zh' ? '自动化瑕疵检测' : lang === 'ar' ? 'كشف العيوب الآلي' : 'Defect Detection', sub: "Lingyun · Daheng" },
+        { icon: "⊢", label: lang === 'zh' ? '尺寸精度控制' : lang === 'ar' ? 'دقة الأبعاد' : 'Dimensional Accuracy', sub: "0–500mm Calipers" },
+        { icon: "⊛", label: lang === 'zh' ? '压力与温度监控' : lang === 'ar' ? 'مراقبة الضغط والحرارة' : 'Pressure & Temp', sub: "0–100 bar · 0–120°C" },
+        { icon: "⊕", label: lang === 'zh' ? '重量与时间控制' : lang === 'ar' ? 'التحكم في الوزن والوقت' : 'Weight & Time Control', sub: "Electronic Scales" },
+        { icon: "⊞", label: lang === 'zh' ? '追溯码验证' : lang === 'ar' ? 'التحقق من رموز التتبع' : 'Track Code Verification', sub: "HHP QC800" },
+      ].map((item) => (
+        <div class="border border-neutral-800 p-6">
+          <p class="text-industrial-blue text-2xl mb-3">{item.icon}</p>
+          <p class="font-semibold">{item.label}</p>
+          <p class="text-neutral-400 text-sm mt-1">{item.sub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")} class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition">
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>

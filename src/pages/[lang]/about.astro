@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+---
+
+<BaseLayout title={`${T.about.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <!-- ═══ COMPANY INTRO ═══ -->
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-12">{T.about.introTitle}</h1>
+    <div class="max-w-3xl space-y-6 text-neutral-400 leading-relaxed">
+      <p>{T.about.introP1}</p>
+      <p>{T.about.introP2}</p>
+      <p>{T.about.introP3}</p>
+    </div>
+  </section>
+
+  <!-- ═══ FACTORY ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800">
+    <h2 class="text-3xl font-semibold mb-8">{T.about.factoryTitle}</h2>
+    <div class="max-w-3xl space-y-6 text-neutral-400 leading-relaxed">
+      <p>{T.about.factoryP1}</p>
+      <p>{T.about.factoryP2}</p>
+      <p>{T.about.factoryP3}</p>
+    </div>
+
+    <!-- Key stats -->
+    <div class="grid sm:grid-cols-3 gap-8 mt-16">
+      <div class="border border-neutral-800 p-8">
+        <p class="text-4xl font-bold text-industrial-blue">1.1M</p>
+        <p class="text-neutral-400 mt-2 text-sm">{lang === 'zh' ? '日印刷产能（印张）' : lang === 'ar' ? 'طاقة إنتاجية يومية (ورقة)' : 'Sheets/Day Capacity'}</p>
+      </div>
+      <div class="border border-neutral-800 p-8">
+        <p class="text-4xl font-bold text-industrial-blue">1640mm</p>
+        <p class="text-neutral-400 mt-2 text-sm">{lang === 'zh' ? '最大印刷幅面' : lang === 'ar' ? 'أقصى تنسيق طباعة' : 'Max Print Format'}</p>
+      </div>
+      <div class="border border-neutral-800 p-8">
+        <p class="text-4xl font-bold text-industrial-blue">108M¥</p>
+        <p class="text-neutral-400 mt-2 text-sm">{lang === 'zh' ? '注册资本' : lang === 'ar' ? 'رأس المال المسجل' : 'Registered Capital'}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HISTORY ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800">
+    <h2 class="text-3xl font-semibold mb-8">{T.about.historyTitle}</h2>
+    <div class="max-w-3xl space-y-6 text-neutral-400 leading-relaxed">
+      <p>{T.about.historyP1}</p>
+      <p>{T.about.historyP2}</p>
+      <p>{T.about.historyP3}</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-16 border-l-2 border-neutral-800 pl-8 space-y-10 max-w-2xl">
+      <div class="relative">
+        <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
+        <p class="text-sm text-industrial-blue font-semibold">2020</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? '公司成立' : lang === 'ar' ? 'تأسيس الشركة' : lang === 'fr' ? 'Fondation de l\'entreprise' : lang === 'es' ? 'Fundación de la empresa' : lang === 'it' ? 'Fondazione dell\'azienda' : 'Company Founded'}</p>
+        <p class="text-neutral-400 text-sm mt-1">March 31, 2020 — Longgang City, Zhejiang</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
+        <p class="text-sm text-industrial-blue font-semibold">2024</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? '荣获国家高新技术企业认定' : lang === 'ar' ? 'الاعتراف بمؤسسة وطنية للتقنية العالية' : lang === 'fr' ? 'Reconnaissance Haute Technologie' : lang === 'es' ? 'Reconocimiento Alta Tecnología' : lang === 'it' ? 'Riconoscimento Alta Tecnologia' : 'National High-Tech Enterprise'}</p>
+        <p class="text-neutral-400 text-sm mt-1">GR202433001592</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
+        <p class="text-sm text-industrial-blue font-semibold">2026</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? 'ISO三体系认证续期 · FSC®延续' : lang === 'ar' ? 'تجديد شهادات ISO و FSC®' : lang === 'fr' ? 'Renouvellement ISO & FSC®' : lang === 'es' ? 'Renovación ISO & FSC®' : lang === 'it' ? 'Rinnovo ISO & FSC®' : 'ISO Triple Renewal · FSC® Extended'}</p>
+        <p class="text-neutral-400 text-sm mt-1">ISO 9001 · ISO 14001 · ISO 45001 · FSC-C212511</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")} class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition">
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>

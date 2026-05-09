@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+---
+
+<BaseLayout title={`${T.contact.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.contact.pageTitle}</h1>
+    <p class="text-neutral-400 max-w-2xl">{T.contact.pageSubtitle}</p>
+  </section>
+
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <div class="grid md:grid-cols-2 gap-16 pt-16">
+
+      <!-- Contact Info -->
+      <div class="space-y-10">
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">{T.contact.phone}</p>
+          <a href="tel:+8613175698111" class="text-2xl font-semibold hover:text-industrial-blue transition">
+            +86 131-7569-8111
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">{T.contact.email}</p>
+          <a href="mailto:info@InChief.cn" class="text-2xl font-semibold hover:text-industrial-blue transition">
+            info@InChief.cn
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">{T.contact.address}</p>
+          <p class="text-lg leading-relaxed">{T.contact.addressText}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">{T.contact.hours}</p>
+          <p class="text-lg">{T.contact.hoursText}</p>
+        </div>
+
+      </div>
+
+      <!-- Info panel -->
+      <div class="border border-neutral-800 p-10 space-y-8">
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-1">
+            {lang === 'zh' ? '公司全称' : lang === 'ar' ? 'الاسم الرسمي' : lang === 'fr' ? 'Raison sociale' : lang === 'es' ? 'Razón social' : lang === 'it' ? 'Ragione sociale' : 'Legal Name'}
+          </p>
+          <p class="text-sm">浙江云创印刷科技有限公司</p>
+          <p class="text-sm text-neutral-400">Zhejiang InChief Printing Technology Co., Ltd.</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-1">
+            {lang === 'zh' ? '统一社会信用代码' : lang === 'ar' ? 'رمز الائتمان الاجتماعي' : lang === 'fr' ? 'Code de crédit social' : lang === 'es' ? 'Código de crédito social' : lang === 'it' ? 'Codice di credito sociale' : 'Unified Social Credit Code'}
+          </p>
+          <p class="text-sm font-mono">913330383MA2HBRJ43K</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-1">
+            {lang === 'zh' ? '法定代表人' : lang === 'ar' ? 'الممثل القانوني' : lang === 'fr' ? 'Représentant légal' : lang === 'es' ? 'Representante legal' : lang === 'it' ? 'Rappresentante legale' : 'Legal Representative'}
+          </p>
+          <p class="text-sm">何经刊 (He Jingkan)</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-1">
+            {lang === 'zh' ? '成立日期' : lang === 'ar' ? 'تاريخ التأسيس' : lang === 'fr' ? 'Date de fondation' : lang === 'es' ? 'Fecha de fundación' : lang === 'it' ? 'Data di fondazione' : 'Founded'}
+          </p>
+          <p class="text-sm">March 31, 2020 / 2020年3月31日</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-neutral-400 uppercase tracking-widest mb-1">
+            {lang === 'zh' ? '注册资本' : lang === 'ar' ? 'رأس المال المسجل' : lang === 'fr' ? 'Capital enregistré' : lang === 'es' ? 'Capital registrado' : lang === 'it' ? 'Capitale registrato' : 'Registered Capital'}
+          </p>
+          <p class="text-sm">RMB 108,060,000 / 壹亿零捌佰零陆万元整</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

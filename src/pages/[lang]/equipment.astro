@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const equipmentGroups = [
+  {
+    title: T.equipment.printing,
+    items: [
+      { name: "Heidelberg CX104-8+LYY-2+L", spec: "对开十色+双上光胶印机", qty: 1 },
+      { name: "Heidelberg XL75-6", spec: "四开六色胶印机", qty: 1 },
+      { name: "Heidelberg XL106-6", spec: "对开六色胶印机", qty: 1 },
+      { name: "Heidelberg XL75-7+L", spec: "四开七色+逆向UV胶印机", qty: 1 },
+      { name: "Koenig & Bauer RA105-5+L", spec: "对开五色+上光胶印机", qty: 1 },
+      { name: "Koenig & Bauer RA105-8+L", spec: "对开八色+逆向UV胶印机", qty: 1 },
+      { name: "Koenig & Bauer RA164-5", spec: "全开五色胶印机", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.ctp,
+    items: [
+      { name: "Kodak Q800AL", spec: "CTP数字制版机", qty: 1 },
+      { name: "Kodak Q1600", spec: "CTP数字制版机", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.cutting,
+    items: [
+      { name: "Guowang GW137P", spec: "切纸机", qty: 1 },
+      { name: "Guowang GW137S", spec: "全自动裁切线", qty: 1 },
+      { name: "Guowang GW176S", spec: "全自动裁切线", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.coating,
+    items: [
+      { name: "Delragen PMSZ-LUV-IR1010-Y", spec: "全自动喷码/上光机", qty: 1 },
+      { name: "Juanda PM1020Z", spec: "高速LED-UV喷码机", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.lamination,
+    items: [
+      { name: "Guangming GLT1080-900", spec: "全自动高速覆膜机", qty: 1 },
+      { name: "Guangming GL1080-900", spec: "全自动高速覆膜机", qty: 1 },
+      { name: "Guangming GL160-1650", spec: "全自动高速覆膜机", qty: 1 },
+      { name: "Shengtian STCS1700E", spec: "全自动高速裱纸机", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.foilDie,
+    items: [
+      { name: "Guowang C106Y", spec: "全自动烫金机", qty: 1 },
+      { name: "Guowang C106Q", spec: "全自动模切清废机", qty: 2 },
+      { name: "Jinya SR-1650SHL", spec: "全自动瓦楞模切清废机", qty: 1 },
+      { name: "Qianding HTQF-1080B", spec: "全自动清废取品机", qty: 2 },
+    ],
+  },
+  {
+    title: T.equipment.inspection,
+    items: [
+      { name: "Lingyun PackSheet-600-T4K1-RPE1", spec: "全自动印刷质量检测机", qty: 1 },
+      { name: "Daheng DH-HSJP420-20AAM", spec: "全自动检品机", qty: 2 },
+      { name: "X-Rite EXACT", spec: "印刷检测密度仪", qty: 1 },
+    ],
+  },
+  {
+    title: T.equipment.gluing,
+    items: [
+      { name: "Xieshun XS-700", spec: "全自动（卡瓦）双用糊盒机", qty: 1 },
+      { name: "Xieshun XS-900", spec: "全自动高速糊盒机", qty: 1 },
+      { name: "Haerde FG-800JP", spec: "全自动高速糊盒机", qty: 1 },
+      { name: "Xinluolan Rolam1600PC", spec: "全自动高速糊箱机", qty: 1 },
+    ],
+  },
+];
+---
+
+<BaseLayout title={`${T.equipment.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <!-- Header -->
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.equipment.pageTitle}</h1>
+    <p class="text-neutral-400 text-xl">{T.equipment.pageSubtitle}</p>
+  </section>
+
+  <!-- Capacity banner -->
+  <section class="container-industrial pb-16 border-t border-neutral-800">
+    <div class="grid sm:grid-cols-3 gap-0 mt-16 border border-neutral-800 divide-x divide-neutral-800">
+      <div class="p-8">
+        <p class="text-3xl font-bold text-industrial-blue">{T.equipment.capacitySheets}</p>
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mt-2">{T.equipment.capacityTitle}</p>
+      </div>
+      <div class="p-8">
+        <p class="text-3xl font-bold text-industrial-blue">{T.equipment.capacityFormat}</p>
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mt-2">Max Format</p>
+      </div>
+      <div class="p-8">
+        <p class="text-sm text-white leading-relaxed">{T.equipment.capacityProcesses}</p>
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mt-2">Supported Processes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment tables -->
+  {equipmentGroups.map((group) => (
+    <section class="container-industrial pb-16">
+      <h2 class="text-2xl font-semibold mb-6 text-industrial-blue">{group.title}</h2>
+      <div class="border border-neutral-800 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-neutral-800 bg-neutral-900">
+              <th class="text-start px-6 py-3 text-neutral-400 font-normal">{lang === 'zh' ? '设备名称' : 'Equipment'}</th>
+              <th class="text-start px-6 py-3 text-neutral-400 font-normal hidden md:table-cell">{lang === 'zh' ? '规格型号' : 'Specification'}</th>
+              <th class="text-start px-6 py-3 text-neutral-400 font-normal w-16">{lang === 'zh' ? '数量' : 'Qty'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {group.items.map((item, i) => (
+              <tr class={`border-b border-neutral-800 last:border-none ${i % 2 === 1 ? 'bg-neutral-900/30' : ''}`}>
+                <td class="px-6 py-4">{item.name}</td>
+                <td class="px-6 py-4 text-neutral-400 hidden md:table-cell">{item.spec}</td>
+                <td class="px-6 py-4 text-industrial-blue">{item.qty}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")} class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition">
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>

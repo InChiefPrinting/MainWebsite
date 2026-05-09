@@ -1,20 +1,10 @@
 @import "tailwindcss";
 
-/* 自定义工业品牌色变量等 */
-
-/* ===============================
-   Industrial Design Tokens
-================================ */
-
 @theme {
   --color-industrial-black: #0a0a0a;
   --color-industrial-gray: #1a1a1a;
   --color-industrial-blue: #2b6cff;
 }
-
-/* ===============================
-   Base Style
-================================ */
 
 html {
   scroll-behavior: smooth;
@@ -22,6 +12,12 @@ html {
 
 body {
   @apply bg-industrial-black text-white antialiased;
+}
+
+/* Arabic RTL font */
+body.font-arabic,
+[dir="rtl"] body {
+  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
 }
 
 .container-industrial {

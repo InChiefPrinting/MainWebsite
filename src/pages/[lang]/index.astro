@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+---
+
+<BaseLayout title={T.meta.title} description={T.meta.description} lang={lang}>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="container-industrial py-32">
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight max-w-4xl">
+      {T.hero.title}
+    </h1>
+    <p class="mt-6 text-neutral-400 max-w-2xl">
+      <span class="block">{T.hero.sub1}</span>
+      <span class="block mt-1">{T.hero.sub2}</span>
+    </p>
+    <a
+      href={url(lang as Lang, "/contact")}
+      class="inline-block mt-10 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
+    >
+      {T.hero.cta}
+    </a>
+  </section>
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800">
+    <h2 class="text-3xl font-semibold mb-8">{T.home.overviewTitle}</h2>
+    <p class="text-neutral-400 max-w-3xl leading-relaxed">
+      {T.home.overviewText}
+    </p>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800">
+    <h2 class="text-3xl font-semibold mb-12">{T.home.servicesTitle}</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-xl font-semibold">{T.service.commercial}</h3>
+        <p class="text-neutral-400 mt-4">{T.service.commercialDesc}</p>
+      </div>
+
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-xl font-semibold">{T.service.packaging}</h3>
+        <p class="text-neutral-400 mt-4">{T.service.packagingDesc}</p>
+      </div>
+
+      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+        <h3 class="text-xl font-semibold">{T.service.finishing}</h3>
+        <p class="text-neutral-400 mt-4">{T.service.finishingDesc}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-4xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4 max-w-xl mx-auto">{T.home.ctaText}</p>
+    <a
+      href={url(lang as Lang, "/contact")}
+      class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
+    >
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>

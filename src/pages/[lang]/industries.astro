@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const sectors = [
+  { title: T.industries.food, desc: T.industries.foodDesc, icon: "◈" },
+  { title: T.industries.pharma, desc: T.industries.pharmaDesc, icon: "◇" },
+  { title: T.industries.luxury, desc: T.industries.luxuryDesc, icon: "◆" },
+  { title: T.industries.publishing, desc: T.industries.publishingDesc, icon: "◉" },
+  { title: T.industries.retail, desc: T.industries.retailDesc, icon: "○" },
+  { title: T.industries.industrial, desc: T.industries.industrialDesc, icon: "⬡" },
+];
+---
+
+<BaseLayout title={`${T.industries.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.industries.pageTitle}</h1>
+    <p class="text-neutral-400 max-w-2xl">{T.industries.pageSubtitle}</p>
+  </section>
+
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      {sectors.map((sector) => (
+        <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition group">
+          <p class="text-industrial-blue text-3xl mb-4">{sector.icon}</p>
+          <h2 class="text-xl font-semibold mb-3">{sector.title}</h2>
+          <p class="text-neutral-400 leading-relaxed">{sector.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")} class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition">
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>

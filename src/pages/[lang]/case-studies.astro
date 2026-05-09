@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const cases = [
+  { title: T.caseStudies.c1title, tag: T.caseStudies.c1tag, desc: T.caseStudies.c1desc },
+  { title: T.caseStudies.c2title, tag: T.caseStudies.c2tag, desc: T.caseStudies.c2desc },
+  { title: T.caseStudies.c3title, tag: T.caseStudies.c3tag, desc: T.caseStudies.c3desc },
+];
+---
+
+<BaseLayout title={`${T.caseStudies.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
+
+  <section class="container-industrial py-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.caseStudies.pageTitle}</h1>
+    <p class="text-neutral-400 max-w-2xl">{T.caseStudies.pageSubtitle}</p>
+  </section>
+
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <div class="space-y-0 mt-16">
+      {cases.map((c) => (
+        <div class="border-b border-neutral-800 py-12 grid md:grid-cols-[1fr_2fr] gap-12">
+          <div>
+            <h2 class="text-xl font-semibold mb-3">{c.title}</h2>
+            <div class="flex flex-wrap gap-2">
+              {c.tag.split(' · ').map((tag) => (
+                <span class="px-3 py-1 border border-industrial-blue text-industrial-blue text-xs">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p class="text-neutral-400 leading-relaxed">{c.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
+    <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
+    <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")} class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition">
+      {T.home.ctaBtn}
+    </a>
+  </section>
+
+</BaseLayout>
