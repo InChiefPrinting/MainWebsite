@@ -38,26 +38,85 @@ const T = t(lang);
     </p>
   </section>
 
+  <!-- ═══ STATS ═══ -->
+  <section class="border-t border-neutral-800">
+    <div class="container-industrial">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-neutral-800 border-b border-neutral-800">
+        <div class="p-8">
+          <p class="text-4xl font-bold text-industrial-blue">1.1M</p>
+          <p class="text-neutral-400 text-sm mt-2">
+            {lang === 'zh' ? '日产能（印张）' : lang === 'ar' ? 'ورقة يومياً' : lang === 'fr' ? 'Feuilles / jour' : lang === 'es' ? 'Hojas / día' : lang === 'it' ? 'Fogli al giorno' : 'Sheets / Day'}
+          </p>
+        </div>
+        <div class="p-8">
+          <p class="text-4xl font-bold text-industrial-blue">16+</p>
+          <p class="text-neutral-400 text-sm mt-2">
+            {lang === 'zh' ? '印刷解决方案' : lang === 'ar' ? 'حلاً للطباعة' : lang === 'fr' ? 'Solutions d\'impression' : lang === 'es' ? 'Soluciones de impresión' : lang === 'it' ? 'Soluzioni di stampa' : 'Print Solutions'}
+          </p>
+        </div>
+        <div class="p-8">
+          <p class="text-4xl font-bold text-industrial-blue">6</p>
+          <p class="text-neutral-400 text-sm mt-2">
+            {lang === 'zh' ? '国际认证' : lang === 'ar' ? 'شهادات دولية' : lang === 'fr' ? 'Certifications intl.' : lang === 'es' ? 'Certificaciones intl.' : lang === 'it' ? 'Certificazioni intl.' : 'International Certs'}
+          </p>
+        </div>
+        <div class="p-8">
+          <p class="text-4xl font-bold text-industrial-blue">1640<span class="text-2xl">mm</span></p>
+          <p class="text-neutral-400 text-sm mt-2">
+            {lang === 'zh' ? '最大印刷幅面' : lang === 'ar' ? 'أقصى تنسيق طباعة' : lang === 'fr' ? 'Format max d\'impression' : lang === 'es' ? 'Formato máx. impresión' : lang === 'it' ? 'Formato max di stampa' : 'Max Print Format'}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ SERVICES ═══ -->
   <section class="container-industrial py-24 border-t border-neutral-800">
     <h2 class="text-3xl font-semibold mb-12">{T.home.servicesTitle}</h2>
     <div class="grid md:grid-cols-3 gap-8">
 
-      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
-        <h3 class="text-xl font-semibold">{T.service.commercial}</h3>
+      <a href={url(lang as Lang, "/solutions/commercial")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
+        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.commercial}</h3>
         <p class="text-neutral-400 mt-4">{T.service.commercialDesc}</p>
-      </div>
+        <p class="mt-6 text-industrial-blue text-sm">
+          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+        </p>
+      </a>
 
-      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
-        <h3 class="text-xl font-semibold">{T.service.packaging}</h3>
+      <a href={url(lang as Lang, "/solutions/folding-carton")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
+        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.packaging}</h3>
         <p class="text-neutral-400 mt-4">{T.service.packagingDesc}</p>
-      </div>
+        <p class="mt-6 text-industrial-blue text-sm">
+          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+        </p>
+      </a>
 
-      <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
-        <h3 class="text-xl font-semibold">{T.service.finishing}</h3>
+      <a href={url(lang as Lang, "/solutions/uv-varnish")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
+        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.finishing}</h3>
         <p class="text-neutral-400 mt-4">{T.service.finishingDesc}</p>
-      </div>
+        <p class="mt-6 text-industrial-blue text-sm">
+          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+        </p>
+      </a>
 
+    </div>
+  </section>
+
+  <!-- ═══ TRUSTED EQUIPMENT ═══ -->
+  <section class="container-industrial py-16 border-t border-neutral-800">
+    <p class="text-xs text-neutral-500 uppercase tracking-widest mb-8 text-center">
+      {lang === 'zh' ? '核心设备品牌' : lang === 'ar' ? 'معدات عالمية المستوى' : lang === 'fr' ? 'Équipements de référence' : lang === 'es' ? 'Equipos de referencia' : lang === 'it' ? 'Attrezzature di riferimento' : 'World-Class Equipment'}
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-12 text-neutral-500 font-semibold tracking-wider text-sm">
+      <span class="hover:text-white transition">HEIDELBERG</span>
+      <span class="text-neutral-700">·</span>
+      <span class="hover:text-white transition">KOENIG &amp; BAUER</span>
+      <span class="text-neutral-700">·</span>
+      <span class="hover:text-white transition">KODAK</span>
+      <span class="text-neutral-700">·</span>
+      <span class="hover:text-white transition">X-RITE</span>
+      <span class="text-neutral-700">·</span>
+      <span class="hover:text-white transition">FSC® · ISO</span>
     </div>
   </section>
 
