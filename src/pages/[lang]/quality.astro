@@ -239,6 +239,46 @@ const certs = [
     </div>
   </section>
 
+  <!-- Approved Suppliers -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-3">
+      {lang === 'zh' ? '认证供应商体系' : lang === 'ar' ? 'موردون معتمدون' : lang === 'fr' ? 'Fournisseurs agréés' : lang === 'es' ? 'Proveedores certificados' : lang === 'it' ? 'Fornitori certificati' : 'Approved Supplier Network'}
+    </h2>
+    <p class="text-neutral-400 max-w-2xl mb-10">
+      {lang === 'zh' ? '所有耗材均来自经过严格资质审核的认证供应商，确保原料一致性与产品稳定性。' : lang === 'ar' ? 'جميع المواد الاستهلاكية مصدرها موردون معتمدون بعد تدقيق صارم لضمان اتساق المواد الخام.' : lang === 'fr' ? 'Tous les consommables proviennent de fournisseurs agréés après audit rigoureux, garantissant la cohérence des matières premières.' : lang === 'es' ? 'Todos los consumibles provienen de proveedores certificados tras una auditoría rigurosa, garantizando la consistencia de las materias primas.' : lang === 'it' ? 'Tutti i materiali di consumo provengono da fornitori certificati dopo rigoroso audit, garantendo coerenza delle materie prime.' : 'All consumables are sourced from approved suppliers following rigorous qualification audits, ensuring raw material consistency and stable output quality.'}
+    </p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {[
+        {
+          name: lang === 'zh' ? '温州旭升包装材料' : 'Wenzhou Xusheng Packaging',
+          location: lang === 'zh' ? '温州' : 'Wenzhou, China',
+          supply: lang === 'zh' ? '标准印刷油墨' : lang === 'ar' ? 'أحبار قياسية' : lang === 'fr' ? 'Encres standard' : lang === 'es' ? 'Tintas estándar' : lang === 'it' ? 'Inchiostri standard' : 'Standard printing inks',
+        },
+        {
+          name: lang === 'zh' ? '温州优彩新材料' : 'Wenzhou Youcai New Materials',
+          location: lang === 'zh' ? '温州' : 'Wenzhou, China',
+          supply: lang === 'zh' ? 'UV油墨' : lang === 'ar' ? 'أحبار UV' : lang === 'fr' ? 'Encres UV' : lang === 'es' ? 'Tintas UV' : lang === 'it' ? 'Inchiostri UV' : 'UV inks',
+        },
+        {
+          name: lang === 'zh' ? '温州富日瑞意' : 'Wenzhou Furirui',
+          location: lang === 'zh' ? '温州' : 'Wenzhou, China',
+          supply: lang === 'zh' ? 'TPB印版' : lang === 'ar' ? 'ألواح طباعة TPB' : lang === 'fr' ? 'Plaques d\'impression TPB' : lang === 'es' ? 'Planchas de impresión TPB' : lang === 'it' ? 'Lastre di stampa TPB' : 'TPB printing plates',
+        },
+        {
+          name: lang === 'zh' ? '东莞绿耀树脂' : 'Dongguan Lüyao Resin',
+          location: lang === 'zh' ? '东莞' : 'Dongguan, China',
+          supply: lang === 'zh' ? '耐磨水性光油' : lang === 'ar' ? 'ورنيش مائي مقاوم' : lang === 'fr' ? 'Vernis aqueux résistant' : lang === 'es' ? 'Barniz acuoso resistente' : lang === 'it' ? 'Vernice acquosa resistente' : 'Wear-resistant aqueous coating',
+        },
+      ].map((s) => (
+        <div class="border border-neutral-800 p-6">
+          <p class="font-semibold text-sm">{s.name}</p>
+          <p class="text-neutral-500 text-xs mt-1">{s.location}</p>
+          <p class="text-industrial-blue text-xs mt-3">{s.supply}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- Detection capability -->
   <section class="container-industrial pb-24 border-t border-neutral-800">
     <h2 class="text-2xl font-semibold mt-16 mb-6">{T.quality.detectionTitle}</h2>

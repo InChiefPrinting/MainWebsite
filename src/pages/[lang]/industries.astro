@@ -39,6 +39,65 @@ const sectors = [
     </div>
   </section>
 
+  <!-- ═══ CUSTOMER SEGMENTS ═══ -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-4">
+      {lang === 'zh' ? '我们服务的客户类型' : lang === 'ar' ? 'شرائح عملائنا' : lang === 'fr' ? 'Nos segments de clientèle' : lang === 'es' ? 'Segmentos de clientes que atendemos' : lang === 'it' ? 'Segmenti di clientela che serviamo' : 'Client Segments We Serve'}
+    </h2>
+    <p class="text-neutral-400 max-w-2xl mb-12">
+      {lang === 'zh' ? '我们根据不同客户类型的核心诉求，提供有针对性的解决方案与服务保障。' : lang === 'ar' ? 'نقدم حلولاً مخصصة تلبيةً للاحتياجات الجوهرية لكل شريحة من عملائنا.' : lang === 'fr' ? 'Nous adaptons nos solutions aux exigences prioritaires de chaque profil client.' : lang === 'es' ? 'Adaptamos nuestras soluciones a las necesidades clave de cada perfil de cliente.' : lang === 'it' ? 'Adattiamo le nostre soluzioni alle esigenze prioritarie di ogni profilo cliente.' : 'We tailor our solutions to the core priorities of each client profile.'}
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {[
+        {
+          grade: 'A',
+          title: lang === 'zh' ? '高端品牌客户' : lang === 'ar' ? 'العلامات التجارية الفاخرة' : lang === 'fr' ? 'Marques haut de gamme' : lang === 'es' ? 'Marcas de alta gama' : lang === 'it' ? 'Brand di alta gamma' : 'Premium Brand Clients',
+          focus: lang === 'zh' ? '化妆品、食品、医药、礼品' : lang === 'ar' ? 'مستحضرات تجميل، غذاء، أدوية، هدايا' : lang === 'fr' ? 'Cosmétiques, agroalimentaire, pharma, cadeaux' : lang === 'es' ? 'Cosmética, alimentación, farmacia, regalos' : lang === 'it' ? 'Cosmetici, alimentare, farmaceutico, regali' : 'Cosmetics, food, pharma, gifts',
+          priority: lang === 'zh' ? '核心诉求：品质工艺与视觉呈现' : lang === 'ar' ? 'الأولوية: جودة الحرفية والمظهر البصري' : lang === 'fr' ? 'Priorité : qualité artisanale et rendu visuel' : lang === 'es' ? 'Prioridad: calidad artesanal y presentación visual' : lang === 'it' ? 'Priorità: qualità artigianale e resa visiva' : 'Priority: craft quality & visual presentation',
+          tags: lang === 'zh' ? ['烫金', '击凸/击凹', '局部UV', '柔触覆膜', '精细套印'] : lang === 'ar' ? ['ختم ذهبي', 'نقش بارز', 'UV موضعي', 'طلاء ناعم', 'ضبط دقيق'] : lang === 'fr' ? ['Dorure', 'Gaufrage', 'UV sélectif', 'Pelliculage soft-touch', 'Repérage fin'] : lang === 'es' ? ['Estampado', 'Gofrado', 'UV selectivo', 'Plastificado soft-touch', 'Registro fino'] : lang === 'it' ? ['Stampa a caldo', 'Goffratura', 'UV selettivo', 'Pellicola soft-touch', 'Registro fine'] : ['Foil stamping', 'Embossing', 'Spot UV', 'Soft-touch lamination', 'Fine register'],
+        },
+        {
+          grade: 'B',
+          title: lang === 'zh' ? '出口贸易 / 跨境电商' : lang === 'ar' ? 'التجارة التصديرية / التجارة الإلكترونية' : lang === 'fr' ? 'Exportateurs / e-commerce transfrontalier' : lang === 'es' ? 'Exportadores / e-commerce transfronterizo' : lang === 'it' ? 'Esportatori / e-commerce transfrontaliero' : 'Export Traders / Cross-border E-commerce',
+          focus: lang === 'zh' ? '欧美出口品牌包装合规需求' : lang === 'ar' ? 'الامتثال البيئي للتصدير إلى أوروبا وأمريكا' : lang === 'fr' ? 'Conformité export vers Europe & Amérique du Nord' : lang === 'es' ? 'Conformidad para exportación a Europa y Norteamérica' : lang === 'it' ? 'Conformità export verso Europa e Nord America' : 'Compliance for EU & North American export markets',
+          priority: lang === 'zh' ? '核心诉求：FSC认证 + 环保合规' : lang === 'ar' ? 'الأولوية: شهادة FSC® والامتثال البيئي' : lang === 'fr' ? 'Priorité : certification FSC® et conformité verte' : lang === 'es' ? 'Prioridad: certificación FSC® y cumplimiento verde' : lang === 'it' ? 'Priorità: certificazione FSC® e conformità ambientale' : 'Priority: FSC® certification & green compliance',
+          tags: ['FSC-C212511', lang === 'zh' ? '食品安全油墨' : lang === 'ar' ? 'أحبار آمنة غذائياً' : lang === 'fr' ? 'Encres food-safe' : lang === 'es' ? 'Tintas food-safe' : lang === 'it' ? 'Inchiostri food-safe' : 'Food-safe inks', lang === 'zh' ? '环保用纸' : lang === 'ar' ? 'ورق معتمد' : lang === 'fr' ? 'Papier certifié' : lang === 'es' ? 'Papel certificado' : lang === 'it' ? 'Carta certificata' : 'Certified paperboard', 'ISO 14001'],
+        },
+        {
+          grade: 'C',
+          title: lang === 'zh' ? '包装中间商 / 代理商' : lang === 'ar' ? 'وسطاء التغليف / الوكلاء' : lang === 'fr' ? 'Intermédiaires emballage / Agents' : lang === 'es' ? 'Intermediarios de packaging / Agentes' : lang === 'it' ? 'Intermediari packaging / Agenti' : 'Packaging Agents & Intermediaries',
+          focus: lang === 'zh' ? '长期稳定供货与价格保障' : lang === 'ar' ? 'استقرار التوريد وضمان الأسعار على المدى الطويل' : lang === 'fr' ? 'Approvisionnement stable et prix garantis à long terme' : lang === 'es' ? 'Suministro estable y precios garantizados a largo plazo' : lang === 'it' ? 'Fornitura stabile e prezzi garantiti a lungo termine' : 'Stable long-term supply & price consistency',
+          priority: lang === 'zh' ? '核心诉求：稳定产能 + 不撬客 + 报价透明' : lang === 'ar' ? 'الأولوية: طاقة إنتاج مستقرة وشفافية في التسعير' : lang === 'fr' ? 'Priorité : capacité stable, prix transparents, non-concurrence clients' : lang === 'es' ? 'Prioridad: capacidad estable, precios transparentes, no competencia con clientes' : lang === 'it' ? 'Priorità: capacità stabile, prezzi trasparenti, non concorrenza con i clienti' : 'Priority: stable capacity, transparent pricing, client non-compete',
+          tags: [lang === 'zh' ? '批量稳定' : 'Volume stability', lang === 'zh' ? '价格锁定' : 'Price lock', lang === 'zh' ? 'OEM服务' : 'OEM service', lang === 'zh' ? '快速打样' : 'Fast sampling'],
+        },
+        {
+          grade: 'D',
+          title: lang === 'zh' ? '出版 / 书刊印刷' : lang === 'ar' ? 'النشر / طباعة الكتب' : lang === 'fr' ? 'Édition / Impression de livres' : lang === 'es' ? 'Editorial / Impresión de libros' : lang === 'it' ? 'Editoria / Stampa libri' : 'Publishing & Book Printing',
+          focus: lang === 'zh' ? '教材、精装书、杂志、地图册' : lang === 'ar' ? 'كتب مدرسية، كتب فاخرة، مجلات، أطالس' : lang === 'fr' ? 'Manuels, livres reliés, magazines, atlas' : lang === 'es' ? 'Libros de texto, libros de lujo, revistas, atlas' : lang === 'it' ? 'Libri scolastici, libri rilegati, riviste, atlanti' : 'Textbooks, hardcover books, magazines, atlases',
+          priority: lang === 'zh' ? '核心诉求：交期准时 + 装订质量' : lang === 'ar' ? 'الأولوية: الالتزام بالمواعيد وجودة التجليد' : lang === 'fr' ? 'Priorité : délais respectés et qualité de reliure' : lang === 'es' ? 'Prioridad: cumplimiento de plazos y calidad de encuadernación' : lang === 'it' ? 'Priorità: rispetto dei tempi e qualità di rilegatura' : 'Priority: on-time delivery & binding quality',
+          tags: [lang === 'zh' ? '精装/平装' : 'Hardcover/Softcover', lang === 'zh' ? '骑马订' : 'Saddle stitch', lang === 'zh' ? '色彩一致性' : 'Color consistency', 'ISO 9001'],
+        },
+      ].map((seg) => (
+        <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+          <div class="flex items-start justify-between mb-5">
+            <div>
+              <span class="inline-block w-8 h-8 bg-industrial-blue text-white text-sm font-bold flex items-center justify-center mb-3">{seg.grade}</span>
+              <h3 class="text-lg font-semibold">{seg.title}</h3>
+              <p class="text-neutral-500 text-sm mt-1">{seg.focus}</p>
+            </div>
+          </div>
+          <p class="text-industrial-blue text-sm mb-4">{seg.priority}</p>
+          <div class="flex flex-wrap gap-2">
+            {seg.tags.map((tag) => (
+              <span class="px-2 py-1 border border-neutral-700 text-neutral-400 text-xs">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <section class="container-industrial py-24 border-t border-neutral-800 text-center">
     <h2 class="text-3xl font-semibold">{T.home.ctaTitle}</h2>
     <p class="text-neutral-400 mt-4">{T.home.ctaText}</p>
