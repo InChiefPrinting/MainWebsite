@@ -68,16 +68,62 @@ const T = t(lang);
       </div>
       <div class="relative">
         <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
+        <p class="text-sm text-industrial-blue font-semibold">2023</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? '认定科技型中小企业' : lang === 'ar' ? 'الاعتراف كشركة صغيرة متوسطة تقنية' : lang === 'fr' ? 'Reconnaissance PME technologique' : lang === 'es' ? 'Reconocimiento PYME tecnológica' : lang === 'it' ? 'Riconoscimento PMI tecnologica' : 'Science & Technology SME Certified'}</p>
+        <p class="text-neutral-400 text-sm mt-1">20233303001390</p>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
         <p class="text-sm text-industrial-blue font-semibold">2024</p>
-        <p class="text-white font-medium mt-1">{lang === 'zh' ? '荣获国家高新技术企业认定' : lang === 'ar' ? 'الاعتراف بمؤسسة وطنية للتقنية العالية' : lang === 'fr' ? 'Reconnaissance Haute Technologie' : lang === 'es' ? 'Reconocimiento Alta Tecnología' : lang === 'it' ? 'Riconoscimento Alta Tecnologia' : 'National High-Tech Enterprise'}</p>
-        <p class="text-neutral-400 text-sm mt-1">GR202433001592</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? '荣获国家高新技术企业认定' : lang === 'ar' ? 'الاعتراف بمؤسسة وطنية للتقنية العالية' : lang === 'fr' ? 'Reconnaissance Haute Technologie Nationale' : lang === 'es' ? 'Reconocimiento Empresa Nacional Alta Tecnología' : lang === 'it' ? 'Riconoscimento Impresa Nazionale Alta Tecnologia' : 'National High-Tech Enterprise Certified'}</p>
+        <p class="text-neutral-400 text-sm mt-1">GR202433001592 — 15% preferential corporate tax rate</p>
       </div>
       <div class="relative">
         <div class="absolute -left-10 w-4 h-4 rounded-full bg-industrial-blue"></div>
         <p class="text-sm text-industrial-blue font-semibold">2026</p>
-        <p class="text-white font-medium mt-1">{lang === 'zh' ? 'ISO三体系认证续期 · FSC®延续' : lang === 'ar' ? 'تجديد شهادات ISO و FSC®' : lang === 'fr' ? 'Renouvellement ISO & FSC®' : lang === 'es' ? 'Renovación ISO & FSC®' : lang === 'it' ? 'Rinnovo ISO & FSC®' : 'ISO Triple Renewal · FSC® Extended'}</p>
-        <p class="text-neutral-400 text-sm mt-1">ISO 9001 · ISO 14001 · ISO 45001 · FSC-C212511</p>
+        <p class="text-white font-medium mt-1">{lang === 'zh' ? 'ISO三体系认证续期 · FSC®延续至2030' : lang === 'ar' ? 'تجديد ISO الثلاثي · FSC® حتى 2030' : lang === 'fr' ? 'Renouvellement ISO triple · FSC® jusqu\'en 2030' : lang === 'es' ? 'Renovación ISO triple · FSC® hasta 2030' : lang === 'it' ? 'Rinnovo triplo ISO · FSC® fino al 2030' : 'ISO Triple Renewal · FSC® Extended to 2030'}</p>
+        <p class="text-neutral-400 text-sm mt-1">ISO 9001 · ISO 14001 · ISO 45001 — valid 2026–2029 · FSC-C212511 — valid 2026–2030</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY INCHIEF ═══ -->
+  <section class="container-industrial py-24 border-t border-neutral-800">
+    <h2 class="text-3xl font-semibold mb-4">
+      {lang === 'zh' ? '为什么选择云创印刷' : lang === 'ar' ? 'لماذا تختار InChief' : lang === 'fr' ? 'Pourquoi choisir InChief' : lang === 'es' ? '¿Por qué elegir InChief?' : lang === 'it' ? 'Perché scegliere InChief' : 'Why Choose InChief'}
+    </h2>
+    <p class="text-neutral-400 max-w-2xl mb-12">
+      {lang === 'zh' ? '华东地区高端彩色包装印刷领先企业——大厂的认证体系、区域厂的成本优势、中小厂的响应灵活性。' : lang === 'ar' ? 'رائد في طباعة التغليف الملوّن الفاخر في شرق الصين — شهادات المصنع الكبير، تكلفة المصنع الإقليمي، مرونة الشركات الصغيرة.' : lang === 'fr' ? 'Leader de l\'emballage couleur haut de gamme en Chine de l\'Est — certifications de grande usine, coûts régionaux, réactivité d\'une PME.' : lang === 'es' ? 'Líder en impresión de packaging en color de alta gama en el este de China — certificaciones de gran fábrica, costes regionales, flexibilidad de empresa mediana.' : lang === 'it' ? 'Leader nell\'imballaggio a colori premium nella Cina orientale — certificazioni da grande fabbrica, costi regionali, flessibilità di una PMI.' : 'Leading high-end color packaging printer in East China — large-factory certifications, regional-factory costs, mid-factory flexibility and responsiveness.'}
+    </p>
+    <div class="grid md:grid-cols-2 gap-6">
+      {[
+        {
+          num: '01',
+          title: lang === 'zh' ? 'QES三体系整合管理' : lang === 'ar' ? 'نظام إدارة QES المتكامل' : lang === 'fr' ? 'Système de gestion QES intégré' : lang === 'es' ? 'Sistema de gestión QES integrado' : lang === 'it' ? 'Sistema di gestione QES integrato' : 'Integrated QES Management System',
+          desc: lang === 'zh' ? 'ISO 9001 质量 + ISO 14001 环境 + ISO 45001 安全三体系整合，同步通过认证——在同级别印刷企业中极为稀缺。' : lang === 'ar' ? 'ISO 9001 (جودة) + ISO 14001 (بيئة) + ISO 45001 (سلامة) مدمجة في نظام واحد — نادر في المنشآت المماثلة.' : lang === 'fr' ? 'ISO 9001 (qualité) + ISO 14001 (environnement) + ISO 45001 (sécurité) intégrés et certifiés simultanément — rare à ce niveau.' : lang === 'es' ? 'ISO 9001 (calidad) + ISO 14001 (medio ambiente) + ISO 45001 (seguridad) integrados y certificados simultáneamente — infrecuente en el sector.' : lang === 'it' ? 'ISO 9001 (qualità) + ISO 14001 (ambiente) + ISO 45001 (sicurezza) integrati e certificati simultaneamente — raro nel settore.' : 'ISO 9001 (quality) + ISO 14001 (environment) + ISO 45001 (safety) integrated and simultaneously certified — rare among peer-level printers.',
+        },
+        {
+          num: '02',
+          title: lang === 'zh' ? '双重科技企业认定' : lang === 'ar' ? 'اعتراف مزدوج كمؤسسة تقنية' : lang === 'fr' ? 'Double reconnaissance technologique' : lang === 'es' ? 'Doble reconocimiento tecnológico' : lang === 'it' ? 'Doppio riconoscimento tecnologico' : 'Dual Tech-Enterprise Status',
+          desc: lang === 'zh' ? '同时持有国家高新技术企业（GR202433001592）与科技型中小企业双重认定，享受15%优惠所得税率，充分证明研发与技术创新实力。' : lang === 'ar' ? 'شهادتان: مؤسسة وطنية للتقنية العالية + شركة صغيرة متوسطة تقنية. معدل ضريبي مفضل 15% يعكس الاستثمار الحقيقي في البحث والتطوير.' : lang === 'fr' ? 'Double reconnaissance: Entreprise nationale haute technologie (GR202433001592) + PME technologique. Taux d\'imposition préférentiel de 15%.' : lang === 'es' ? 'Doble reconocimiento: Empresa Nacional de Alta Tecnología (GR202433001592) + PYME tecnológica. Tipo impositivo preferencial del 15%.' : lang === 'it' ? 'Doppio riconoscimento: Impresa Nazionale Alta Tecnologia (GR202433001592) + PMI tecnologica. Aliquota fiscale agevolata al 15%.' : 'Dual certification: National High-Tech Enterprise (GR202433001592) + Science & Tech SME. 15% preferential corporate tax rate validates genuine R&D investment.',
+        },
+        {
+          num: '03',
+          title: lang === 'zh' ? 'FSC®产销监管链认证' : lang === 'ar' ? 'شهادة FSC® لسلسلة الحيازة' : lang === 'fr' ? 'Certification FSC® chaîne de custody' : lang === 'es' ? 'Certificación FSC® cadena de custodia' : lang === 'it' ? 'Certificazione FSC® catena di custodia' : 'FSC® Chain of Custody Certification',
+          desc: lang === 'zh' ? 'FSC-C212511，有效期至2030年1月。出口欧美品牌客户环保合规的必备资质，支持可持续包装全链条溯源。' : lang === 'ar' ? 'FSC-C212511 صالحة حتى يناير 2030. متطلب إلزامي لتصدير العبوات لعلامات أوروبية وأمريكية تلتزم بالاستدامة.' : lang === 'fr' ? 'FSC-C212511, valide jusqu\'en janvier 2030. Certification obligatoire pour les exportations d\'emballages vers les marques européennes et nord-américaines soucieuses du développement durable.' : lang === 'es' ? 'FSC-C212511, válida hasta enero de 2030. Requisito esencial para exportar packaging a marcas europeas y norteamericanas comprometidas con la sostenibilidad.' : lang === 'it' ? 'FSC-C212511, valida fino a gennaio 2030. Requisito essenziale per esportare packaging a marchi europei e nordamericani attenti alla sostenibilità.' : 'FSC-C212511, valid to January 2030. Mandatory qualification for exporting to European and North American brands with sustainable sourcing commitments.',
+        },
+        {
+          num: '04',
+          title: lang === 'zh' ? '纯德国进口设备' : lang === 'ar' ? 'معدات ألمانية بالكامل' : lang === 'fr' ? 'Équipements 100% allemands' : lang === 'es' ? 'Maquinaria 100% alemana' : lang === 'it' ? 'Attrezzature 100% tedesche' : '100% German-Brand Press Fleet',
+          desc: lang === 'zh' ? '全部7台胶印机均为海德堡或高宝品牌，无国产设备。最高配置：海德堡CX104十色+双上光，幅面达全开1640mm。' : lang === 'ar' ? 'جميع المطابع السبع من Heidelberg أو Koenig & Bauer — لا ماكينات محلية. أعلى تكوين: CX104 عشرة ألوان + طلاء مزدوج، تنسيق 1640 مم.' : lang === 'fr' ? 'Les 7 presses offset sont toutes Heidelberg ou Koenig & Bauer — aucune marque nationale. Configuration max : CX104 10 couleurs + double vernis, format 1640 mm.' : lang === 'es' ? 'Las 7 prensas offset son todas Heidelberg o Koenig & Bauer — sin marcas nacionales. Configuración máx.: CX104 10 colores + doble barniz, formato 1640 mm.' : lang === 'it' ? 'Tutte e 7 le presse offset sono Heidelberg o Koenig & Bauer — nessun marchio nazionale. Configurazione max: CX104 10 colori + doppia verniciatura, formato 1640 mm.' : 'All 7 offset presses are Heidelberg or Koenig & Bauer — no domestic press brands. Top config: CX104 10-color + dual coating, 1640mm full-format.',
+        },
+      ].map((item) => (
+        <div class="border border-neutral-800 p-8 hover:border-industrial-blue transition">
+          <p class="text-industrial-blue text-sm font-mono mb-4">{item.num}</p>
+          <h3 class="text-lg font-semibold mb-3">{item.title}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
     </div>
   </section>
 

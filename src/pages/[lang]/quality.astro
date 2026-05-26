@@ -75,6 +75,170 @@ const certs = [
     </div>
   </section>
 
+  <!-- Quality Policy Banner -->
+  <section class="container-industrial pb-16 border-t border-neutral-800">
+    <div class="mt-16 border border-industrial-blue/30 bg-industrial-blue/5 p-10">
+      <p class="text-xs text-industrial-blue uppercase tracking-widest mb-5">
+        {lang === 'zh' ? '质量方针' : lang === 'ar' ? 'سياسة الجودة' : lang === 'fr' ? 'Politique qualité' : lang === 'es' ? 'Política de calidad' : lang === 'it' ? 'Politica della qualità' : 'Quality Policy'}
+      </p>
+      {lang === 'zh' ? (
+        <p class="text-lg leading-relaxed font-medium">
+          顾客至上、优质高效 &nbsp;·&nbsp; 全员参与、持续改进 &nbsp;·&nbsp; 预防污染、绿色排放 &nbsp;·&nbsp; 遵守法律、安全第一
+        </p>
+      ) : lang === 'ar' ? (
+        <p class="text-lg leading-relaxed font-medium">
+          العميل أولاً، جودة وكفاءة &nbsp;·&nbsp; مشاركة الجميع، تحسين مستمر &nbsp;·&nbsp; منع التلوث، انبعاثات خضراء &nbsp;·&nbsp; الامتثال للقانون، السلامة أولاً
+        </p>
+      ) : lang === 'fr' ? (
+        <p class="text-lg leading-relaxed font-medium">
+          Le client d'abord, qualité et efficacité &nbsp;·&nbsp; Participation totale, amélioration continue &nbsp;·&nbsp; Prévention de la pollution, émissions vertes &nbsp;·&nbsp; Conformité légale, sécurité avant tout
+        </p>
+      ) : lang === 'es' ? (
+        <p class="text-lg leading-relaxed font-medium">
+          El cliente primero, calidad y eficiencia &nbsp;·&nbsp; Participación total, mejora continua &nbsp;·&nbsp; Prevención de la contaminación, emisiones verdes &nbsp;·&nbsp; Cumplimiento legal, seguridad ante todo
+        </p>
+      ) : lang === 'it' ? (
+        <p class="text-lg leading-relaxed font-medium">
+          Il cliente prima di tutto, qualità ed efficienza &nbsp;·&nbsp; Partecipazione totale, miglioramento continuo &nbsp;·&nbsp; Prevenzione dell'inquinamento, emissioni verdi &nbsp;·&nbsp; Rispetto della legge, sicurezza prima di tutto
+        </p>
+      ) : (
+        <p class="text-lg leading-relaxed font-medium">
+          Customer First, Quality &amp; Efficiency &nbsp;·&nbsp; Full Participation, Continuous Improvement &nbsp;·&nbsp; Pollution Prevention, Green Emissions &nbsp;·&nbsp; Law Compliance, Safety First
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- 2024 Performance Results -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-3">
+      {lang === 'zh' ? '2024年度质量成绩' : lang === 'ar' ? 'نتائج الجودة 2024' : lang === 'fr' ? 'Résultats qualité 2024' : lang === 'es' ? 'Resultados de calidad 2024' : lang === 'it' ? 'Risultati qualità 2024' : '2024 Quality Performance'}
+    </h2>
+    <p class="text-neutral-400 max-w-2xl mb-12">
+      {lang === 'zh' ? '2024年度全年经营所有关键质量与安全指标全部达标，客户综合满意度评分95分（满分100）。' : lang === 'ar' ? 'في عام 2024، تم استيفاء جميع مؤشرات الجودة والسلامة الرئيسية، ورضا العملاء الشامل 95/100.' : lang === 'fr' ? 'En 2024, tous les indicateurs clés de qualité et de sécurité ont été atteints. Score de satisfaction client : 95/100.' : lang === 'es' ? 'En 2024, todos los indicadores clave de calidad y seguridad fueron alcanzados. Satisfacción del cliente: 95/100.' : lang === 'it' ? 'Nel 2024, tutti i principali indicatori di qualità e sicurezza sono stati raggiunti. Soddisfazione del cliente: 95/100.' : 'In 2024, all key quality and safety KPIs were met. Overall customer satisfaction score: 95 out of 100.'}
+    </p>
+
+    <!-- Satisfaction score + Seven Zeros -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Satisfaction breakdown -->
+      <div class="border border-neutral-800 p-8">
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-6">
+          {lang === 'zh' ? '客户满意度评分（2024）' : lang === 'ar' ? 'تقييم رضا العملاء (2024)' : lang === 'fr' ? 'Score satisfaction client (2024)' : lang === 'es' ? 'Puntuación satisfacción (2024)' : lang === 'it' ? 'Punteggio soddisfazione (2024)' : 'Customer Satisfaction Score (2024)'}
+        </p>
+        {[
+          { label: lang === 'zh' ? '产品质量' : lang === 'ar' ? 'جودة المنتج' : lang === 'fr' ? 'Qualité produit' : lang === 'es' ? 'Calidad del producto' : lang === 'it' ? 'Qualità prodotto' : 'Product Quality', score: 91 },
+          { label: lang === 'zh' ? '服务质量' : lang === 'ar' ? 'جودة الخدمة' : lang === 'fr' ? 'Qualité de service' : lang === 'es' ? 'Calidad del servicio' : lang === 'it' ? 'Qualità del servizio' : 'Service Quality', score: 95 },
+          { label: lang === 'zh' ? '价格竞争力' : lang === 'ar' ? 'تنافسية الأسعار' : lang === 'fr' ? 'Compétitivité prix' : lang === 'es' ? 'Competitividad precio' : lang === 'it' ? 'Competitività prezzi' : 'Pricing', score: 98 },
+          { label: lang === 'zh' ? '交期准时率' : lang === 'ar' ? 'الالتزام بالتسليم' : lang === 'fr' ? 'Délais de livraison' : lang === 'es' ? 'Cumplimiento de plazos' : lang === 'it' ? 'Rispetto delle consegne' : 'On-time Delivery', score: 96 },
+        ].map((item) => (
+          <div class="flex items-center justify-between py-3 border-b border-neutral-800 last:border-0">
+            <span class="text-sm text-neutral-400">{item.label}</span>
+            <div class="flex items-center gap-3">
+              <div class="w-24 h-1.5 bg-neutral-800 rounded-full overflow-hidden">
+                <div class="h-full bg-industrial-blue rounded-full" style={`width: ${item.score}%`}></div>
+              </div>
+              <span class="text-sm font-semibold w-8 text-right">{item.score}</span>
+            </div>
+          </div>
+        ))}
+        <p class="mt-6 text-3xl font-bold text-industrial-blue">95 <span class="text-base font-normal text-neutral-400">/ 100</span></p>
+        <p class="text-xs text-neutral-500 mt-1">
+          {lang === 'zh' ? '综合满意度 · 100%回收率' : lang === 'ar' ? 'متوسط شامل · معدل استجابة 100%' : lang === 'fr' ? 'Moyenne globale · 100% de réponses' : lang === 'es' ? 'Promedio global · 100% de respuestas' : lang === 'it' ? 'Media globale · 100% di risposte' : 'Overall avg · 100% survey response rate'}
+        </p>
+      </div>
+
+      <!-- Seven Zeros -->
+      <div class="border border-neutral-800 p-8">
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-6">
+          {lang === 'zh' ? '"七零"年度成绩' : lang === 'ar' ? 'إنجازات "الأصفار السبعة"' : lang === 'fr' ? 'Bilan "Zéro défaut"' : lang === 'es' ? 'Logros "Siete ceros"' : lang === 'it' ? 'Risultati "Sette zeri"' : '"Seven Zeros" Annual Achievement'}
+        </p>
+        <div class="space-y-3">
+          {[
+            lang === 'zh' ? '零火灾事故' : lang === 'ar' ? 'صفر حوادث حريق' : lang === 'fr' ? 'Zéro incendie' : lang === 'es' ? 'Cero incendios' : lang === 'it' ? 'Zero incendi' : 'Zero fire accidents',
+            lang === 'zh' ? '零电气事故' : lang === 'ar' ? 'صفر حوادث كهربائية' : lang === 'fr' ? 'Zéro accident électrique' : lang === 'es' ? 'Cero accidentes eléctricos' : lang === 'it' ? 'Zero incidenti elettrici' : 'Zero electrical incidents',
+            lang === 'zh' ? '零人员重伤' : lang === 'ar' ? 'صفر إصابات خطيرة' : lang === 'fr' ? 'Zéro blessure grave' : lang === 'es' ? 'Cero lesiones graves' : lang === 'it' ? 'Zero infortuni gravi' : 'Zero major personal injuries',
+            lang === 'zh' ? '零噪声投诉' : lang === 'ar' ? 'صفر شكاوى ضوضاء' : lang === 'fr' ? 'Zéro plainte bruit' : lang === 'es' ? 'Cero quejas de ruido' : lang === 'it' ? 'Zero reclami rumore' : 'Zero noise complaints',
+            lang === 'zh' ? '零食品安全事故' : lang === 'ar' ? 'صفر حوادث سلامة غذائية' : lang === 'fr' ? 'Zéro incident alimentaire' : lang === 'es' ? 'Cero incidentes alimentarios' : lang === 'it' ? 'Zero incidenti alimentari' : 'Zero food safety incidents',
+            lang === 'zh' ? '零重大客诉' : lang === 'ar' ? 'صفر شكاوى عملاء كبرى' : lang === 'fr' ? 'Zéro réclamation majeure' : lang === 'es' ? 'Cero reclamaciones mayores' : lang === 'it' ? 'Zero reclami maggiori' : 'Zero major customer complaints',
+            lang === 'zh' ? '零监管处罚' : lang === 'ar' ? 'صفر عقوبات تنظيمية' : lang === 'fr' ? 'Zéro pénalité réglementaire' : lang === 'es' ? 'Cero sanciones regulatorias' : lang === 'it' ? 'Zero sanzioni normative' : 'Zero regulatory penalties',
+          ].map((item) => (
+            <div class="flex items-center gap-3">
+              <span class="text-industrial-blue font-bold text-lg leading-none">0</span>
+              <span class="text-sm text-neutral-300">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Quality Standards -->
+  <section class="container-industrial pb-24 border-t border-neutral-800">
+    <h2 class="text-2xl font-semibold mt-16 mb-10">
+      {lang === 'zh' ? '印刷技术质量规格' : lang === 'ar' ? 'مواصفات الجودة الفنية' : lang === 'fr' ? 'Spécifications techniques de qualité' : lang === 'es' ? 'Especificaciones técnicas de calidad' : lang === 'it' ? 'Specifiche tecniche di qualità' : 'Print Technical Quality Specifications'}
+    </h2>
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <div>
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-4">
+          {lang === 'zh' ? '套印精度' : lang === 'ar' ? 'دقة تطابق الألوان' : lang === 'fr' ? 'Précision de repérage' : lang === 'es' ? 'Precisión de registro' : lang === 'it' ? 'Precisione di registro' : 'Register Accuracy'}
+        </p>
+        <dl class="space-y-0">
+          {[
+            { label: lang === 'zh' ? '精细印刷' : 'Fine printing', value: '≤ 0.05 mm' },
+            { label: lang === 'zh' ? '标准印刷' : 'Standard printing', value: '≤ 0.15 mm' },
+          ].map((row) => (
+            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
+              <dt class="text-neutral-400 text-sm">{row.label}</dt>
+              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mt-8 mb-4">
+          {lang === 'zh' ? '车间环境控制' : lang === 'ar' ? 'بيئة ورشة العمل' : lang === 'fr' ? 'Environnement atelier' : lang === 'es' ? 'Ambiente taller' : lang === 'it' ? 'Ambiente officina' : 'Workshop Environment'}
+        </p>
+        <dl class="space-y-0">
+          {[
+            { label: lang === 'zh' ? '恒温控制' : 'Temperature', value: '23 ± 2 °C' },
+            { label: lang === 'zh' ? '恒湿控制' : 'Humidity', value: '55% – 65% RH' },
+          ].map((row) => (
+            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
+              <dt class="text-neutral-400 text-sm">{row.label}</dt>
+              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div>
+        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-4">
+          {lang === 'zh' ? '标准色密度范围（ISO 12647-2）' : lang === 'ar' ? 'نطاق كثافة الألوان (ISO 12647-2)' : lang === 'fr' ? 'Densités couleur standard (ISO 12647-2)' : lang === 'es' ? 'Densidades color estándar (ISO 12647-2)' : lang === 'it' ? 'Densità colore standard (ISO 12647-2)' : 'Standard Color Density (ISO 12647-2)'}
+        </p>
+        <dl class="space-y-0">
+          {[
+            { label: 'Black (K)', value: '1.40 – 1.70' },
+            { label: 'Cyan (C)', value: '1.30 – 1.55' },
+            { label: 'Magenta (M)', value: '1.25 – 1.50' },
+            { label: 'Yellow (Y)', value: '0.85 – 1.10' },
+            { label: lang === 'zh' ? '50%网点扩大（精细）' : 'Dot gain @ 50% (fine)', value: '10% – 20%' },
+          ].map((row) => (
+            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
+              <dt class="text-neutral-400 text-sm">{row.label}</dt>
+              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="mt-6 text-xs text-neutral-500">
+          {lang === 'zh' ? '参照标准：ISO 12647-2 · PSO（德国）· GRACoL（北美）' : lang === 'ar' ? 'المراجع: ISO 12647-2 · PSO · GRACoL' : lang === 'fr' ? 'Réf. : ISO 12647-2 · PSO (Allemagne) · GRACoL (Amérique du Nord)' : lang === 'es' ? 'Referencias: ISO 12647-2 · PSO · GRACoL' : lang === 'it' ? 'Rif.: ISO 12647-2 · PSO · GRACoL' : 'References: ISO 12647-2 · PSO (Germany) · GRACoL (North America)'}
+        </p>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Detection capability -->
   <section class="container-industrial pb-24 border-t border-neutral-800">
     <h2 class="text-2xl font-semibold mt-16 mb-6">{T.quality.detectionTitle}</h2>

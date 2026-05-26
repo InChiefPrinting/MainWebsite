@@ -144,7 +144,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: 'Company Overview',
-      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. is an integrated high-tech printing and packaging manufacturer established on March 31, 2020, in Longgang City, Zhejiang Province. With a registered capital of RMB 108.06 million, the company specializes in commercial printing, packaging printing, digital printing, and publication printing — supported by world-class equipment, intelligent manufacturing systems, and an integrated supply chain delivering reliable, high-quality solutions to global partners.',
+      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. is a leading high-end color packaging and commercial printer in East China, established March 31, 2020, in Longgang City, Zhejiang. With registered capital of RMB 108.06 million, a fleet of 7 German-brand offset presses (Heidelberg & Koenig & Bauer), and certifications spanning ISO 9001/14001/45001, FSC®, and National High-Tech Enterprise status — InChief delivers large-factory quality with regional cost efficiency and the responsiveness of a dedicated partner.',
       servicesTitle: 'Our Services',
       ctaTitle: 'Ready to Start Your Project?',
       ctaText: 'Contact our team for a custom quote and technical consultation.',
@@ -298,7 +298,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: '企业概览',
-      overviewText: '浙江云创印刷科技有限公司成立于2020年3月31日，注册资本1.0806亿元人民币，坐落于浙江省温州市龙港市。公司专注于商务印刷、包装印刷、数码快印及出版物印刷四大业务领域，拥有国际顶尖生产设备、智能化制造系统与完整供应链体系，为全球合作伙伴提供高质量、高可靠性的印刷解决方案。',
+      overviewText: '浙江云创印刷科技有限公司是华东地区高端彩色包装印刷领先企业，成立于2020年3月31日，注册资本1.0806亿元，坐落于浙江省温州市龙港市。公司拥有7台全德进口胶印机（海德堡 & 高宝），持有ISO 9001/14001/45001三体系、FSC®及国家高新技术企业等多项认证，以大厂认证体系、区域成本优势与灵活响应能力，为全球客户提供高端印刷包装一体化解决方案。',
       servicesTitle: '核心业务',
       ctaTitle: '准备开始您的项目？',
       ctaText: '联系我们的团队，获取定制报价与专业技术咨询。',
@@ -452,7 +452,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: 'Aperçu de l\'entreprise',
-      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. est un fabricant intégré spécialisé dans l\'impression et l\'emballage haute technologie, fondé le 31 mars 2020 à Longgang, province du Zhejiang. Avec un capital enregistré de 108,06 millions de RMB, l\'entreprise se spécialise dans l\'impression commerciale, l\'impression d\'emballages, l\'impression numérique et l\'impression d\'édition — soutenue par des équipements de classe mondiale et des systèmes de fabrication intelligents.',
+      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. est un leader de l\'impression d\'emballage couleur haut de gamme en Chine de l\'Est, fondé le 31 mars 2020 à Longgang, Zhejiang. Avec un capital enregistré de 108,06 millions de RMB, une flotte de 7 presses offset allemandes (Heidelberg & Koenig & Bauer) et des certifications ISO 9001/14001/45001, FSC® et Entreprise nationale haute technologie — InChief combine qualité de grande usine, coûts régionaux et réactivité d\'un partenaire dédié.',
       servicesTitle: 'Nos Services',
       ctaTitle: 'Prêt à démarrer votre projet ?',
       ctaText: 'Contactez notre équipe pour un devis personnalisé et une consultation technique.',
@@ -606,7 +606,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: 'نظرة عامة على الشركة',
-      overviewText: 'شركة Zhejiang InChief Printing Technology Co., Ltd. هي مصنّع متكامل متخصص في الطباعة والتغليف عالي التقنية، تأسست في 31 مارس 2020 في مدينة لونغغانغ، مقاطعة تشيجيانغ. برأس مال مسجل يبلغ 108.06 مليون يوان، تتخصص الشركة في الطباعة التجارية وطباعة التغليف والطباعة الرقمية وطباعة المنشورات، مدعومة بمعدات عالمية المستوى وأنظمة تصنيع ذكية وسلسلة توريد متكاملة تقدم حلولاً عالية الجودة للشركاء العالميين.',
+      overviewText: 'شركة Zhejiang InChief Printing Technology Co., Ltd. هي رائدة في طباعة التغليف الملوّن الفاخر في شرق الصين، تأسست في 31 مارس 2020 في لونغغانغ، تشيجيانغ. برأس مال مسجل 108.06 مليون يوان، وأسطول من 7 مطابع أوفست ألمانية (Heidelberg و Koenig & Bauer)، وشهادات ISO 9001/14001/45001 و FSC® ومؤسسة وطنية للتقنية العالية — تجمع InChief جودة المصنع الكبير مع تكلفة المصنع الإقليمي ومرونة الشريك المتخصص.',
       servicesTitle: 'خدماتنا',
       ctaTitle: 'هل أنت مستعد لبدء مشروعك؟',
       ctaText: 'تواصل مع فريقنا للحصول على عرض سعر مخصص واستشارة تقنية.',
@@ -760,7 +760,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: 'Descripción de la empresa',
-      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. es un fabricante integrado de impresión y embalaje de alta tecnología, fundado el 31 de marzo de 2020 en Longgang, provincia de Zhejiang. Con un capital registrado de 108,06 millones de RMB, la empresa se especializa en impresión comercial, impresión de embalajes, impresión digital e impresión editorial — respaldada por equipos de clase mundial, sistemas de fabricación inteligentes y una cadena de suministro integrada.',
+      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. es líder en impresión de packaging en color de alta gama en el este de China, fundada el 31 de marzo de 2020 en Longgang, Zhejiang. Con un capital registrado de 108,06 millones de RMB, una flota de 7 prensas offset alemanas (Heidelberg y Koenig & Bauer) y certificaciones ISO 9001/14001/45001, FSC® y Empresa Nacional de Alta Tecnología — InChief combina calidad de gran fábrica, costes regionales y la agilidad de un socio comprometido.',
       servicesTitle: 'Nuestros Servicios',
       ctaTitle: '¿Listo para comenzar su proyecto?',
       ctaText: 'Contacte a nuestro equipo para una cotización personalizada y consulta técnica.',
@@ -914,7 +914,7 @@ export const ui: Record<Lang, UIStrings> = {
     },
     home: {
       overviewTitle: 'Panoramica aziendale',
-      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. è un produttore integrato specializzato nella stampa e nel packaging ad alta tecnologia, fondato il 31 marzo 2020 a Longgang, nella provincia dello Zhejiang. Con un capitale registrato di 108,06 milioni di RMB, l\'azienda è specializzata in stampa commerciale, stampa di packaging, stampa digitale e stampa editoriale — supportata da attrezzature di livello mondiale, sistemi di produzione intelligenti e una filiera integrata.',
+      overviewText: 'Zhejiang InChief Printing Technology Co., Ltd. è leader nell\'imballaggio a colori premium nella Cina orientale, fondata il 31 marzo 2020 a Longgang, Zhejiang. Con un capitale registrato di 108,06 milioni di RMB, una flotta di 7 presse offset tedesche (Heidelberg e Koenig & Bauer) e certificazioni ISO 9001/14001/45001, FSC® e Impresa Nazionale Alta Tecnologia — InChief unisce qualità da grande fabbrica, costi regionali e la reattività di un partner dedicato.',
       servicesTitle: 'I Nostri Servizi',
       ctaTitle: 'Pronti per avviare il vostro progetto?',
       ctaText: 'Contatta il nostro team per un preventivo personalizzato e una consulenza tecnica.',
