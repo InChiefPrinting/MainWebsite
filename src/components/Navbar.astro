@@ -165,7 +165,7 @@ const navItems = [
             {LOCALES.map((l) => (
               <a
                 href={switchLangUrl(currentPath, l as Lang)}
-                class={`block px-5 py-2.5 text-sm hover:bg-industrial-blue transition ${l === lang ? 'text-industrial-blue' : 'text-white'}`}
+                class={`lang-switch-link block px-5 py-2.5 text-sm hover:bg-industrial-blue transition ${l === lang ? 'text-industrial-blue' : 'text-white'}`}
               >
                 {LANG_NAMES[l as Lang]}
               </a>
@@ -228,7 +228,7 @@ const navItems = [
           {LOCALES.map((l) => (
             <a
               href={switchLangUrl(currentPath, l as Lang)}
-              class={`text-center py-2 border transition text-sm ${l === lang ? 'border-industrial-blue text-industrial-blue' : 'border-white/20 hover:border-white'}`}
+              class={`lang-switch-link text-center py-2 border transition text-sm ${l === lang ? 'border-industrial-blue text-industrial-blue' : 'border-white/20 hover:border-white'}`}
             >
               {LANG_NAMES[l as Lang]}
             </a>
@@ -264,4 +264,23 @@ const navItems = [
     menu?.classList.add("hidden");
     document.body.style.overflow = "";
   });
+
+  // ── Preserve scroll position across language switches ──────────────────
+  const SCROLL_KEY = 'inchief-scroll';
+
+  // 1. Save scroll position before navigating to a new language
+  document.querySelectorAll<HTMLAnchorElement>('.lang-switch-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+    });
+  });
+
+  // 2. Restore scroll position after the new page loads
+  const saved = sessionStorage.getItem(SCROLL_KEY);
+  if (saved !== null) {
+    sessionStorage.removeItem(SCROLL_KEY);
+    const y = parseInt(saved, 10);
+    // requestAnimationFrame ensures the page has rendered before scrolling
+    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' }));
+  }
 </script>
