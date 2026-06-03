@@ -1,30 +1,33 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════════
+   CMYK DESIGN SYSTEM — InChief Printing
+   Palette: Cyan · Magenta · Yellow · Key(Black) · White · Black
+   ═══════════════════════════════════════════════════════════════════ */
+
 @theme {
-  /* ── Dark mode base (night) ───────────────────────────────────────── */
-  --color-industrial-black: #0a0a0a;
-  --color-industrial-gray:  #1a1a1a;
+  --color-c:  #00AEEF;   /* Process Cyan    */
+  --color-m:  #EC008C;   /* Process Magenta */
+  --color-y:  #FFD900;   /* Process Yellow  */
+  --color-k:  #1A1A1A;   /* Key / Rich Black */
 
-  /* ── CMYK primary accent — Process Cyan ──────────────────────────── */
-  --color-industrial-blue:  #00AEEF;
-
-  /* ── Full CMYK palette ────────────────────────────────────────────── */
-  --color-cmyk-cyan:    #00AEEF;
-  --color-cmyk-magenta: #EC008C;
-  --color-cmyk-yellow:  #FFD900;
-  --color-cmyk-key:     #231F20;
+  /* Tailwind aliases so existing utility classes keep working */
+  --color-industrial-black: #0A0A0A;
+  --color-industrial-gray:  #111111;
+  --color-industrial-blue:  #00AEEF;   /* primary = Cyan */
+  --color-industrial-magenta: #EC008C;
+  --color-industrial-yellow:  #FFD900;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* ── Base ─────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  @apply bg-industrial-black text-white antialiased;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  @apply antialiased;
 }
 
-/* Arabic RTL font */
-body.font-arabic,
 [dir="rtl"] body {
   font-family: 'Noto Sans Arabic', system-ui, sans-serif;
 }
@@ -33,84 +36,160 @@ body.font-arabic,
   @apply max-w-7xl mx-auto px-6 lg:px-12;
 }
 
-/* ── CMYK registration-mark stripe (top of every page) ───────────── */
+/* ── CMYK 4-bar registration stripe ─────────────────────────────── */
 .cmyk-stripe {
-  height: 4px;
-  background: linear-gradient(to right,
-    #00AEEF 0% 25%,
-    #EC008C 25% 50%,
-    #FFD900 50% 75%,
-    #231F20 75% 100%
-  );
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 5px;
+  flex-shrink: 0;
+}
+.cmyk-stripe .stripe-c { background: #00AEEF; }
+.cmyk-stripe .stripe-m { background: #EC008C; }
+.cmyk-stripe .stripe-y { background: #FFD900; }
+.cmyk-stripe .stripe-k { background: #FFFFFF; } /* K shows as white on black bg */
+
+/* ── Registration mark  ⊕ ────────────────────────────────────────── */
+.reg-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.reg-mark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+}
+.reg-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat,
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
+}
+
+/* ── Halftone dot texture ─────────────────────────────────────────── */
+.halftone {
+  background-image: radial-gradient(circle, rgba(0,174,239,0.18) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+/* ── Section label  (▸ UPPERCASE TRACKING) ───────────────────────── */
+.label-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.label-print::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #00AEEF;
   flex-shrink: 0;
 }
 
+/* ── Crop-mark card corners ───────────────────────────────────────── */
+.crop-card {
+  position: relative;
+}
+.crop-card::before,
+.crop-card::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+.crop-card::before {
+  top: -1px; left: -1px;
+  border-top: 1.5px solid #00AEEF;
+  border-left: 1.5px solid #00AEEF;
+}
+.crop-card::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 1.5px solid #00AEEF;
+  border-right: 1.5px solid #00AEEF;
+}
+
+/* ── Print stat number  (tabular figures) ────────────────────────── */
+.stat-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
 /* ════════════════════════════════════════════════════════════════════
-   LIGHT THEME  (daytime: 06:00 – 18:00)
-   Applied via  data-theme="light"  on <html> by an inline script.
-   Strategy: override Tailwind's CSS custom properties so that
-   bg-industrial-black, bg-industrial-gray, etc. all resolve to
-   light values without touching any component files.
+   LIGHT THEME — daytime (06:00 – 17:59)
+   data-theme="light" set on <html> by inline script before body renders
    ════════════════════════════════════════════════════════════════════ */
 
 [data-theme="light"] {
-  /* Remap the two Tailwind theme tokens to paper-like tones */
-  --color-industrial-black: #F4F2EE;   /* warm off-white — uncoated paper */
-  --color-industrial-gray:  #E8E6E0;   /* slightly darker surface */
-
-  /* Cyan stays the same — good contrast on both backgrounds */
-  --color-industrial-blue:  #007DB8;   /* slightly darker cyan for light bg readability */
+  --color-industrial-black: #FFFFFF;
+  --color-industrial-gray:  #F2F2F2;
+  --color-industrial-blue:  #0090CC;  /* slightly darker cyan for light-bg contrast */
 }
 
-/* Body text */
 [data-theme="light"] body {
-  color: #1A1A1A;
+  background-color: #FFFFFF;
+  color: #0A0A0A;
 }
 
-/* ── Text ─────────────────────────────────────────────────────────── */
-[data-theme="light"] .text-white           { color: #111111 !important; }
-[data-theme="light"] .text-neutral-300     { color: #3D3D3D !important; }
-[data-theme="light"] .text-neutral-400     { color: #555555 !important; }
-[data-theme="light"] .text-neutral-500     { color: #777777 !important; }
+/* K stripe changes to black on white background */
+[data-theme="light"] .cmyk-stripe .stripe-k { background: #1A1A1A; }
 
-/* ── Backgrounds ──────────────────────────────────────────────────── */
-[data-theme="light"] .bg-black             { background-color: #ffffff !important; }
-[data-theme="light"] .bg-black\/90         { background-color: rgba(244,242,238,0.96) !important; }
-[data-theme="light"] .bg-neutral-900       { background-color: #EDEAE4 !important; }
-[data-theme="light"] .bg-neutral-900\/30   { background-color: rgba(0,0,0,0.04) !important; }
+/* label-print text */
+[data-theme="light"] .label-print { color: rgba(0,0,0,0.4); }
 
-/* ── Borders ──────────────────────────────────────────────────────── */
-[data-theme="light"] .border-neutral-800   { border-color: #CFCCC5 !important; }
-[data-theme="light"] .border-white\/10     { border-color: rgba(0,0,0,0.10) !important; }
-[data-theme="light"] .border-white\/20     { border-color: rgba(0,0,0,0.15) !important; }
+/* Text */
+[data-theme="light"] .text-white        { color: #0A0A0A !important; }
+[data-theme="light"] .text-neutral-300  { color: #333333 !important; }
+[data-theme="light"] .text-neutral-400  { color: #555555 !important; }
+[data-theme="light"] .text-neutral-500  { color: #777777 !important; }
 
-/* Divide utilities (home stats strip) */
-[data-theme="light"] .divide-neutral-800 > * + * {
-  border-color: #CFCCC5 !important;
-}
+/* Backgrounds */
+[data-theme="light"] .bg-black          { background-color: #FFFFFF !important; }
+[data-theme="light"] .bg-black\/90      { background-color: rgba(255,255,255,0.96) !important; }
+[data-theme="light"] .bg-neutral-900    { background-color: #F0F0F0 !important; }
+[data-theme="light"] .bg-neutral-900\/30{ background-color: rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .bg-industrial-blue\/5 { background-color: rgba(0,144,204,0.06) !important; }
 
-/* ── Shadows ──────────────────────────────────────────────────────── */
+/* Borders */
+[data-theme="light"] .border-neutral-800  { border-color: #DDDDDD !important; }
+[data-theme="light"] .border-white\/10    { border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .border-white\/20    { border-color: rgba(0,0,0,0.14) !important; }
+[data-theme="light"] .divide-neutral-800 > * + * { border-color: #DDDDDD !important; }
+
+/* Shadows */
 [data-theme="light"] .shadow-xl  { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; }
 [data-theme="light"] .shadow-2xl { box-shadow: 0 16px 48px rgba(0,0,0,0.14) !important; }
 
-/* ── Navbar backdrop ──────────────────────────────────────────────── */
-[data-theme="light"] header {
-  border-bottom-color: rgba(0,0,0,0.10) !important;
-}
+/* Navbar */
+[data-theme="light"] header { border-bottom-color: rgba(0,0,0,0.09) !important; }
 
-/* ── Mobile menu full-screen overlay ─────────────────────────────── */
+/* Mobile menu overlay */
 [data-theme="light"] #mobileMenu {
-  background-color: #F4F2EE !important;
-  color: #111111 !important;
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
 }
 
-/* ── Quality policy highlight box ────────────────────────────────── */
-[data-theme="light"] .bg-industrial-blue\/5 {
-  background-color: rgba(0,125,184,0.06) !important;
-}
-
-/* ── Form inputs ──────────────────────────────────────────────────── */
+/* Form inputs */
 [data-theme="light"] input,
-[data-theme="light"] textarea {
-  color: #111111 !important;
+[data-theme="light"] textarea { color: #0A0A0A !important; }
+
+/* Halftone in light mode */
+[data-theme="light"] .halftone {
+  background-image: radial-gradient(circle, rgba(0,144,204,0.12) 1.5px, transparent 1.5px);
 }

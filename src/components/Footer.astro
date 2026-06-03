@@ -6,70 +6,94 @@ const { lang = "en" } = Astro.props;
 const T = t(lang);
 ---
 
-<footer class="border-t border-neutral-800 mt-24">
-  <div class="container-industrial py-12 grid md:grid-cols-5 gap-10 text-sm">
+<footer class="border-t border-white/10 mt-32">
 
-    <!-- Brand -->
-    <div>
-      <h3 class="font-semibold mb-4 tracking-widest">InChief Printing</h3>
-      <p class="text-neutral-400">{T.footer.tagline}</p>
-    </div>
-
-    <!-- Company -->
-    <div>
-      <h3 class="font-semibold mb-4">{T.footer.company}</h3>
-      <ul class="space-y-2 text-neutral-400">
-        <li><a href={url(lang, "/about")} class="hover:text-white transition">{T.nav.about}</a></li>
-        <li><a href={url(lang, "/industries")} class="hover:text-white transition">{T.nav.industries}</a></li>
-        <li><a href={url(lang, "/careers")} class="hover:text-white transition">{T.nav.careers}</a></li>
-        <li><a href={url(lang, "/news")} class="hover:text-white transition">{T.nav.news}</a></li>
-      </ul>
-    </div>
-
-    <!-- Solutions -->
-    <div>
-      <h3 class="font-semibold mb-4">{T.footer.solutions}</h3>
-      <ul class="space-y-2 text-neutral-400">
-        <li><a href={url(lang, "/solutions/commercial")} class="hover:text-white transition">{T.service.commercial}</a></li>
-        <li><a href={url(lang, "/solutions/folding-carton")} class="hover:text-white transition">{T.service.packaging}</a></li>
-        <li><a href={url(lang, "/case-studies")} class="hover:text-white transition">{T.nav.caseStudies}</a></li>
-      </ul>
-    </div>
-
-    <!-- Quick links -->
-    <div>
-      <h3 class="font-semibold mb-4">{T.footer.quickLinks}</h3>
-      <ul class="space-y-2 text-neutral-400">
-        <li><a href={url(lang, "/equipment")} class="hover:text-white transition">{T.nav.equipment}</a></li>
-        <li><a href={url(lang, "/quality")} class="hover:text-white transition">{T.nav.quality}</a></li>
-        <li><a href={url(lang, "/contact")} class="hover:text-white transition">{T.nav.contactUs}</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact -->
-    <div>
-      <h3 class="font-semibold mb-4">{T.footer.contactUs}</h3>
-      <ul class="text-neutral-400 space-y-2">
-        <li>
-          <a href="tel:+8613175698111" class="hover:text-white transition">
-            +86 131-7569-8111
-          </a>
-        </li>
-        <li>
-          <a href="mailto:info@InChief.cn" class="hover:text-white transition">
-            info@InChief.cn
-          </a>
-        </li>
-      </ul>
-    </div>
-
+  <!-- CMYK color registration bar -->
+  <div class="grid grid-cols-4 h-px">
+    <div style="background:#00AEEF"></div>
+    <div style="background:#EC008C"></div>
+    <div style="background:#FFD900"></div>
+    <div style="background:#FFFFFF; opacity:0.25"></div>
   </div>
 
-  <!-- Bottom bar -->
-  <div class="border-t border-neutral-800">
-    <div class="container-industrial py-6 text-xs text-neutral-500 flex flex-col md:flex-row justify-between gap-4">
-      <p>© {new Date().getFullYear()} InChief Printing. {T.footer.allRights}</p>
+  <div class="container-industrial py-16">
+    <div class="grid md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-12">
+
+      <!-- Brand column -->
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="reg-mark text-c w-4 h-4 opacity-60" aria-hidden="true"></span>
+          <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief Printing</span>
+        </div>
+        <p class="text-white/40 text-xs leading-relaxed max-w-xs">{T.footer.tagline}</p>
+
+        <!-- CMYK dots -->
+        <div class="flex gap-2 mt-6">
+          <span class="w-4 h-4 rounded-full" style="background:#00AEEF" title="Cyan"></span>
+          <span class="w-4 h-4 rounded-full" style="background:#EC008C" title="Magenta"></span>
+          <span class="w-4 h-4 rounded-full" style="background:#FFD900" title="Yellow"></span>
+          <span class="w-4 h-4 rounded-full" style="background:#1A1A1A; border:1px solid rgba(255,255,255,0.2)" title="Key"></span>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <p class="label-print mb-5">{T.footer.company}</p>
+        <ul class="space-y-2.5 text-xs text-white/50">
+          <li><a href={url(lang, "/about")} class="hover:text-c transition-colors">{T.nav.about}</a></li>
+          <li><a href={url(lang, "/industries")} class="hover:text-c transition-colors">{T.nav.industries}</a></li>
+          <li><a href={url(lang, "/careers")} class="hover:text-c transition-colors">{T.nav.careers}</a></li>
+          <li><a href={url(lang, "/news")} class="hover:text-c transition-colors">{T.nav.news}</a></li>
+        </ul>
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <p class="label-print mb-5">{T.footer.solutions}</p>
+        <ul class="space-y-2.5 text-xs text-white/50">
+          <li><a href={url(lang, "/solutions/commercial")} class="hover:text-c transition-colors">{T.service.commercial}</a></li>
+          <li><a href={url(lang, "/solutions/folding-carton")} class="hover:text-c transition-colors">{T.service.packaging}</a></li>
+          <li><a href={url(lang, "/solutions/uv-varnish")} class="hover:text-c transition-colors">{T.service.finishing}</a></li>
+          <li><a href={url(lang, "/case-studies")} class="hover:text-c transition-colors">{T.nav.caseStudies}</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="label-print mb-5">{T.footer.quickLinks}</p>
+        <ul class="space-y-2.5 text-xs text-white/50">
+          <li><a href={url(lang, "/equipment")} class="hover:text-c transition-colors">{T.nav.equipment}</a></li>
+          <li><a href={url(lang, "/quality")} class="hover:text-c transition-colors">{T.nav.quality}</a></li>
+          <li><a href={url(lang, "/contact")} class="hover:text-c transition-colors">{T.nav.contactUs}</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="label-print mb-5">{T.footer.contactUs}</p>
+        <ul class="space-y-2.5 text-xs text-white/50">
+          <li>
+            <a href="tel:+8613175698111" class="hover:text-c transition-colors">
+              +86 131-7569-8111
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@InChief.cn" class="hover:text-c transition-colors">
+              info@InChief.cn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar — print spec style -->
+  <div class="border-t border-white/10">
+    <div class="container-industrial py-5 flex flex-col md:flex-row justify-between gap-3 text-[10px] text-white/25 font-mono uppercase tracking-wider">
+      <p>© {new Date().getFullYear()} InChief Printing · {T.footer.allRights}</p>
       <p>{T.footer.creditCode}</p>
     </div>
   </div>
+
 </footer>

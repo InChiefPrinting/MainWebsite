@@ -74,39 +74,44 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-white/10">
-  <nav class="container-industrial flex items-center justify-between h-16">
+<header class="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
+  <nav class="container-industrial flex items-center justify-between h-14">
 
-    <!-- Logo -->
-    <a href={url(lang, "/")} class="text-xl font-semibold tracking-widest shrink-0">
-      InChief
+    <!-- Logo + reg mark -->
+    <a href={url(lang, "/")} class="flex items-center gap-2.5 shrink-0 group">
+      <span class="reg-mark text-c w-4 h-4 opacity-60 group-hover:opacity-100 transition" aria-hidden="true"></span>
+      <span class="text-base font-bold tracking-[0.2em] uppercase">InChief</span>
     </a>
 
     <!-- Mobile toggle -->
-    <button id="menuBtn" class="md:hidden text-2xl leading-none" aria-label="Open menu">
-      ☰
+    <button id="menuBtn" class="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5" aria-label="Open menu">
+      <span class="block h-px bg-current"></span>
+      <span class="block h-px bg-current w-5/6"></span>
+      <span class="block h-px bg-current"></span>
     </button>
 
     <!-- Desktop nav -->
-    <ul class="hidden md:flex items-center gap-5 text-sm">
+    <ul class="hidden md:flex items-center gap-6 text-xs font-medium tracking-wider uppercase">
 
       {navItems.map((item) => (
-        <li class="relative group py-2">
-          <span class="cursor-default select-none hover:text-industrial-blue transition">
+        <li class="relative group py-4">
+          <span class="cursor-default select-none hover:text-c transition-colors">
             {item.label}
           </span>
 
-          {/* ── Normal dropdown ── */}
+          {/* ── Company dropdown ── */}
           {item.type === "dropdown" && (
-            <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-              <div class="w-64 bg-neutral-900 border border-white/10 shadow-xl">
+            <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+              <div class="w-52 bg-black border border-white/15 shadow-2xl">
                 {item.children.map((group) => (
                   <div class="border-b border-white/10 last:border-none">
-                    <div class="px-5 py-2 text-xs text-neutral-400 uppercase tracking-wider">
+                    <div class="px-4 pt-3 pb-1 text-[10px] text-white/30 uppercase tracking-widest">
                       {group.group}
                     </div>
                     {group.items.map((child) => (
-                      <a href={child.href} class="block px-5 py-3 hover:bg-industrial-blue transition">
+                      <a href={child.href}
+                        class="flex items-center gap-2 px-4 py-2.5 text-xs normal-case tracking-normal hover:text-c transition-colors">
+                        <span class="text-c opacity-0 group-hover:opacity-0">›</span>
                         {child.name}
                       </a>
                     ))}
@@ -116,57 +121,59 @@ const navItems = [
             </div>
           )}
 
-          {/* ── Mega menu ── */}
+          {/* ── Solutions mega menu ── */}
           {item.type === "mega" && (
-            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 hidden group-hover:block">
-              <div class="w-[860px] bg-neutral-900 border border-white/10 shadow-2xl p-8 grid grid-cols-4 gap-8">
-                {item.children.map((group) => (
-                  <div>
-                    <p class="text-xs text-neutral-400 uppercase tracking-wider mb-4">
-                      {group.group}
-                    </p>
-                    <div class="space-y-3">
-                      {group.items.map((child) => (
-                        <a href={child.href} class="block text-sm hover:text-industrial-blue transition">
-                          {child.name}
-                        </a>
-                      ))}
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block z-50">
+              <div class="w-[800px] bg-black border border-white/15 shadow-2xl">
+                {/* Cyan top accent line */}
+                <div class="h-px bg-c w-full"></div>
+                <div class="p-8 grid grid-cols-4 gap-8">
+                  {item.children.map((group, gi) => (
+                    <div>
+                      <p class="text-[10px] text-white/35 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <span class="inline-block w-3 h-px"
+                          style={`background: ${gi===0?'#00AEEF':gi===1?'#EC008C':gi===2?'#FFD900':'#888'}`}>
+                        </span>
+                        {group.group}
+                      </p>
+                      <div class="space-y-2.5">
+                        {group.items.map((child) => (
+                          <a href={child.href}
+                            class="block text-xs normal-case tracking-normal text-white/70 hover:text-c transition-colors">
+                            {child.name}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           )}
         </li>
       ))}
 
-      <a href={url(lang, "/equipment")} class="hover:text-industrial-blue transition text-sm">
-        {T.nav.equipment}
-      </a>
-      <a href={url(lang, "/case-studies")} class="hover:text-industrial-blue transition text-sm">
-        {T.nav.caseStudies}
-      </a>
-      <a href={url(lang, "/quality")} class="hover:text-industrial-blue transition text-sm">
-        {T.nav.quality}
-      </a>
+      <a href={url(lang, "/equipment")} class="hover:text-c transition-colors">{T.nav.equipment}</a>
+      <a href={url(lang, "/case-studies")} class="hover:text-c transition-colors">{T.nav.caseStudies}</a>
+      <a href={url(lang, "/quality")} class="hover:text-c transition-colors">{T.nav.quality}</a>
 
       <!-- Language switcher -->
-      <li class="relative group py-2 list-none">
-        <button class="flex items-center gap-1.5 text-sm hover:text-industrial-blue transition" aria-label="Language">
-          <!-- Globe icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <li class="relative group py-4 list-none">
+        <button class="flex items-center gap-1.5 hover:text-c transition-colors" aria-label="Language">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span class="uppercase">{lang}</span>
+          <span>{lang.toUpperCase()}</span>
         </button>
-        <div class="absolute right-0 top-full pt-3 hidden group-hover:block">
-          <div class="w-40 bg-neutral-900 border border-white/10 shadow-xl py-2">
+        <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50">
+          <div class="bg-black border border-white/15 shadow-2xl overflow-hidden">
+            <div class="h-px bg-c w-full"></div>
             {LOCALES.map((l) => (
-              <a
-                href={switchLangUrl(currentPath, l as Lang)}
-                class={`lang-switch-link block px-5 py-2.5 text-sm hover:bg-industrial-blue transition ${l === lang ? 'text-industrial-blue' : 'text-white'}`}
-              >
+              <a href={switchLangUrl(currentPath, l as Lang)}
+                class={`lang-switch-link flex items-center gap-3 px-5 py-2.5 text-xs normal-case tracking-normal hover:text-c transition-colors ${l === lang ? 'text-c' : 'text-white/70'}`}>
+                {l === lang && <span class="w-1.5 h-1.5 rounded-full bg-c flex-shrink-0"></span>}
+                {l !== lang && <span class="w-1.5 h-1.5 flex-shrink-0"></span>}
                 {LANG_NAMES[l as Lang]}
               </a>
             ))}
@@ -174,10 +181,8 @@ const navItems = [
         </div>
       </li>
 
-      <a
-        href={url(lang, "/contact")}
-        class="ml-2 px-5 py-2 bg-industrial-blue text-white font-semibold hover:opacity-80 transition text-sm"
-      >
+      <a href={url(lang, "/contact")}
+        class="ml-2 px-5 py-2 border border-c text-c text-xs hover:bg-c hover:text-black transition-all font-bold tracking-widest">
         {T.nav.contactUs}
       </a>
     </ul>
@@ -186,25 +191,29 @@ const navItems = [
 
 <!-- ═══ Mobile overlay ═══ -->
 <div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden">
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col h-full">
 
-    <div class="flex justify-between items-center h-16 px-6 border-b border-white/10">
-      <span class="text-xl tracking-widest">InChief</span>
-      <button id="closeMenu" class="text-3xl leading-none">✕</button>
+    <!-- Mobile header -->
+    <div class="flex justify-between items-center h-14 px-6 border-b border-white/10">
+      <span class="flex items-center gap-2">
+        <span class="reg-mark text-c w-4 h-4 opacity-60" aria-hidden="true"></span>
+        <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief</span>
+      </span>
+      <button id="closeMenu" class="text-2xl leading-none text-white/60 hover:text-white transition">✕</button>
     </div>
 
-    <div class="flex-1 overflow-y-auto px-6 py-10 space-y-10">
+    <div class="flex-1 overflow-y-auto px-6 py-8 space-y-8">
 
       {navItems.map((item) => (
         <div>
-          <p class="text-lg font-semibold mb-5">{item.label}</p>
-          <div class="space-y-6">
+          <p class="text-[10px] uppercase tracking-widest text-white/35 mb-4">{item.label}</p>
+          <div class="space-y-5">
             {item.children.map((group) => (
               <div>
-                <p class="text-xs text-neutral-400 uppercase tracking-wider mb-3">{group.group}</p>
-                <div class="space-y-3 pl-2">
+                <p class="text-[10px] text-white/25 uppercase tracking-widest mb-2">{group.group}</p>
+                <div class="space-y-2 pl-3 border-l border-white/10">
                   {group.items.map((child) => (
-                    <a href={child.href} class="block text-lg hover:text-industrial-blue transition">
+                    <a href={child.href} class="block text-sm hover:text-c transition-colors">
                       {child.name}
                     </a>
                   ))}
@@ -215,21 +224,22 @@ const navItems = [
         </div>
       ))}
 
-      <div class="space-y-3">
-        <a href={url(lang, "/equipment")} class="block text-lg hover:text-industrial-blue">{T.nav.equipment}</a>
-        <a href={url(lang, "/case-studies")} class="block text-lg hover:text-industrial-blue">{T.nav.caseStudies}</a>
-        <a href={url(lang, "/quality")} class="block text-lg hover:text-industrial-blue">{T.nav.quality}</a>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/35 mb-4">— —</p>
+        <div class="space-y-2 pl-3 border-l border-white/10">
+          <a href={url(lang, "/equipment")} class="block text-sm hover:text-c transition-colors">{T.nav.equipment}</a>
+          <a href={url(lang, "/case-studies")} class="block text-sm hover:text-c transition-colors">{T.nav.caseStudies}</a>
+          <a href={url(lang, "/quality")} class="block text-sm hover:text-c transition-colors">{T.nav.quality}</a>
+        </div>
       </div>
 
-      <!-- Language switcher mobile -->
+      <!-- Mobile language grid -->
       <div>
-        <p class="text-xs text-neutral-400 uppercase tracking-wider mb-3">Language</p>
-        <div class="grid grid-cols-3 gap-3">
+        <p class="text-[10px] uppercase tracking-widest text-white/35 mb-4">Language</p>
+        <div class="grid grid-cols-3 gap-2">
           {LOCALES.map((l) => (
-            <a
-              href={switchLangUrl(currentPath, l as Lang)}
-              class={`lang-switch-link text-center py-2 border transition text-sm ${l === lang ? 'border-industrial-blue text-industrial-blue' : 'border-white/20 hover:border-white'}`}
-            >
+            <a href={switchLangUrl(currentPath, l as Lang)}
+              class={`lang-switch-link text-center py-2 border text-xs transition-all ${l === lang ? 'border-c text-c' : 'border-white/15 text-white/60 hover:border-white/40'}`}>
               {LANG_NAMES[l as Lang]}
             </a>
           ))}
@@ -239,10 +249,8 @@ const navItems = [
     </div>
 
     <div class="p-6 border-t border-white/10">
-      <a
-        href={url(lang, "/contact")}
-        class="block w-full text-center py-4 bg-industrial-blue text-white font-semibold"
-      >
+      <a href={url(lang, "/contact")}
+        class="block w-full text-center py-3.5 bg-c text-black text-xs font-bold tracking-widest uppercase">
         {T.nav.contactUs}
       </a>
     </div>
@@ -259,28 +267,21 @@ const navItems = [
     menu?.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   });
-
   close?.addEventListener("click", () => {
     menu?.classList.add("hidden");
     document.body.style.overflow = "";
   });
 
-  // ── Preserve scroll position across language switches ──────────────────
+  // Preserve scroll position across language switches
   const SCROLL_KEY = 'inchief-scroll';
-
-  // 1. Save scroll position before navigating to a new language
   document.querySelectorAll<HTMLAnchorElement>('.lang-switch-link').forEach((link) => {
     link.addEventListener('click', () => {
       sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
     });
   });
-
-  // 2. Restore scroll position after the new page loads
   const saved = sessionStorage.getItem(SCROLL_KEY);
   if (saved !== null) {
     sessionStorage.removeItem(SCROLL_KEY);
-    const y = parseInt(saved, 10);
-    // requestAnimationFrame ensures the page has rendered before scrolling
-    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' }));
+    requestAnimationFrame(() => window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' }));
   }
 </script>

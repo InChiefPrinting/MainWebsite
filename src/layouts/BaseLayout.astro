@@ -56,7 +56,12 @@ const isRtl = RTL_LANGS.has(lang as Lang);
 
   <body class={isRtl ? "font-arabic" : ""}>
     <!-- CMYK registration stripe -->
-    <div class="cmyk-stripe" aria-hidden="true"></div>
+    <div class="cmyk-stripe" aria-hidden="true">
+      <div class="stripe-c"></div>
+      <div class="stripe-m"></div>
+      <div class="stripe-y"></div>
+      <div class="stripe-k"></div>
+    </div>
     <Navbar lang={lang} />
 
     <main class="min-h-screen flex flex-col gap-24">

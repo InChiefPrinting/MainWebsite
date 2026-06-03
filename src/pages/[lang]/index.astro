@@ -14,122 +14,184 @@ const T = t(lang);
 <BaseLayout title={T.meta.title} description={T.meta.description} lang={lang}>
 
   <!-- ═══ HERO ═══ -->
-  <section class="container-industrial py-32">
-    <h1 class="text-5xl md:text-7xl font-bold leading-tight max-w-4xl">
-      {T.hero.title}
-    </h1>
-    <p class="mt-6 text-neutral-400 max-w-2xl">
-      <span class="block">{T.hero.sub1}</span>
-      <span class="block mt-1">{T.hero.sub2}</span>
-    </p>
-    <a
-      href={url(lang as Lang, "/contact")}
-      class="inline-block mt-10 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
-    >
-      {T.hero.cta}
-    </a>
+  <section class="relative overflow-hidden min-h-[88vh] flex flex-col justify-end">
+
+    <!-- Halftone dot texture (top-right quadrant) -->
+    <div class="halftone absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-60"></div>
+
+    <!-- Cyan vertical accent bar -->
+    <div class="absolute top-0 left-0 bottom-0 w-1" style="background:#00AEEF"></div>
+
+    <!-- Registration mark — top right -->
+    <div class="absolute top-10 right-10 text-white/15">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="0.75"/>
+        <circle cx="20" cy="20" r="9"  stroke="currentColor" stroke-width="0.75"/>
+        <line x1="0" y1="20" x2="40" y2="20" stroke="currentColor" stroke-width="0.75"/>
+        <line x1="20" y1="0" x2="20" y2="40" stroke="currentColor" stroke-width="0.75"/>
+      </svg>
+    </div>
+
+    <div class="container-industrial pb-20 pt-32 relative">
+
+      <!-- Label -->
+      <p class="label-print mb-8">
+        {lang === 'zh' ? '浙江云创印刷科技有限公司' :
+         lang === 'ar' ? 'Zhejiang InChief Printing Technology' :
+         'Zhejiang InChief Printing Technology Co., Ltd.'}
+      </p>
+
+      <!-- Main headline -->
+      <h1 class="text-[clamp(3rem,9vw,8rem)] font-black leading-none tracking-tight max-w-5xl">
+        {T.hero.title}
+      </h1>
+
+      <!-- Cyan rule + subtext -->
+      <div class="flex items-start gap-6 mt-10 max-w-2xl">
+        <div class="w-px bg-c self-stretch flex-shrink-0 min-h-[3rem]"></div>
+        <div class="space-y-1">
+          <p class="text-white/60 text-lg">{T.hero.sub1}</p>
+          <p class="text-white/40 text-base">{T.hero.sub2}</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-6 mt-12">
+        <a href={url(lang as Lang, "/contact")}
+          class="inline-flex items-center gap-3 px-8 py-4 bg-c text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors">
+          {T.hero.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href={url(lang as Lang, "/solutions/commercial")}
+          class="text-sm text-white/40 hover:text-c transition-colors tracking-widest uppercase">
+          {T.nav.solutions} ↓
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ STATS STRIP ═══ -->
+  <section class="border-y border-white/10">
+    <div class="container-industrial">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
+
+        {[
+          { value: '1.1M', unit: lang==='zh'?'印张/天':lang==='ar'?'ورقة/يوم':lang==='fr'?'feuilles/j':lang==='es'?'hojas/día':lang==='it'?'fogli/g':'sheets/day', color: '#00AEEF' },
+          { value: '95',   unit: lang==='zh'?'客户满意度':lang==='ar'?'رضا العملاء':lang==='fr'?'satisfaction':lang==='es'?'satisfacción':lang==='it'?'soddisfazione':'/100 satisfaction', color: '#EC008C' },
+          { value: '16+',  unit: lang==='zh'?'印刷方案':lang==='ar'?'حلاً للطباعة':lang==='fr'?'solutions':lang==='es'?'soluciones':lang==='it'?'soluzioni':'solutions', color: '#FFD900' },
+          { value: '1640', unit: 'mm max format', color: '#FFFFFF' },
+        ].map((s) => (
+          <div class="p-8 group">
+            <p class="stat-num text-5xl" style={`color:${s.color}`}>{s.value}</p>
+            <p class="text-[10px] uppercase tracking-widest text-white/35 mt-3">{s.unit}</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
   </section>
 
   <!-- ═══ OVERVIEW ═══ -->
-  <section class="container-industrial py-24 border-t border-neutral-800">
-    <h2 class="text-3xl font-semibold mb-8">{T.home.overviewTitle}</h2>
-    <p class="text-neutral-400 max-w-3xl leading-relaxed">
-      {T.home.overviewText}
-    </p>
-  </section>
-
-  <!-- ═══ STATS ═══ -->
-  <section class="border-t border-neutral-800">
-    <div class="container-industrial">
-      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-neutral-800 border-b border-neutral-800">
-        <div class="p-8">
-          <p class="text-4xl font-bold text-industrial-blue">1.1M</p>
-          <p class="text-neutral-400 text-sm mt-2">
-            {lang === 'zh' ? '日产能（印张）' : lang === 'ar' ? 'ورقة يومياً' : lang === 'fr' ? 'Feuilles / jour' : lang === 'es' ? 'Hojas / día' : lang === 'it' ? 'Fogli al giorno' : 'Sheets / Day'}
-          </p>
+  <section class="container-industrial py-28">
+    <div class="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
+      <div>
+        <p class="label-print mb-6">{T.home.overviewTitle}</p>
+        <!-- CMYK process marks -->
+        <div class="flex gap-3 mt-8">
+          {['C','M','Y','K'].map((ch, i) => (
+            <div class="flex flex-col items-center gap-1.5">
+              <div class="w-7 h-7 rounded-full" style={`background:${i===0?'#00AEEF':i===1?'#EC008C':i===2?'#FFD900':'#fff'};opacity:${i===3?0.15:1}`}></div>
+              <span class="text-[9px] font-mono text-white/25">{ch}</span>
+            </div>
+          ))}
         </div>
-        <div class="p-8">
-          <p class="text-4xl font-bold text-industrial-blue">16+</p>
-          <p class="text-neutral-400 text-sm mt-2">
-            {lang === 'zh' ? '印刷解决方案' : lang === 'ar' ? 'حلاً للطباعة' : lang === 'fr' ? 'Solutions d\'impression' : lang === 'es' ? 'Soluciones de impresión' : lang === 'it' ? 'Soluzioni di stampa' : 'Print Solutions'}
-          </p>
-        </div>
-        <div class="p-8">
-          <p class="text-4xl font-bold text-industrial-blue">95<span class="text-2xl">/100</span></p>
-          <p class="text-neutral-400 text-sm mt-2">
-            {lang === 'zh' ? '客户综合满意度' : lang === 'ar' ? 'رضا العملاء الشامل' : lang === 'fr' ? 'Satisfaction client' : lang === 'es' ? 'Satisfacción del cliente' : lang === 'it' ? 'Soddisfazione clienti' : 'Customer Satisfaction'}
-          </p>
-        </div>
-        <div class="p-8">
-          <p class="text-4xl font-bold text-industrial-blue">1640<span class="text-2xl">mm</span></p>
-          <p class="text-neutral-400 text-sm mt-2">
-            {lang === 'zh' ? '最大印刷幅面' : lang === 'ar' ? 'أقصى تنسيق طباعة' : lang === 'fr' ? 'Format max d\'impression' : lang === 'es' ? 'Formato máx. impresión' : lang === 'it' ? 'Formato max di stampa' : 'Max Print Format'}
-          </p>
-        </div>
+      </div>
+      <div>
+        <p class="text-xl text-white/70 leading-relaxed">{T.home.overviewText}</p>
       </div>
     </div>
   </section>
 
   <!-- ═══ SERVICES ═══ -->
-  <section class="container-industrial py-24 border-t border-neutral-800">
-    <h2 class="text-3xl font-semibold mb-12">{T.home.servicesTitle}</h2>
-    <div class="grid md:grid-cols-3 gap-8">
+  <section class="container-industrial pb-28">
+    <p class="label-print mb-12">{T.home.servicesTitle}</p>
+    <div class="grid md:grid-cols-3 gap-px bg-white/10">
 
-      <a href={url(lang as Lang, "/solutions/commercial")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
-        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.commercial}</h3>
-        <p class="text-neutral-400 mt-4">{T.service.commercialDesc}</p>
-        <p class="mt-6 text-industrial-blue text-sm">
-          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+      <a href={url(lang as Lang, "/solutions/commercial")}
+        class="crop-card bg-black p-10 group hover:bg-white/5 transition-colors">
+        <div class="w-1 h-8 bg-c mb-8 group-hover:h-12 transition-all"></div>
+        <h3 class="text-xl font-bold mb-4 group-hover:text-c transition-colors">{T.service.commercial}</h3>
+        <p class="text-white/50 text-sm leading-relaxed">{T.service.commercialDesc}</p>
+        <p class="mt-8 text-c text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          {lang==='zh'?'了解更多':lang==='ar'?'اعرف المزيد':lang==='fr'?'En savoir plus':lang==='es'?'Más información':lang==='it'?'Scopri di più':'Explore'} →
         </p>
       </a>
 
-      <a href={url(lang as Lang, "/solutions/folding-carton")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
-        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.packaging}</h3>
-        <p class="text-neutral-400 mt-4">{T.service.packagingDesc}</p>
-        <p class="mt-6 text-industrial-blue text-sm">
-          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+      <a href={url(lang as Lang, "/solutions/folding-carton")}
+        class="crop-card bg-black p-10 group hover:bg-white/5 transition-colors">
+        <div class="w-1 h-8 bg-m mb-8 group-hover:h-12 transition-all"></div>
+        <h3 class="text-xl font-bold mb-4 group-hover:text-m transition-colors">{T.service.packaging}</h3>
+        <p class="text-white/50 text-sm leading-relaxed">{T.service.packagingDesc}</p>
+        <p class="mt-8 text-m text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          {lang==='zh'?'了解更多':lang==='ar'?'اعرف المزيد':lang==='fr'?'En savoir plus':lang==='es'?'Más información':lang==='it'?'Scopri di più':'Explore'} →
         </p>
       </a>
 
-      <a href={url(lang as Lang, "/solutions/uv-varnish")} class="border border-neutral-800 p-8 hover:border-industrial-blue transition group block">
-        <h3 class="text-xl font-semibold group-hover:text-industrial-blue transition">{T.service.finishing}</h3>
-        <p class="text-neutral-400 mt-4">{T.service.finishingDesc}</p>
-        <p class="mt-6 text-industrial-blue text-sm">
-          {lang === 'zh' ? '了解更多 →' : lang === 'ar' ? 'اعرف المزيد ←' : lang === 'fr' ? 'En savoir plus →' : lang === 'es' ? 'Más información →' : lang === 'it' ? 'Scopri di più →' : 'Learn more →'}
+      <a href={url(lang as Lang, "/solutions/uv-varnish")}
+        class="crop-card bg-black p-10 group hover:bg-white/5 transition-colors">
+        <div class="w-1 h-8 bg-y mb-8 group-hover:h-12 transition-all"></div>
+        <h3 class="text-xl font-bold mb-4 group-hover:text-y transition-colors">{T.service.finishing}</h3>
+        <p class="text-white/50 text-sm leading-relaxed">{T.service.finishingDesc}</p>
+        <p class="mt-8 text-y text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          {lang==='zh'?'了解更多':lang==='ar'?'اعرف المزيد':lang==='fr'?'En savoir plus':lang==='es'?'Más información':lang==='it'?'Scopri di più':'Explore'} →
         </p>
       </a>
 
     </div>
   </section>
 
-  <!-- ═══ TRUSTED EQUIPMENT ═══ -->
-  <section class="container-industrial py-16 border-t border-neutral-800">
-    <p class="text-xs text-neutral-500 uppercase tracking-widest mb-8 text-center">
-      {lang === 'zh' ? '核心设备品牌' : lang === 'ar' ? 'معدات عالمية المستوى' : lang === 'fr' ? 'Équipements de référence' : lang === 'es' ? 'Equipos de referencia' : lang === 'it' ? 'Attrezzature di riferimento' : 'World-Class Equipment'}
-    </p>
-    <div class="flex flex-wrap justify-center items-center gap-12 text-neutral-500 font-semibold tracking-wider text-sm">
-      <span class="hover:text-white transition">HEIDELBERG</span>
-      <span class="text-neutral-700">·</span>
-      <span class="hover:text-white transition">KOENIG &amp; BAUER</span>
-      <span class="text-neutral-700">·</span>
-      <span class="hover:text-white transition">KODAK</span>
-      <span class="text-neutral-700">·</span>
-      <span class="hover:text-white transition">X-RITE</span>
-      <span class="text-neutral-700">·</span>
-      <span class="hover:text-white transition">FSC® · ISO</span>
+  <!-- ═══ EQUIPMENT BRANDS STRIP ═══ -->
+  <section class="border-y border-white/10 py-10">
+    <div class="container-industrial">
+      <div class="flex flex-wrap items-center justify-between gap-8">
+        <p class="label-print">
+          {lang==='zh'?'核心设备':lang==='ar'?'معدات رئيسية':lang==='fr'?'Équipements':lang==='es'?'Equipos':lang==='it'?'Attrezzature':'Equipment'}
+        </p>
+        <div class="flex flex-wrap gap-10 text-white/25 font-bold text-xs tracking-[0.2em] uppercase">
+          <span class="hover:text-white transition-colors">HEIDELBERG</span>
+          <span class="text-white/10">·</span>
+          <span class="hover:text-white transition-colors">KOENIG &amp; BAUER</span>
+          <span class="text-white/10">·</span>
+          <span class="hover:text-white transition-colors">KODAK</span>
+          <span class="text-white/10">·</span>
+          <span class="hover:text-white transition-colors">X-RITE</span>
+        </div>
+        <a href={url(lang as Lang, "/equipment")}
+          class="text-xs text-c uppercase tracking-widest hover:text-white transition-colors">
+          {T.nav.equipment} →
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ═══ CTA ═══ -->
-  <section class="container-industrial py-24 border-t border-neutral-800 text-center">
-    <h2 class="text-4xl font-semibold">{T.home.ctaTitle}</h2>
-    <p class="text-neutral-400 mt-4 max-w-xl mx-auto">{T.home.ctaText}</p>
-    <a
-      href={url(lang as Lang, "/contact")}
-      class="inline-block mt-8 px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
-    >
-      {T.home.ctaBtn}
-    </a>
+  <section class="container-industrial py-32">
+    <div class="relative overflow-hidden border border-white/10 p-16">
+      <!-- Background halftone -->
+      <div class="halftone absolute inset-0 opacity-40 pointer-events-none"></div>
+      <!-- Cyan corner accent -->
+      <div class="absolute top-0 left-0 w-24 h-1 bg-c"></div>
+      <div class="absolute top-0 left-0 w-1 h-24 bg-c"></div>
+      <div class="relative">
+        <p class="label-print mb-6">{T.home.ctaTitle}</p>
+        <p class="text-4xl md:text-5xl font-black leading-tight max-w-2xl mb-10">{T.home.ctaText}</p>
+        <a href={url(lang as Lang, "/contact")}
+          class="inline-flex items-center gap-3 px-10 py-5 bg-c text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors">
+          {T.home.ctaBtn} →
+        </a>
+      </div>
+    </div>
   </section>
 
 </BaseLayout>
