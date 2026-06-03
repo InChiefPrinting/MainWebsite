@@ -36,49 +36,57 @@ const T = t(lang);
         </div>
       </div>
 
-      <!-- Company -->
+      <!-- Company — C (Cyan) -->
       <div>
         <p class="label-print mb-5">{T.footer.company}</p>
         <ul class="space-y-2.5 text-xs text-white/50">
-          <li><a href={url(lang, "/about")} class="hover:text-c transition-colors">{T.nav.about}</a></li>
+          <li><a href={url(lang, "/about")}      class="hover:text-c transition-colors">{T.nav.about}</a></li>
           <li><a href={url(lang, "/industries")} class="hover:text-c transition-colors">{T.nav.industries}</a></li>
-          <li><a href={url(lang, "/careers")} class="hover:text-c transition-colors">{T.nav.careers}</a></li>
-          <li><a href={url(lang, "/news")} class="hover:text-c transition-colors">{T.nav.news}</a></li>
+          <li><a href={url(lang, "/careers")}    class="hover:text-c transition-colors">{T.nav.careers}</a></li>
+          <li><a href={url(lang, "/news")}       class="hover:text-c transition-colors">{T.nav.news}</a></li>
         </ul>
       </div>
 
-      <!-- Solutions -->
+      <!-- Solutions — M (Magenta) -->
       <div>
-        <p class="label-print mb-5">{T.footer.solutions}</p>
+        <p class="label-print label-print-m mb-5">{T.footer.solutions}</p>
         <ul class="space-y-2.5 text-xs text-white/50">
-          <li><a href={url(lang, "/solutions/commercial")} class="hover:text-c transition-colors">{T.service.commercial}</a></li>
-          <li><a href={url(lang, "/solutions/folding-carton")} class="hover:text-c transition-colors">{T.service.packaging}</a></li>
-          <li><a href={url(lang, "/solutions/uv-varnish")} class="hover:text-c transition-colors">{T.service.finishing}</a></li>
-          <li><a href={url(lang, "/case-studies")} class="hover:text-c transition-colors">{T.nav.caseStudies}</a></li>
+          <li><a href={url(lang, "/solutions/commercial")}   class="hover:text-m transition-colors">{T.service.commercial}</a></li>
+          <li><a href={url(lang, "/solutions/folding-carton")} class="hover:text-m transition-colors">{T.service.packaging}</a></li>
+          <li><a href={url(lang, "/solutions/uv-varnish")}   class="hover:text-m transition-colors">{T.service.finishing}</a></li>
+          <li><a href={url(lang, "/case-studies")}           class="hover:text-m transition-colors">{T.nav.caseStudies}</a></li>
         </ul>
       </div>
 
-      <!-- Quick links -->
+      <!-- Quick links — Y (Yellow) -->
       <div>
-        <p class="label-print mb-5">{T.footer.quickLinks}</p>
+        <p class="label-print label-print-y mb-5">{T.footer.quickLinks}</p>
         <ul class="space-y-2.5 text-xs text-white/50">
-          <li><a href={url(lang, "/equipment")} class="hover:text-c transition-colors">{T.nav.equipment}</a></li>
-          <li><a href={url(lang, "/quality")} class="hover:text-c transition-colors">{T.nav.quality}</a></li>
-          <li><a href={url(lang, "/contact")} class="hover:text-c transition-colors">{T.nav.contactUs}</a></li>
+          <li><a href={url(lang, "/equipment")} class="hover:text-y transition-colors">{T.nav.equipment}</a></li>
+          <li><a href={url(lang, "/quality")}   class="hover:text-y transition-colors">{T.nav.quality}</a></li>
+          <li><a href={url(lang, "/contact")}   class="hover:text-y transition-colors">{T.nav.contactUs}</a></li>
         </ul>
       </div>
 
-      <!-- Contact -->
+      <!-- Contact — K (near-white) -->
       <div>
-        <p class="label-print mb-5">{T.footer.contactUs}</p>
-        <ul class="space-y-2.5 text-xs text-white/50">
+        <p class="label-print label-print-k mb-5">{T.footer.contactUs}</p>
+        <ul class="space-y-3 text-xs text-white/50">
           <li>
-            <a href="tel:+8613175698111" class="hover:text-c transition-colors">
-              +86 131-7569-8111
+            <a href="tel:+8613868530992" class="hover:text-white transition-colors leading-relaxed">
+              +86 138-6853-0992
             </a>
+            <p class="text-white/25 mt-0.5">
+              {lang === 'zh' ? '董事长高级助理 陈先生' :
+               lang === 'ar' ? 'السيد چن — مساعد رئيس مجلس الإدارة' :
+               lang === 'fr' ? 'M. Chen — Assistant exécutif du président' :
+               lang === 'es' ? 'Sr. Chen — Asistente ejecutivo del presidente' :
+               lang === 'it' ? 'Sig. Chen — Assistente esecutivo del presidente' :
+               'Mr. Chen — Executive Assistant to the Chairman'}
+            </p>
           </li>
           <li>
-            <a href="mailto:info@InChief.cn" class="hover:text-c transition-colors">
+            <a href="mailto:info@InChief.cn" class="hover:text-white transition-colors">
               info@InChief.cn
             </a>
           </li>

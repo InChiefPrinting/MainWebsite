@@ -25,9 +25,17 @@ const T = t(lang);
 
         <div>
           <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">{T.contact.phone}</p>
-          <a href="tel:+8613175698111" class="text-2xl font-semibold hover:text-industrial-blue transition">
-            +86 131-7569-8111
+          <a href="tel:+8613868530992" class="text-2xl font-semibold hover:text-industrial-blue transition">
+            +86 138-6853-0992
           </a>
+          <p class="text-sm text-neutral-500 mt-1">
+            {lang === 'zh' ? '董事长高级助理 陈先生' :
+             lang === 'ar' ? 'السيد چن — مساعد رئيس مجلس الإدارة' :
+             lang === 'fr' ? 'M. Chen — Assistant exécutif du président' :
+             lang === 'es' ? 'Sr. Chen — Asistente ejecutivo del presidente' :
+             lang === 'it' ? 'Sig. Chen — Assistente esecutivo del presidente' :
+             'Mr. Chen — Executive Assistant to the Chairman'}
+          </p>
         </div>
 
         <div>

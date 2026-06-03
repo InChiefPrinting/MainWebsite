@@ -96,9 +96,12 @@ body {
   display: block;
   width: 20px;
   height: 2px;
-  background: #00AEEF;
+  background: #00AEEF;   /* C — Cyan (default) */
   flex-shrink: 0;
 }
+.label-print-m::before { background: #EC008C; }  /* M — Magenta */
+.label-print-y::before { background: #FFD900; }  /* Y — Yellow  */
+.label-print-k::before { background: rgba(255,255,255,0.35); } /* K */
 
 /* ── Crop-mark card corners ───────────────────────────────────────── */
 .crop-card {
