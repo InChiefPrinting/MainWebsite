@@ -27,6 +27,7 @@ export type UIStrings = {
     embossing: string; dieCutting: string;
     manufacturingServices: string; customProduction: string; oem: string;
     supplyChain: string; fulfillment: string;
+    gallery: string;
   };
   hero: { title: string; sub1: string; sub2: string; cta: string };
   home: {
@@ -134,7 +135,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: 'Embossing & Debossing', dieCutting: 'Die Cutting',
       manufacturingServices: 'Manufacturing Services',
       customProduction: 'Custom Production', oem: 'OEM / ODM Printing',
-      supplyChain: 'Supply Chain Integration', fulfillment: 'Global Fulfillment',
+      supplyChain: 'Supply Chain Integration', fulfillment: 'Global Fulfillment', gallery: 'Gallery',
     },
     hero: {
       title: 'Technology Creates Endless Possibilities',
@@ -288,7 +289,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: '击凸/击凹', dieCutting: '模切',
       manufacturingServices: '制造服务',
       customProduction: '定制生产', oem: 'OEM/ODM印刷',
-      supplyChain: '供应链整合', fulfillment: '全球配送',
+      supplyChain: '供应链整合', fulfillment: '全球配送', gallery: '图库',
     },
     hero: {
       title: '科技创造无限可能',
@@ -442,7 +443,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: 'Gaufrage & Embossage', dieCutting: 'Découpe à l\'emporte-pièce',
       manufacturingServices: 'Services de fabrication',
       customProduction: 'Production personnalisée', oem: 'Impression OEM / ODM',
-      supplyChain: 'Intégration de la chaîne d\'approvisionnement', fulfillment: 'Expédition mondiale',
+      supplyChain: 'Intégration de la chaîne d\'approvisionnement', fulfillment: 'Expédition mondiale', gallery: 'Galerie',
     },
     hero: {
       title: 'La Technologie Crée des Possibilités Infinies',
@@ -596,7 +597,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: 'النقش البارز والغائر', dieCutting: 'القطع بالقالب',
       manufacturingServices: 'خدمات التصنيع',
       customProduction: 'الإنتاج المخصص', oem: 'طباعة OEM / ODM',
-      supplyChain: 'تكامل سلسلة التوريد', fulfillment: 'التوصيل العالمي',
+      supplyChain: 'تكامل سلسلة التوريد', fulfillment: 'التوصيل العالمي', gallery: 'معرض الصور',
     },
     hero: {
       title: 'التكنولوجيا تخلق إمكانيات لا نهاية لها',
@@ -750,7 +751,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: 'Relieve y grabado', dieCutting: 'Troquelado',
       manufacturingServices: 'Servicios de fabricación',
       customProduction: 'Producción personalizada', oem: 'Impresión OEM / ODM',
-      supplyChain: 'Integración de la cadena de suministro', fulfillment: 'Envío global',
+      supplyChain: 'Integración de la cadena de suministro', fulfillment: 'Envío global', gallery: 'Galería',
     },
     hero: {
       title: 'La Tecnología Crea Posibilidades Infinitas',
@@ -904,7 +905,7 @@ export const ui: Record<Lang, UIStrings> = {
       embossing: 'Goffratura e debossatura', dieCutting: 'Fustellatura',
       manufacturingServices: 'Servizi di produzione',
       customProduction: 'Produzione personalizzata', oem: 'Stampa OEM / ODM',
-      supplyChain: 'Integrazione catena di approvvigionamento', fulfillment: 'Consegna globale',
+      supplyChain: 'Integrazione catena di approvvigionamento', fulfillment: 'Consegna globale', gallery: 'Galleria',
     },
     hero: {
       title: 'La Tecnologia Crea Possibilità Infinite',

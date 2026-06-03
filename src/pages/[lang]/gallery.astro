@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlaceholderImg from "../../components/PlaceholderImg.astro";
+import { t, getLangStaticPaths, url } from "../../i18n";
+import type { Lang } from "../../i18n";
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const T = t(lang);
+
+const L = (zh: string, en: string, fr: string, ar: string, es: string, it: string) =>
+  lang==='zh'?zh : lang==='fr'?fr : lang==='ar'?ar : lang==='es'?es : lang==='it'?it : en;
+
+const categories = [
+  {
+    label: L('工厂与设施','Factory & Facilities','Usine & Installations','المصنع والمرافق','Fábrica e Instalaciones','Stabilimento'),
+    items: [
+      { slug: 'factory-exterior-longgang',  label: L('龙港厂区外观','Factory exterior — Longgang','Extérieur usine — Longgang','واجهة المصنع — لونغغانغ','Exterior fábrica — Longgang','Esterno stabilimento — Longgang'), aspect: '4/3' },
+      { slug: 'factory-floor-overview',     label: L('印刷车间全貌','Production floor overview','Vue d\'ensemble de l\'atelier','نظرة عامة على أرضية الإنتاج','Vista general del piso de producción','Panoramica del reparto produzione'), aspect: '21/9', wide: true },
+      { slug: 'production-floor-press-line',label: L('胶印机压线','Offset press line','Ligne de presses offset','خط مطابع الأوفست','Línea de prensas offset','Linea presse offset'), aspect: '4/3' },
+      { slug: 'team-production-floor',      label: L('团队与工人','Team on the floor','Équipe en production','فريق العمل في الإنتاج','Equipo en producción','Team in produzione'), aspect: '16/9', wide: true },
+    ],
+  },
+  {
+    label: L('核心设备','Equipment','Équipements','المعدات','Equipos','Attrezzature'),
+    items: [
+      { slug: 'heidelberg-cx104-10color',      label: L('海德堡 CX104 十色印刷机','Heidelberg CX104 10-color press','Presse Heidelberg CX104 10 couleurs','مطبعة Heidelberg CX104 عشرة ألوان','Prensa Heidelberg CX104 10 colores','Pressa Heidelberg CX104 10 colori'), aspect: '4/3' },
+      { slug: 'kba-ra164-fullformat',           label: L('高宝 RA164-5 全开五色机','KBA RA164-5 full-format press','Presse KBA RA164-5 plein format','مطبعة KBA RA164-5 تنسيق كامل','Prensa KBA RA164-5 formato completo','Pressa KBA RA164-5 formato pieno'), aspect: '4/3' },
+      { slug: 'quality-inspection-lingyun',    label: L('灵云全自动检品机','Lingyun automated inspection','Inspection automatisée Lingyun','فحص آلي Lingyun','Inspección automatizada Lingyun','Ispezione automatizzata Lingyun'), aspect: '4/3' },
+      { slug: 'xrite-exact-colorimeter',       label: L('X-Rite EXACT 色彩检测','X-Rite EXACT color measurement','Mesure couleur X-Rite EXACT','قياس لون X-Rite EXACT','Medición color X-Rite EXACT','Misurazione colore X-Rite EXACT'), aspect: '1/1' },
+      { slug: 'kodak-ctp-platemaking',         label: L('柯达 CTP 数字制版','Kodak CTP platemaking','Gravure CTP Kodak','تصنيع ألواح Kodak CTP','Fabricación planchas Kodak CTP','Produzione lastre Kodak CTP'), aspect: '4/3' },
+      { slug: 'press-floor-panorama',          label: L('7台印机全景','7-press floor panorama','Panorama 7 presses','بانوراما 7 مطابع','Panorama 7 prensas','Panorama 7 presse'), aspect: '21/9', wide: true },
+    ],
+  },
+  {
+    label: L('印刷工艺','Print Finishing','Façonnage d\'impression','تشطيب الطباعة','Acabados de impresión','Lavorazioni di stampa'),
+    items: [
+      { slug: 'finishing-uv-varnish-effect', label: L('UV 上光效果','UV varnish — gloss contrast','Vernis UV — contraste brillant','تأثير الورنيش UV','Efecto barniz UV','Effetto verniciatura UV'), aspect: '1/1' },
+      { slug: 'finishing-foil-stamping',     label: L('烫金效果','Foil stamping — metallic finish','Dorure — finition métallique','تأثير الختم بالرقائق','Efecto estampado en caliente','Effetto stampa a caldo'), aspect: '1/1' },
+      { slug: 'finishing-embossing',         label: L('击凸浮雕效果','Embossing — 3D relief','Gaufrage — relief 3D','تأثير النقش البارز','Efecto gofrado en relieve','Effetto goffratura in rilievo'), aspect: '1/1' },
+      { slug: 'finishing-die-cutting',       label: L('模切异形成品','Die-cut custom shapes','Découpe formes sur mesure','قطع مخصص بالقالب','Troquelado formas personalizadas','Fustellatura forme personalizzate'), aspect: '4/3' },
+      { slug: 'finishing-soft-touch-lam',   label: L('柔触覆膜效果','Soft-touch lamination','Pelliculage soft-touch','تغليف ناعم الملمس','Plastificado soft-touch','Pellicola soft-touch'), aspect: '1/1' },
+    ],
+  },
+  {
+    label: L('产品成品','Products','Produits finis','المنتجات النهائية','Productos terminados','Prodotti finiti'),
+    items: [
+      { slug: 'case-luxury-gift-box',      label: L('高端礼品硬盒','Luxury rigid gift box','Boîte cadeau rigide premium','صندوق هدايا فاخر','Caja de regalo rígida premium','Confezione regalo rigida premium'), aspect: '4/3' },
+      { slug: 'case-pharma-track-code',    label: L('医药追溯码包装','Pharmaceutical packaging','Emballage pharmaceutique','تغليف دوائي','Embalaje farmacéutico','Packaging farmaceutico'), aspect: '4/3' },
+      { slug: 'case-fsc-food-packaging',   label: L('FSC食品包装','FSC-certified food packaging','Emballage alimentaire FSC','تغليف غذائي FSC','Embalaje alimentario FSC','Packaging alimentare FSC'), aspect: '4/3' },
+      { slug: 'case-catalog-8color',       label: L('品牌宣传画册','Brand catalog — 8-color print','Catalogue marque — 8 couleurs','كتالوج العلامة التجارية','Catálogo de marca — 8 colores','Catalogo brand — 8 colori'), aspect: '4/3' },
+      { slug: 'case-oem-corrugated',       label: L('OEM 出口瓦楞纸箱','OEM corrugated export cartons','Cartons ondulés OEM export','كراتين مموجة OEM للتصدير','Cartones corrugados OEM export','Cartoni ondulati OEM export'), aspect: '4/3' },
+      { slug: 'case-vdp-labels',           label: L('可变数据标签','Variable data labels','Étiquettes données variables','ملصقات البيانات المتغيرة','Etiquetas datos variables','Etichette dati variabili'), aspect: '4/3' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`${T.nav.gallery} | InChief`}
+  description={T.meta.description}
+  lang={lang}
+>
+
+  <!-- Header -->
+  <section class="container-industrial py-24">
+    <p class="label-print mb-4">InChief Printing</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.nav.gallery}</h1>
+    <p class="text-white/50 max-w-2xl text-sm">
+      {lang==='zh' ? '工厂、设备、工艺与产品的真实影像记录' :
+       lang==='ar' ? 'توثيق بصري حقيقي للمصنع والمعدات والعمليات والمنتجات' :
+       lang==='fr' ? 'Documentation visuelle authentique de l\'usine, équipements, procédés et produits' :
+       lang==='es' ? 'Documentación visual auténtica de fábrica, equipos, procesos y productos' :
+       lang==='it' ? 'Documentazione visiva autentica di stabilimento, attrezzature, processi e prodotti' :
+       'Authentic visual documentation of our factory, equipment, processes and products'}
+    </p>
+  </section>
+
+  <!-- Gallery categories -->
+  {categories.map((cat, ci) => (
+    <section class={`container-industrial pb-20 ${ci > 0 ? 'border-t border-white/8 pt-16' : 'border-t border-white/8'}`}>
+
+      <!-- Category header -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-0.5 h-6 flex-shrink-0"
+          style={`background:${ci===0?'#00AEEF':ci===1?'#EC008C':ci===2?'#FFD900':'rgba(255,255,255,0.35)'}`}>
+        </div>
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40">{cat.label}</h2>
+        <div class="flex-1 h-px bg-white/5"></div>
+        <span class="text-[9px] font-mono text-white/20">{cat.items.length} images</span>
+      </div>
+
+      <!-- Masonry-style grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {cat.items.map((item) => (
+          <div class={item.wide ? 'col-span-2 md:col-span-3' : ''}>
+            <PlaceholderImg
+              slug={item.slug}
+              label={item.label}
+              aspect={item.aspect}
+              class="w-full"
+            />
+          </div>
+        ))}
+      </div>
+
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="container-industrial py-24 border-t border-white/8 text-center">
+    <p class="label-print mb-6 justify-center">{T.home.ctaTitle}</p>
+    <p class="text-3xl font-bold mb-10">{T.home.ctaText}</p>
+    <a href={url(lang as Lang, "/contact")}
+      class="inline-flex items-center gap-3 px-10 py-5 bg-c text-black font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity">
+      {T.home.ctaBtn} →
+    </a>
+  </section>
+
+</BaseLayout>

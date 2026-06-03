@@ -83,15 +83,15 @@ const navItems = [
       <span class="text-sm font-bold tracking-[0.08em]">InChief</span>
     </a>
 
-    <!-- Mobile toggle -->
-    <button id="menuBtn" class="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5" aria-label="Open menu">
+    <!-- Mobile toggle — shows below lg (1024px) -->
+    <button id="menuBtn" class="lg:hidden w-8 h-8 flex flex-col justify-center gap-1.5" aria-label="Open menu">
       <span class="block h-px bg-current"></span>
       <span class="block h-px bg-current w-5/6"></span>
       <span class="block h-px bg-current"></span>
     </button>
 
-    <!-- Desktop nav -->
-    <ul class="hidden md:flex items-center gap-6 text-xs font-medium tracking-wider uppercase">
+    <!-- Desktop nav — visible from lg (1024px) upward -->
+    <ul class="hidden lg:flex items-center gap-3 xl:gap-5 text-[11px] font-medium tracking-wider uppercase">
 
       {navItems.map((item) => (
         <li class="relative group py-4">
@@ -153,9 +153,10 @@ const navItems = [
         </li>
       ))}
 
-      <a href={url(lang, "/equipment")} class="hover:text-c transition-colors">{T.nav.equipment}</a>
-      <a href={url(lang, "/case-studies")} class="hover:text-c transition-colors">{T.nav.caseStudies}</a>
-      <a href={url(lang, "/quality")} class="hover:text-c transition-colors">{T.nav.quality}</a>
+      <a href={url(lang, "/equipment")}   class="hover:text-c transition-colors whitespace-nowrap">{T.nav.equipment}</a>
+      <a href={url(lang, "/quality")}     class="hover:text-c transition-colors whitespace-nowrap">{T.nav.quality}</a>
+      <a href={url(lang, "/gallery")}     class="hover:text-c transition-colors whitespace-nowrap">{T.nav.gallery}</a>
+      <a href={url(lang, "/case-studies")} class="hover:text-c transition-colors whitespace-nowrap">{T.nav.caseStudies}</a>
 
       <!-- Language switcher -->
       <li class="relative group py-4 list-none">
@@ -182,7 +183,7 @@ const navItems = [
       </li>
 
       <a href={url(lang, "/contact")}
-        class="ml-2 px-5 py-2 border border-c text-c text-xs hover:bg-c hover:text-black transition-all font-bold tracking-widest">
+        class="ml-1 px-4 xl:px-5 py-2 border border-c text-c text-[11px] hover:bg-c hover:text-black transition-all font-bold tracking-widest whitespace-nowrap">
         {T.nav.contactUs}
       </a>
     </ul>
@@ -190,7 +191,7 @@ const navItems = [
 </header>
 
 <!-- ═══ Mobile overlay ═══ -->
-<div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden md:hidden">
+<div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden lg:hidden">
   <div class="flex flex-col h-full">
 
     <!-- Mobile header -->
@@ -227,9 +228,10 @@ const navItems = [
       <div>
         <p class="text-[10px] uppercase tracking-widest text-white/35 mb-4">— —</p>
         <div class="space-y-2 pl-3 border-l border-white/10">
-          <a href={url(lang, "/equipment")} class="block text-sm hover:text-c transition-colors">{T.nav.equipment}</a>
+          <a href={url(lang, "/equipment")}    class="block text-sm hover:text-c transition-colors">{T.nav.equipment}</a>
+          <a href={url(lang, "/quality")}      class="block text-sm hover:text-c transition-colors">{T.nav.quality}</a>
+          <a href={url(lang, "/gallery")}      class="block text-sm hover:text-c transition-colors">{T.nav.gallery}</a>
           <a href={url(lang, "/case-studies")} class="block text-sm hover:text-c transition-colors">{T.nav.caseStudies}</a>
-          <a href={url(lang, "/quality")} class="block text-sm hover:text-c transition-colors">{T.nav.quality}</a>
         </div>
       </div>
 
