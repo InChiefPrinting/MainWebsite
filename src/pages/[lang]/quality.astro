@@ -185,64 +185,76 @@ const certs = [
   </section>
 
   <!-- Technical Quality Standards -->
-  <section class="container-industrial pb-24 border-t border-neutral-800">
-    <h2 class="text-2xl font-semibold mt-16 mb-10">
-      {lang === 'zh' ? '印刷技术质量规格' : lang === 'ar' ? 'مواصفات الجودة الفنية' : lang === 'fr' ? 'Spécifications techniques de qualité' : lang === 'es' ? 'Especificaciones técnicas de calidad' : lang === 'it' ? 'Specifiche tecniche di qualità' : 'Print Technical Quality Specifications'}
-    </h2>
-    <div class="grid md:grid-cols-2 gap-12">
+  <section class="container-industrial pb-24 border-t border-white/8">
+    <div class="flex items-center gap-4 mt-16 mb-12">
+      <div class="w-0.5 h-6 bg-c flex-shrink-0"></div>
+      <h2 class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40">
+        {lang === 'zh' ? '印刷技术质量规格' : lang === 'ar' ? 'مواصفات الجودة الفنية' : lang === 'fr' ? 'Spécifications techniques' : lang === 'es' ? 'Especificaciones técnicas' : lang === 'it' ? 'Specifiche tecniche' : 'Print Technical Specifications'}
+      </h2>
+      <div class="flex-1 h-px bg-white/5"></div>
+    </div>
 
-      <div>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-4">
-          {lang === 'zh' ? '套印精度' : lang === 'ar' ? 'دقة تطابق الألوان' : lang === 'fr' ? 'Précision de repérage' : lang === 'es' ? 'Precisión de registro' : lang === 'it' ? 'Precisione di registro' : 'Register Accuracy'}
-        </p>
-        <dl class="space-y-0">
+    <div class="grid md:grid-cols-2 gap-0 md:divide-x divide-white/5">
+
+      <!-- Left column: register accuracy + environment -->
+      <div class="md:pr-16 space-y-12">
+
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 mb-0 pb-3 border-b border-white/8">
+            {lang === 'zh' ? '套印精度' : lang === 'ar' ? 'دقة التسجيل' : lang === 'fr' ? 'Précision de repérage' : lang === 'es' ? 'Precisión de registro' : lang === 'it' ? 'Precisione di registro' : 'Register Accuracy'}
+          </p>
           {[
-            { label: lang === 'zh' ? '精细印刷' : 'Fine printing', value: '≤ 0.05 mm' },
-            { label: lang === 'zh' ? '标准印刷' : 'Standard printing', value: '≤ 0.15 mm' },
+            { label: lang === 'zh' ? '精细印刷' : lang === 'ar' ? 'طباعة دقيقة' : lang === 'fr' ? 'Impression fine' : lang === 'es' ? 'Impresión fina' : lang === 'it' ? 'Stampa fine' : 'Fine printing', value: '≤ 0.05 mm' },
+            { label: lang === 'zh' ? '标准印刷' : lang === 'ar' ? 'طباعة قياسية' : lang === 'fr' ? 'Impression standard' : lang === 'es' ? 'Impresión estándar' : lang === 'it' ? 'Stampa standard' : 'Standard printing', value: '≤ 0.15 mm' },
           ].map((row) => (
-            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
-              <dt class="text-neutral-400 text-sm">{row.label}</dt>
-              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
+            <div class="flex items-baseline justify-between py-4 border-b border-white/5 last:border-0 group hover:bg-white/2 transition-colors -mx-2 px-2">
+              <dt class="text-sm text-white/50">{row.label}</dt>
+              <dd class="font-black font-mono text-xl text-c stat-num">{row.value}</dd>
             </div>
           ))}
-        </dl>
+        </div>
 
-        <p class="text-xs text-neutral-400 uppercase tracking-widest mt-8 mb-4">
-          {lang === 'zh' ? '车间环境控制' : lang === 'ar' ? 'بيئة ورشة العمل' : lang === 'fr' ? 'Environnement atelier' : lang === 'es' ? 'Ambiente taller' : lang === 'it' ? 'Ambiente officina' : 'Workshop Environment'}
-        </p>
-        <dl class="space-y-0">
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 mb-0 pb-3 border-b border-white/8">
+            {lang === 'zh' ? '车间环境控制' : lang === 'ar' ? 'بيئة ورشة العمل' : lang === 'fr' ? 'Environnement atelier' : lang === 'es' ? 'Ambiente taller' : lang === 'it' ? 'Ambiente officina' : 'Workshop Environment'}
+          </p>
           {[
-            { label: lang === 'zh' ? '恒温控制' : 'Temperature', value: '23 ± 2 °C' },
-            { label: lang === 'zh' ? '恒湿控制' : 'Humidity', value: '55% – 65% RH' },
+            { label: lang === 'zh' ? '恒温' : 'Temperature', value: '23 ± 2 °C' },
+            { label: lang === 'zh' ? '恒湿' : 'Humidity', value: '55 – 65% RH' },
           ].map((row) => (
-            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
-              <dt class="text-neutral-400 text-sm">{row.label}</dt>
-              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
+            <div class="flex items-baseline justify-between py-4 border-b border-white/5 last:border-0 group hover:bg-white/2 transition-colors -mx-2 px-2">
+              <dt class="text-sm text-white/50">{row.label}</dt>
+              <dd class="font-black font-mono text-xl text-c stat-num">{row.value}</dd>
             </div>
           ))}
-        </dl>
+        </div>
+
       </div>
 
-      <div>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest mb-4">
-          {lang === 'zh' ? '标准色密度范围（ISO 12647-2）' : lang === 'ar' ? 'نطاق كثافة الألوان (ISO 12647-2)' : lang === 'fr' ? 'Densités couleur standard (ISO 12647-2)' : lang === 'es' ? 'Densidades color estándar (ISO 12647-2)' : lang === 'it' ? 'Densità colore standard (ISO 12647-2)' : 'Standard Color Density (ISO 12647-2)'}
+      <!-- Right column: color density -->
+      <div class="md:pl-16 mt-12 md:mt-0">
+        <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 mb-0 pb-3 border-b border-white/8">
+          {lang === 'zh' ? '标准色密度范围' : lang === 'ar' ? 'نطاق كثافة الألوان' : lang === 'fr' ? 'Densités couleur standard' : lang === 'es' ? 'Densidades color estándar' : lang === 'it' ? 'Densità colore standard' : 'Standard Color Density'}
+          <span class="ml-2 text-white/15 normal-case tracking-normal font-mono font-normal">ISO 12647-2</span>
         </p>
-        <dl class="space-y-0">
-          {[
-            { label: 'Black (K)', value: '1.40 – 1.70' },
-            { label: 'Cyan (C)', value: '1.30 – 1.55' },
-            { label: 'Magenta (M)', value: '1.25 – 1.50' },
-            { label: 'Yellow (Y)', value: '0.85 – 1.10' },
-            { label: lang === 'zh' ? '50%网点扩大（精细）' : 'Dot gain @ 50% (fine)', value: '10% – 20%' },
-          ].map((row) => (
-            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
-              <dt class="text-neutral-400 text-sm">{row.label}</dt>
-              <dd class="font-semibold text-sm font-mono">{row.value}</dd>
-            </div>
-          ))}
-        </dl>
-        <p class="mt-6 text-xs text-neutral-500">
-          {lang === 'zh' ? '参照标准：ISO 12647-2 · PSO（德国）· GRACoL（北美）' : lang === 'ar' ? 'المراجع: ISO 12647-2 · PSO · GRACoL' : lang === 'fr' ? 'Réf. : ISO 12647-2 · PSO (Allemagne) · GRACoL (Amérique du Nord)' : lang === 'es' ? 'Referencias: ISO 12647-2 · PSO · GRACoL' : lang === 'it' ? 'Rif.: ISO 12647-2 · PSO · GRACoL' : 'References: ISO 12647-2 · PSO (Germany) · GRACoL (North America)'}
+        {[
+          { label: 'Black', ch: 'K', value: '1.40 – 1.70', color: '#fff' },
+          { label: 'Cyan',    ch: 'C', value: '1.30 – 1.55', color: '#00AEEF' },
+          { label: 'Magenta', ch: 'M', value: '1.25 – 1.50', color: '#EC008C' },
+          { label: 'Yellow',  ch: 'Y', value: '0.85 – 1.10', color: '#FFD900' },
+          { label: lang === 'zh' ? '50%网点扩大' : 'Dot gain 50%', ch: '△', value: '10 – 20%', color: '#fff' },
+        ].map((row) => (
+          <div class="flex items-center justify-between py-4 border-b border-white/5 last:border-0 group hover:bg-white/2 transition-colors -mx-2 px-2">
+            <dt class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style={`background:${row.color};opacity:${row.ch==='△'?0.3:0.8}`}></span>
+              <span class="text-sm text-white/50">{row.label}</span>
+              <span class="text-[9px] font-mono text-white/20">{row.ch}</span>
+            </dt>
+            <dd class="font-black font-mono text-lg stat-num" style={`color:${row.color};opacity:${row.ch==='△'?0.6:0.9}`}>{row.value}</dd>
+          </div>
+        ))}
+        <p class="mt-6 text-[9px] font-mono text-white/20 uppercase tracking-widest">
+          REF: ISO 12647-2 · PSO · GRACoL
         </p>
       </div>
 

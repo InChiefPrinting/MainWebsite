@@ -57,43 +57,39 @@ if (!content) {
 
   <!-- Features + Specs -->
   <section class="container-industrial pb-24">
-    <div class="grid md:grid-cols-2 gap-16">
+    <div class="grid md:grid-cols-2 gap-0 md:divide-x divide-white/8">
 
       <!-- Features -->
-      <div>
-        <h2 class="text-2xl font-semibold mb-8 border-b border-neutral-800 pb-4">
-          {lang === 'zh' ? '核心优势' :
-           lang === 'fr' ? 'Points forts' :
-           lang === 'ar' ? 'المزايا الرئيسية' :
-           lang === 'es' ? 'Características clave' :
-           lang === 'it' ? 'Caratteristiche principali' :
-           'Key Features'}
-        </h2>
-        <ul class="space-y-4">
+      <div class="md:pr-16">
+        <div class="flex items-center gap-3 mb-8 pb-4 border-b border-white/8">
+          <div class="w-0.5 h-5 bg-c flex-shrink-0"></div>
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40">
+            {lang === 'zh' ? '核心优势' : lang === 'fr' ? 'Points forts' : lang === 'ar' ? 'المزايا الرئيسية' : lang === 'es' ? 'Características clave' : lang === 'it' ? 'Caratteristiche principali' : 'Key Features'}
+          </h2>
+        </div>
+        <ul class="space-y-0">
           {content.features.map((feature) => (
-            <li class="flex items-start gap-3">
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-industrial-blue flex-shrink-0"></span>
-              <span class="text-neutral-300">{feature}</span>
+            <li class="flex items-start gap-4 py-4 border-b border-white/5 last:border-0 group">
+              <span class="mt-2 w-1 h-1 rounded-full bg-c flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+              <span class="text-white/70 text-sm leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
       </div>
 
       <!-- Specs -->
-      <div>
-        <h2 class="text-2xl font-semibold mb-8 border-b border-neutral-800 pb-4">
-          {lang === 'zh' ? '技术规格' :
-           lang === 'fr' ? 'Spécifications' :
-           lang === 'ar' ? 'المواصفات الفنية' :
-           lang === 'es' ? 'Especificaciones' :
-           lang === 'it' ? 'Specifiche tecniche' :
-           'Specifications'}
-        </h2>
+      <div class="md:pl-16 mt-12 md:mt-0">
+        <div class="flex items-center gap-3 mb-8 pb-4 border-b border-white/8">
+          <div class="w-0.5 h-5 bg-m flex-shrink-0"></div>
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40">
+            {lang === 'zh' ? '技术规格' : lang === 'fr' ? 'Spécifications' : lang === 'ar' ? 'المواصفات الفنية' : lang === 'es' ? 'Especificaciones' : lang === 'it' ? 'Specifiche tecniche' : 'Specifications'}
+          </h2>
+        </div>
         <dl class="space-y-0">
           {content.specs.map((spec) => (
-            <div class="flex justify-between py-4 border-b border-neutral-800 last:border-0">
-              <dt class="text-neutral-400 text-sm">{spec.label}</dt>
-              <dd class="font-semibold text-sm text-right">{spec.value}</dd>
+            <div class="flex items-baseline justify-between py-4 border-b border-white/5 last:border-0 group hover:bg-white/2 transition-colors -mx-2 px-2">
+              <dt class="text-white/40 text-xs uppercase tracking-wider">{spec.label}</dt>
+              <dd class="font-black font-mono text-base text-c stat-num text-right">{spec.value}</dd>
             </div>
           ))}
         </dl>

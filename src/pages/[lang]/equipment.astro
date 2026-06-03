@@ -129,31 +129,58 @@ const equipmentGroups = [
   </section>
 
   <!-- Equipment tables -->
-  {equipmentGroups.map((group) => (
-    <section class="container-industrial pb-16">
-      <h2 class="text-2xl font-semibold mb-6 text-industrial-blue">{group.title}</h2>
-      <div class="border border-neutral-800 overflow-hidden">
-        <table class="w-full text-sm">
+  <div class="container-industrial pb-24 space-y-0">
+    {equipmentGroups.map((group, gi) => (
+      <div class={gi > 0 ? 'pt-14 border-t border-white/5' : ''}>
+
+        <!-- Group header -->
+        <div class="flex items-center gap-4 mb-1 py-6">
+          <div class="w-0.5 h-6 bg-c flex-shrink-0"></div>
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.22em] text-white/40">
+            {group.title}
+          </h2>
+          <div class="flex-1 h-px bg-white/5"></div>
+          <span class="text-[10px] font-mono text-white/20">
+            ×{group.items.reduce((s, i) => s + i.qty, 0)}&nbsp;
+            {lang === 'zh' ? '台' : lang === 'ar' ? 'وحدة' : lang === 'fr' ? 'unité(s)' : lang === 'es' ? 'ud.' : lang === 'it' ? 'unità' : 'unit(s)'}
+          </span>
+        </div>
+
+        <!-- Table -->
+        <table class="w-full">
           <thead>
-            <tr class="border-b border-neutral-800 bg-neutral-900">
-              <th class="text-start px-6 py-3 text-neutral-400 font-normal">{lang === 'zh' ? '设备名称' : 'Equipment'}</th>
-              <th class="text-start px-6 py-3 text-neutral-400 font-normal hidden md:table-cell">{lang === 'zh' ? '规格型号' : 'Specification'}</th>
-              <th class="text-start px-6 py-3 text-neutral-400 font-normal w-16">{lang === 'zh' ? '数量' : 'Qty'}</th>
+            <tr class="border-b border-white/8">
+              <th class="text-left pb-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 w-[45%]">
+                {lang === 'zh' ? '设备名称' : lang === 'ar' ? 'المعدة' : lang === 'fr' ? 'Équipement' : lang === 'es' ? 'Equipo' : lang === 'it' ? 'Attrezzatura' : 'Equipment'}
+              </th>
+              <th class="text-left pb-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 hidden md:table-cell">
+                {lang === 'zh' ? '规格 / 功能' : lang === 'ar' ? 'المواصفات' : lang === 'fr' ? 'Spécification' : lang === 'es' ? 'Especificación' : lang === 'it' ? 'Specifica' : 'Specification'}
+              </th>
+              <th class="text-right pb-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white/25 w-20">
+                {lang === 'zh' ? '数量' : lang === 'ar' ? 'الكمية' : lang === 'fr' ? 'Qté' : lang === 'es' ? 'Cant.' : lang === 'it' ? 'Q.tà' : 'Qty'}
+              </th>
             </tr>
           </thead>
           <tbody>
-            {group.items.map((item, i) => (
-              <tr class={`border-b border-neutral-800 last:border-none ${i % 2 === 1 ? 'bg-neutral-900/30' : ''}`}>
-                <td class="px-6 py-4">{item.name}</td>
-                <td class="px-6 py-4 text-neutral-400 hidden md:table-cell">{item.spec}</td>
-                <td class="px-6 py-4 text-industrial-blue">{item.qty}</td>
+            {group.items.map((item) => (
+              <tr class="border-b border-white/5 last:border-0 group hover:bg-white/3 transition-colors">
+                <td class="py-5 pr-8">
+                  <span class="font-semibold text-sm leading-snug">{item.name}</span>
+                </td>
+                <td class="py-5 pr-8 hidden md:table-cell">
+                  <span class="text-xs font-mono text-white/35 leading-relaxed">{item.spec}</span>
+                </td>
+                <td class="py-5 text-right">
+                  <span class="text-c font-black text-2xl stat-num leading-none">{item.qty}</span>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+
       </div>
-    </section>
-  ))}
+    ))}
+  </div>
 
   <!-- CTA -->
   <section class="container-industrial py-24 border-t border-neutral-800 text-center">
