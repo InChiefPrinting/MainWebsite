@@ -1,0 +1,66 @@
+---
+/**
+ * LogoMark — SVG recreation of the InChief two-circle overprint logo.
+ * Magenta (left) + Cyan (right) with halftone overprint split:
+ *   upper overlap → cyan on top   |   lower overlap → magenta on top
+ */
+interface Props {
+  class?: string;
+  size?: number; // height in px, width auto-calculated
+}
+const { class: cls = '', size = 32 } = Astro.props;
+const width = Math.round(size * (130 / 80));
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 130 80"
+  width={width}
+  height={size}
+  class={cls}
+  role="img"
+  aria-label="InChief Printing logo"
+>
+  <defs>
+    <!--
+      Magenta gradient: light pink at focal point (upper-left)
+      → deep process magenta toward center and edges
+    -->
+    <radialGradient id="lm-gm" cx="35%" cy="30%" r="68%">
+      <stop offset="0%"   stop-color="#FFB8DC"/>
+      <stop offset="38%"  stop-color="#F0009A"/>
+      <stop offset="100%" stop-color="#C40078"/>
+    </radialGradient>
+
+    <!--
+      Cyan gradient: deep blue at focal point (upper-left of right circle)
+      → process cyan mid → light sky blue at lower-right edge
+    -->
+    <radialGradient id="lm-gc" cx="32%" cy="28%" r="72%">
+      <stop offset="0%"   stop-color="#0052A0"/>
+      <stop offset="40%"  stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#B0E4FF"/>
+    </radialGradient>
+
+    <!--
+      Mask on the cyan circle:
+      - Show cyan (white) everywhere by default
+      - Hide cyan (black) in the LOWER half of the left circle's area
+        → this reveals the magenta circle below in that region
+      Result: overlap upper half = cyan on top, lower half = magenta on top
+    -->
+    <clipPath id="lm-lower">
+      <rect x="0" y="40" width="130" height="40"/>
+    </clipPath>
+    <mask id="lm-mask">
+      <rect width="130" height="80" fill="white"/>
+      <circle cx="42" cy="40" r="36" clip-path="url(#lm-lower)" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Layer 1: Magenta circle (always behind) -->
+  <circle cx="42" cy="40" r="36" fill="url(#lm-gm)"/>
+
+  <!-- Layer 2: Cyan circle (masked to reveal magenta in lower overlap) -->
+  <circle cx="88" cy="40" r="36" fill="url(#lm-gc)" mask="url(#lm-mask)"/>
+</svg>

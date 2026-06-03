@@ -1,6 +1,7 @@
 ---
 import { t, url, switchLangUrl, LOCALES, LANG_NAMES, RTL_LANGS } from "../i18n";
 import type { Lang } from "../i18n";
+import LogoMark from "./LogoMark.astro";
 
 const { lang = "en" } = Astro.props;
 const T = t(lang);
@@ -77,10 +78,10 @@ const navItems = [
 <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
   <nav class="container-industrial flex items-center justify-between h-14">
 
-    <!-- Logo + reg mark -->
-    <a href={url(lang, "/")} class="flex items-center gap-2.5 shrink-0 group">
-      <span class="reg-mark text-c w-4 h-4 opacity-60 group-hover:opacity-100 transition" aria-hidden="true"></span>
-      <span class="text-base font-bold tracking-[0.2em] uppercase">InChief</span>
+    <!-- Logo -->
+    <a href={url(lang, "/")} class="flex items-center gap-3 shrink-0 group">
+      <LogoMark size={28} class="group-hover:opacity-90 transition-opacity" />
+      <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief</span>
     </a>
 
     <!-- Mobile toggle -->
@@ -195,8 +196,8 @@ const navItems = [
 
     <!-- Mobile header -->
     <div class="flex justify-between items-center h-14 px-6 border-b border-white/10">
-      <span class="flex items-center gap-2">
-        <span class="reg-mark text-c w-4 h-4 opacity-60" aria-hidden="true"></span>
+      <span class="flex items-center gap-3">
+        <LogoMark size={24} />
         <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief</span>
       </span>
       <button id="closeMenu" class="text-2xl leading-none text-white/60 hover:text-white transition">✕</button>
