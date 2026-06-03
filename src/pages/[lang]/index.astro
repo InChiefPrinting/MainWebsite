@@ -59,7 +59,7 @@ const T = t(lang);
       <!-- CTA -->
       <div class="flex items-center gap-6 mt-12">
         <a href={url(lang as Lang, "/contact")}
-          class="inline-flex items-center gap-3 px-8 py-4 bg-c text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors">
+          class="inline-flex items-center gap-3 px-8 py-4 bg-c text-black font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity">
           {T.hero.cta}
           <span aria-hidden="true">→</span>
         </a>
@@ -169,16 +169,16 @@ const T = t(lang);
           {lang==='zh'?'核心设备':lang==='ar'?'معدات رئيسية':lang==='fr'?'Équipements':lang==='es'?'Equipos':lang==='it'?'Attrezzature':'Equipment'}
         </p>
         <div class="flex flex-wrap gap-10 text-white/25 font-bold text-xs tracking-[0.2em] uppercase">
-          <span class="hover:text-white transition-colors">HEIDELBERG</span>
+          <span class="hover:text-c transition-colors">HEIDELBERG</span>
           <span class="text-white/10">·</span>
-          <span class="hover:text-white transition-colors">KOENIG &amp; BAUER</span>
+          <span class="hover:text-c transition-colors">KOENIG &amp; BAUER</span>
           <span class="text-white/10">·</span>
-          <span class="hover:text-white transition-colors">KODAK</span>
+          <span class="hover:text-c transition-colors">KODAK</span>
           <span class="text-white/10">·</span>
-          <span class="hover:text-white transition-colors">X-RITE</span>
+          <span class="hover:text-c transition-colors">X-RITE</span>
         </div>
         <a href={url(lang as Lang, "/equipment")}
-          class="text-xs text-c uppercase tracking-widest hover:text-white transition-colors">
+          class="text-xs text-c uppercase tracking-widest hover:opacity-70 transition-opacity">
           {T.nav.equipment} →
         </a>
       </div>
@@ -197,7 +197,7 @@ const T = t(lang);
         <p class="label-print mb-6">{T.home.ctaTitle}</p>
         <p class="text-4xl md:text-5xl font-black leading-tight max-w-2xl mb-10">{T.home.ctaText}</p>
         <a href={url(lang as Lang, "/contact")}
-          class="inline-flex items-center gap-3 px-10 py-5 bg-c text-black font-bold text-sm tracking-widest uppercase hover:bg-white transition-colors">
+          class="inline-flex items-center gap-3 px-10 py-5 bg-c text-black font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity">
           {T.home.ctaBtn} →
         </a>
       </div>

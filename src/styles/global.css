@@ -206,6 +206,16 @@ body {
   background-image: radial-gradient(circle, rgba(0,144,204,0.10) 1.5px, transparent 1.5px);
 }
 
-/* ── Navbar & footer cards on light bg ───────────────────────────── */
+/* ── Hover states: prevent content from matching white background ─── */
+
+/* hover:text-white → use near-black on light bg */
+[data-theme="light"] .hover\:text-white:hover  { color: #0A0A0A !important; }
+
+/* hover:bg-white → use near-black on light bg (keep text readable) */
+[data-theme="light"] .hover\:bg-white:hover    { background-color: #1A1A1A !important; }
+
+/* hover:bg-white/5 → very subtle dark tint instead of white tint */
 [data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.04) !important; }
+
+/* hover:text-c stays cyan — visible on both backgrounds */
 [data-theme="light"] .hover\:text-c:hover      { color: #0090CC !important; }
