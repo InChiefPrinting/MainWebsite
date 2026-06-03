@@ -81,10 +81,10 @@ const T = t(lang);
           { value: '1.1M', unit: lang==='zh'?'印张/天':lang==='ar'?'ورقة/يوم':lang==='fr'?'feuilles/j':lang==='es'?'hojas/día':lang==='it'?'fogli/g':'sheets/day', color: '#00AEEF' },
           { value: '95',   unit: lang==='zh'?'客户满意度':lang==='ar'?'رضا العملاء':lang==='fr'?'satisfaction':lang==='es'?'satisfacción':lang==='it'?'soddisfazione':'/100 satisfaction', color: '#EC008C' },
           { value: '16+',  unit: lang==='zh'?'印刷方案':lang==='ar'?'حلاً للطباعة':lang==='fr'?'solutions':lang==='es'?'soluciones':lang==='it'?'soluzioni':'solutions', color: '#FFD900' },
-          { value: '1640', unit: 'mm max format', color: '#FFFFFF' },
+          { value: '1640', unit: 'mm max format', color: '', kColor: true },
         ].map((s) => (
           <div class="p-8 group">
-            <p class="stat-num text-5xl" style={`color:${s.color}`}>{s.value}</p>
+            <p class={`stat-num text-5xl ${s.kColor ? 'k-color' : ''}`} style={s.color ? `color:${s.color}` : ''}>{s.value}</p>
             <p class="text-[10px] uppercase tracking-widest text-white/35 mt-3">{s.unit}</p>
           </div>
         ))}

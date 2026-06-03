@@ -101,7 +101,22 @@ body {
 }
 .label-print-m::before { background: #EC008C; }  /* M — Magenta */
 .label-print-y::before { background: #FFD900; }  /* Y — Yellow  */
-.label-print-k::before { background: rgba(255,255,255,0.35); } /* K */
+.label-print-k::before { background: rgba(255,255,255,0.4); }  /* K: white on dark */
+[data-theme="light"] .label-print-k::before { background: rgba(0,0,0,0.5); }  /* K: black on light */
+
+/* ── Adaptive K color utilities ──────────────────────────────────────
+   Use these wherever a design element represents K (Key/Black):
+   .k-color   → text color  |  .k-bg → background  |  .k-dot → circle dot
+   Dark  bg: shows as white  |  Light bg: shows as black/dark            */
+.k-color { color: rgba(255,255,255,0.85); }
+.k-bg    { background: rgba(255,255,255,0.25); }
+.k-dot   { background: #ffffff; }
+.k-dot-border { border-color: rgba(255,255,255,0.0); }
+
+[data-theme="light"] .k-color       { color: rgba(0,0,0,0.75); }
+[data-theme="light"] .k-bg          { background: rgba(0,0,0,0.40); }
+[data-theme="light"] .k-dot         { background: #1A1A1A; }
+[data-theme="light"] .k-dot-border  { border-color: rgba(0,0,0,0.15); }
 
 /* ── Crop-mark card corners ───────────────────────────────────────── */
 .crop-card {

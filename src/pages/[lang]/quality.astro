@@ -238,19 +238,21 @@ const certs = [
           <span class="ml-2 text-white/15 normal-case tracking-normal font-mono font-normal">ISO 12647-2</span>
         </p>
         {[
-          { label: 'Black', ch: 'K', value: '1.40 – 1.70', color: '#fff' },
+          { label: 'Black', ch: 'K', value: '1.40 – 1.70', color: '', kColor: true },
           { label: 'Cyan',    ch: 'C', value: '1.30 – 1.55', color: '#00AEEF' },
           { label: 'Magenta', ch: 'M', value: '1.25 – 1.50', color: '#EC008C' },
           { label: 'Yellow',  ch: 'Y', value: '0.85 – 1.10', color: '#FFD900' },
-          { label: lang === 'zh' ? '50%网点扩大' : 'Dot gain 50%', ch: '△', value: '10 – 20%', color: '#fff' },
+          { label: lang === 'zh' ? '50%网点扩大' : 'Dot gain 50%', ch: '△', value: '10 – 20%', color: '', kColor: true },
         ].map((row) => (
           <div class="flex items-center justify-between py-4 border-b border-white/5 last:border-0 group hover:bg-white/2 transition-colors -mx-2 px-2">
             <dt class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full flex-shrink-0" style={`background:${row.color};opacity:${row.ch==='△'?0.3:0.8}`}></span>
+              <span class={`w-2 h-2 rounded-full flex-shrink-0 ${row.kColor ? 'k-dot' : ''}`}
+                style={row.color ? `background:${row.color};opacity:${row.ch==='△'?0.3:0.8}` : `opacity:${row.ch==='△'?0.3:0.8}`}></span>
               <span class="text-sm text-white/50">{row.label}</span>
               <span class="text-[9px] font-mono text-white/20">{row.ch}</span>
             </dt>
-            <dd class="font-black font-mono text-lg stat-num" style={`color:${row.color};opacity:${row.ch==='△'?0.6:0.9}`}>{row.value}</dd>
+            <dd class={`font-black font-mono text-lg stat-num ${row.kColor ? 'k-color' : ''}`}
+              style={row.color ? `color:${row.color};opacity:${row.ch==='△'?0.6:0.9}` : `opacity:${row.ch==='△'?0.6:0.9}`}>{row.value}</dd>
           </div>
         ))}
         <p class="mt-6 text-[9px] font-mono text-white/20 uppercase tracking-widest">
