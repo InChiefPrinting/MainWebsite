@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlaceholderImg from "../../components/PlaceholderImg.astro";
 import { t, getLangStaticPaths, url } from "../../i18n";
 import type { Lang } from "../../i18n";
 
@@ -111,6 +112,15 @@ const T = t(lang);
         <p class="text-xl text-white/70 leading-relaxed">{T.home.overviewText}</p>
       </div>
     </div>
+  </section>
+
+  <!-- ═══ FACTORY IMAGE ═══ -->
+  <section class="container-industrial pb-4">
+    <PlaceholderImg
+      slug="factory-floor-overview"
+      label="Production floor — full press line overview"
+      aspect="21/9"
+    />
   </section>
 
   <!-- ═══ SERVICES ═══ -->

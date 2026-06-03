@@ -1,0 +1,138 @@
+---
+/**
+ * PlaceholderImg — Print-industrial styled image placeholder.
+ * Replace src/public/images/{slug}.jpg with real photos when available.
+ *
+ * Props:
+ *   label  — describes what the real image should show (e.g. "Factory floor")
+ *   aspect — CSS aspect-ratio value, default "16/9"
+ *   slug   — filename stem for future real image (informational only)
+ *   class  — extra classes on the wrapper
+ */
+interface Props {
+  label?: string;
+  aspect?: string;
+  slug?: string;
+  class?: string;
+}
+const {
+  label  = 'Image',
+  aspect = '16/9',
+  slug,
+  class: cls = '',
+} = Astro.props;
+---
+
+<figure
+  class={`pimg ${cls}`}
+  style={`aspect-ratio:${aspect}`}
+  aria-label={label}
+  data-slug={slug}
+>
+  <svg class="pimg-svg" viewBox="0 0 160 120" fill="none" aria-hidden="true">
+    <!-- Corner crop marks -->
+    <line x1="0"   y1="16"  x2="0"   y2="0"   stroke="currentColor" stroke-width="0.6"/>
+    <line x1="0"   y1="0"   x2="16"  y2="0"   stroke="currentColor" stroke-width="0.6"/>
+    <line x1="144" y1="0"   x2="160" y2="0"   stroke="currentColor" stroke-width="0.6"/>
+    <line x1="160" y1="0"   x2="160" y2="16"  stroke="currentColor" stroke-width="0.6"/>
+    <line x1="160" y1="104" x2="160" y2="120" stroke="currentColor" stroke-width="0.6"/>
+    <line x1="160" y1="120" x2="144" y2="120" stroke="currentColor" stroke-width="0.6"/>
+    <line x1="16"  y1="120" x2="0"   y2="120" stroke="currentColor" stroke-width="0.6"/>
+    <line x1="0"   y1="120" x2="0"   y2="104" stroke="currentColor" stroke-width="0.6"/>
+
+    <!-- Registration mark (circle + crosshair) -->
+    <circle cx="80" cy="52" r="14"  stroke="currentColor" stroke-width="0.6"/>
+    <circle cx="80" cy="52" r="4"   stroke="currentColor" stroke-width="0.6"/>
+    <circle cx="80" cy="52" r="1.5" fill="currentColor"/>
+    <line x1="80" y1="30"  x2="80" y2="74"  stroke="currentColor" stroke-width="0.6"/>
+    <line x1="58" y1="52"  x2="102" y2="52" stroke="currentColor" stroke-width="0.6"/>
+
+    <!-- CMYK process dots -->
+    <circle cx="67" cy="78" r="4" fill="#00AEEF"/>
+    <circle cx="77" cy="78" r="4" fill="#EC008C"/>
+    <circle cx="87" cy="78" r="4" fill="#FFD900"/>
+    <circle cx="97" cy="78" r="4" fill="currentColor" opacity="0.25"/>
+  </svg>
+
+  <figcaption class="pimg-label">
+    {slug && <span class="pimg-slug">{slug}.jpg</span>}
+    {label}
+  </figcaption>
+</figure>
+
+<style>
+  .pimg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    background: #0F0F0F;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle halftone overlay */
+  .pimg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 174, 239, 0.07) 1px,
+      transparent 1px
+    );
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+
+  .pimg-svg {
+    width: clamp(100px, 30%, 180px);
+    color: rgba(255, 255, 255, 0.18);
+    position: relative;
+  }
+
+  .pimg-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+    font-family: ui-monospace, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  .pimg-slug {
+    color: rgba(0, 174, 239, 0.5);
+    font-size: 0.55rem;
+  }
+
+  /* ── Light theme ────────────────────────────────────────────── */
+  :global([data-theme="light"]) .pimg {
+    background: #EBEBEB;
+    border-color: rgba(0, 0, 0, 0.07);
+  }
+  :global([data-theme="light"]) .pimg::before {
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 144, 204, 0.08) 1px,
+      transparent 1px
+    );
+  }
+  :global([data-theme="light"]) .pimg-svg {
+    color: rgba(0, 0, 0, 0.18);
+  }
+  :global([data-theme="light"]) .pimg-label {
+    color: rgba(0, 0, 0, 0.25);
+  }
+  :global([data-theme="light"]) .pimg-slug {
+    color: rgba(0, 144, 204, 0.55);
+  }
+</style>

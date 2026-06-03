@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlaceholderImg from "../../components/PlaceholderImg.astro";
 import { t, getLangStaticPaths, url } from "../../i18n";
 import type { Lang } from "../../i18n";
 
@@ -14,8 +15,17 @@ const T = t(lang);
 <BaseLayout title={`${T.careers.pageTitle} | InChief`} description={T.meta.description} lang={lang}>
 
   <section class="container-industrial py-24">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.careers.pageTitle}</h1>
-    <p class="text-neutral-400 max-w-2xl">{T.careers.pageSubtitle}</p>
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{T.careers.pageTitle}</h1>
+        <p class="text-neutral-400 max-w-2xl">{T.careers.pageSubtitle}</p>
+      </div>
+      <PlaceholderImg
+        slug="team-production-floor"
+        label="Team on the production floor — InChief Printing"
+        aspect="16/9"
+      />
+    </div>
   </section>
 
   <!-- Why InChief -->

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PlaceholderImg from "../../components/PlaceholderImg.astro";
 import { t, getLangStaticPaths, url } from "../../i18n";
 import type { Lang } from "../../i18n";
 
@@ -11,12 +12,12 @@ const { lang } = Astro.params;
 const T = t(lang);
 
 const cases = [
-  { title: T.caseStudies.c1title, tag: T.caseStudies.c1tag, desc: T.caseStudies.c1desc },
-  { title: T.caseStudies.c2title, tag: T.caseStudies.c2tag, desc: T.caseStudies.c2desc },
-  { title: T.caseStudies.c3title, tag: T.caseStudies.c3tag, desc: T.caseStudies.c3desc },
-  { title: T.caseStudies.c4title, tag: T.caseStudies.c4tag, desc: T.caseStudies.c4desc },
-  { title: T.caseStudies.c5title, tag: T.caseStudies.c5tag, desc: T.caseStudies.c5desc },
-  { title: T.caseStudies.c6title, tag: T.caseStudies.c6tag, desc: T.caseStudies.c6desc },
+  { title: T.caseStudies.c1title, tag: T.caseStudies.c1tag, desc: T.caseStudies.c1desc, slug: 'case-luxury-gift-box',         label: 'Premium rigid gift box — foil stamping + embossing' },
+  { title: T.caseStudies.c2title, tag: T.caseStudies.c2tag, desc: T.caseStudies.c2desc, slug: 'case-pharma-track-code',        label: 'Pharmaceutical folding carton with track code' },
+  { title: T.caseStudies.c3title, tag: T.caseStudies.c3tag, desc: T.caseStudies.c3desc, slug: 'case-oem-corrugated',           label: 'OEM corrugated export carton — stacked pallets' },
+  { title: T.caseStudies.c4title, tag: T.caseStudies.c4tag, desc: T.caseStudies.c4desc, slug: 'case-fsc-food-packaging',       label: 'FSC-certified food & beverage folding carton' },
+  { title: T.caseStudies.c5title, tag: T.caseStudies.c5tag, desc: T.caseStudies.c5desc, slug: 'case-catalog-8color',           label: '256-page brand catalog — Heidelberg CX104 output' },
+  { title: T.caseStudies.c6title, tag: T.caseStudies.c6tag, desc: T.caseStudies.c6desc, slug: 'case-vdp-labels',              label: 'Variable data label roll — serialized barcode' },
 ];
 ---
 
@@ -30,18 +31,26 @@ const cases = [
   <section class="container-industrial pb-24 border-t border-neutral-800">
     <div class="space-y-0 mt-16">
       {cases.map((c) => (
-        <div class="border-b border-neutral-800 py-12 grid md:grid-cols-[1fr_2fr] gap-12">
+        <div class="border-b border-neutral-800 py-12 grid md:grid-cols-[280px_1fr_2fr] gap-10 items-start">
+
+          <!-- Thumbnail -->
+          <PlaceholderImg slug={c.slug} label={c.label} aspect="4/3" />
+
+          <!-- Title + tags -->
           <div>
-            <h2 class="text-xl font-semibold mb-3">{c.title}</h2>
+            <h2 class="text-xl font-semibold mb-4">{c.title}</h2>
             <div class="flex flex-wrap gap-2">
               {c.tag.split(' · ').map((tag) => (
                 <span class="px-3 py-1 border border-industrial-blue text-industrial-blue text-xs">{tag}</span>
               ))}
             </div>
           </div>
+
+          <!-- Description -->
           <div>
             <p class="text-neutral-400 leading-relaxed">{c.desc}</p>
           </div>
+
         </div>
       ))}
     </div>
