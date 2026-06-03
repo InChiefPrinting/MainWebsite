@@ -18,6 +18,17 @@ const isRtl = RTL_LANGS.has(lang as Lang);
 <html lang={lang} dir={isRtl ? "rtl" : "ltr"}>
   <head>
     <meta charset="UTF-8" />
+    <!-- Inline theme script: runs before <body> renders to prevent flash -->
+    <script is:inline>
+      (function () {
+        var h = new Date().getHours();
+        // Day: 06:00 – 17:59 → light   |   Night: 18:00 – 05:59 → dark
+        document.documentElement.setAttribute(
+          'data-theme',
+          h >= 6 && h < 18 ? 'light' : 'dark'
+        );
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -44,6 +55,8 @@ const isRtl = RTL_LANGS.has(lang as Lang);
   </head>
 
   <body class={isRtl ? "font-arabic" : ""}>
+    <!-- CMYK registration stripe -->
+    <div class="cmyk-stripe" aria-hidden="true"></div>
     <Navbar lang={lang} />
 
     <main class="min-h-screen flex flex-col gap-24">

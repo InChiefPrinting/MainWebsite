@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Dark mode base (night) ───────────────────────────────────────── */
   --color-industrial-black: #0a0a0a;
-  --color-industrial-gray: #1a1a1a;
-  --color-industrial-blue: #2b6cff;
+  --color-industrial-gray:  #1a1a1a;
+
+  /* ── CMYK primary accent — Process Cyan ──────────────────────────── */
+  --color-industrial-blue:  #00AEEF;
+
+  /* ── Full CMYK palette ────────────────────────────────────────────── */
+  --color-cmyk-cyan:    #00AEEF;
+  --color-cmyk-magenta: #EC008C;
+  --color-cmyk-yellow:  #FFD900;
+  --color-cmyk-key:     #231F20;
 }
 
 html {
@@ -22,4 +31,86 @@ body.font-arabic,
 
 .container-industrial {
   @apply max-w-7xl mx-auto px-6 lg:px-12;
+}
+
+/* ── CMYK registration-mark stripe (top of every page) ───────────── */
+.cmyk-stripe {
+  height: 4px;
+  background: linear-gradient(to right,
+    #00AEEF 0% 25%,
+    #EC008C 25% 50%,
+    #FFD900 50% 75%,
+    #231F20 75% 100%
+  );
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   LIGHT THEME  (daytime: 06:00 – 18:00)
+   Applied via  data-theme="light"  on <html> by an inline script.
+   Strategy: override Tailwind's CSS custom properties so that
+   bg-industrial-black, bg-industrial-gray, etc. all resolve to
+   light values without touching any component files.
+   ════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  /* Remap the two Tailwind theme tokens to paper-like tones */
+  --color-industrial-black: #F4F2EE;   /* warm off-white — uncoated paper */
+  --color-industrial-gray:  #E8E6E0;   /* slightly darker surface */
+
+  /* Cyan stays the same — good contrast on both backgrounds */
+  --color-industrial-blue:  #007DB8;   /* slightly darker cyan for light bg readability */
+}
+
+/* Body text */
+[data-theme="light"] body {
+  color: #1A1A1A;
+}
+
+/* ── Text ─────────────────────────────────────────────────────────── */
+[data-theme="light"] .text-white           { color: #111111 !important; }
+[data-theme="light"] .text-neutral-300     { color: #3D3D3D !important; }
+[data-theme="light"] .text-neutral-400     { color: #555555 !important; }
+[data-theme="light"] .text-neutral-500     { color: #777777 !important; }
+
+/* ── Backgrounds ──────────────────────────────────────────────────── */
+[data-theme="light"] .bg-black             { background-color: #ffffff !important; }
+[data-theme="light"] .bg-black\/90         { background-color: rgba(244,242,238,0.96) !important; }
+[data-theme="light"] .bg-neutral-900       { background-color: #EDEAE4 !important; }
+[data-theme="light"] .bg-neutral-900\/30   { background-color: rgba(0,0,0,0.04) !important; }
+
+/* ── Borders ──────────────────────────────────────────────────────── */
+[data-theme="light"] .border-neutral-800   { border-color: #CFCCC5 !important; }
+[data-theme="light"] .border-white\/10     { border-color: rgba(0,0,0,0.10) !important; }
+[data-theme="light"] .border-white\/20     { border-color: rgba(0,0,0,0.15) !important; }
+
+/* Divide utilities (home stats strip) */
+[data-theme="light"] .divide-neutral-800 > * + * {
+  border-color: #CFCCC5 !important;
+}
+
+/* ── Shadows ──────────────────────────────────────────────────────── */
+[data-theme="light"] .shadow-xl  { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; }
+[data-theme="light"] .shadow-2xl { box-shadow: 0 16px 48px rgba(0,0,0,0.14) !important; }
+
+/* ── Navbar backdrop ──────────────────────────────────────────────── */
+[data-theme="light"] header {
+  border-bottom-color: rgba(0,0,0,0.10) !important;
+}
+
+/* ── Mobile menu full-screen overlay ─────────────────────────────── */
+[data-theme="light"] #mobileMenu {
+  background-color: #F4F2EE !important;
+  color: #111111 !important;
+}
+
+/* ── Quality policy highlight box ────────────────────────────────── */
+[data-theme="light"] .bg-industrial-blue\/5 {
+  background-color: rgba(0,125,184,0.06) !important;
+}
+
+/* ── Form inputs ──────────────────────────────────────────────────── */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  color: #111111 !important;
 }
