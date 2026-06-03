@@ -153,43 +153,59 @@ body {
 /* label-print text */
 [data-theme="light"] .label-print { color: rgba(0,0,0,0.4); }
 
-/* Text */
-[data-theme="light"] .text-white        { color: #0A0A0A !important; }
-[data-theme="light"] .text-neutral-300  { color: #333333 !important; }
-[data-theme="light"] .text-neutral-400  { color: #555555 !important; }
-[data-theme="light"] .text-neutral-500  { color: #777777 !important; }
+/* ── Text: white → dark scale ─────────────────────────────────────
+   text-white/N maps to an equivalent dark value so hierarchy is kept.
+   text-c / text-m / text-y stay untouched (brand accent colors).      */
+[data-theme="light"] .text-white       { color: #0A0A0A !important; }
+[data-theme="light"] .text-white\/70   { color: #1A1A1A !important; }
+[data-theme="light"] .text-white\/60   { color: #2D2D2D !important; }
+[data-theme="light"] .text-white\/50   { color: #444444 !important; }
+[data-theme="light"] .text-white\/45   { color: #555555 !important; }
+[data-theme="light"] .text-white\/40   { color: #666666 !important; }
+[data-theme="light"] .text-white\/35   { color: #777777 !important; }
+[data-theme="light"] .text-white\/30   { color: #888888 !important; }
+[data-theme="light"] .text-white\/25   { color: #999999 !important; }
+[data-theme="light"] .text-white\/20   { color: #AAAAAA !important; }
+[data-theme="light"] .text-white\/15   { color: #BBBBBB !important; }
+[data-theme="light"] .text-white\/10   { color: #CCCCCC !important; }
+[data-theme="light"] .text-neutral-300 { color: #333333 !important; }
+[data-theme="light"] .text-neutral-400 { color: #555555 !important; }
+[data-theme="light"] .text-neutral-500 { color: #777777 !important; }
 
-/* Backgrounds */
+/* ── Backgrounds ──────────────────────────────────────────────────── */
 [data-theme="light"] .bg-black          { background-color: #FFFFFF !important; }
-[data-theme="light"] .bg-black\/90      { background-color: rgba(255,255,255,0.96) !important; }
+[data-theme="light"] .bg-black\/90,
+[data-theme="light"] .bg-black\/95      { background-color: rgba(255,255,255,0.97) !important; }
 [data-theme="light"] .bg-neutral-900    { background-color: #F0F0F0 !important; }
 [data-theme="light"] .bg-neutral-900\/30{ background-color: rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .bg-white\/5       { background-color: rgba(0,0,0,0.04) !important; }
 [data-theme="light"] .bg-industrial-blue\/5 { background-color: rgba(0,144,204,0.06) !important; }
 
-/* Borders */
-[data-theme="light"] .border-neutral-800  { border-color: #DDDDDD !important; }
-[data-theme="light"] .border-white\/10    { border-color: rgba(0,0,0,0.09) !important; }
-[data-theme="light"] .border-white\/20    { border-color: rgba(0,0,0,0.14) !important; }
+/* ── Borders ──────────────────────────────────────────────────────── */
+[data-theme="light"] .border-neutral-800    { border-color: #DDDDDD !important; }
+[data-theme="light"] .border-white\/10      { border-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] .border-white\/15      { border-color: rgba(0,0,0,0.11) !important; }
+[data-theme="light"] .border-white\/20      { border-color: rgba(0,0,0,0.14) !important; }
 [data-theme="light"] .divide-neutral-800 > * + * { border-color: #DDDDDD !important; }
+[data-theme="light"] .divide-white\/10  > * + * { border-color: rgba(0,0,0,0.09) !important; }
 
-/* Shadows */
+/* ── Shadows ──────────────────────────────────────────────────────── */
 [data-theme="light"] .shadow-xl  { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; }
 [data-theme="light"] .shadow-2xl { box-shadow: 0 16px 48px rgba(0,0,0,0.14) !important; }
 
-/* Navbar */
+/* ── Structural elements ──────────────────────────────────────────── */
 [data-theme="light"] header { border-bottom-color: rgba(0,0,0,0.09) !important; }
+[data-theme="light"] #mobileMenu { background-color: #FFFFFF !important; color: #0A0A0A !important; }
 
-/* Mobile menu overlay */
-[data-theme="light"] #mobileMenu {
-  background-color: #FFFFFF !important;
-  color: #0A0A0A !important;
-}
-
-/* Form inputs */
+/* ── Form inputs ──────────────────────────────────────────────────── */
 [data-theme="light"] input,
 [data-theme="light"] textarea { color: #0A0A0A !important; }
 
-/* Halftone in light mode */
+/* ── Halftone: lighter dots on white bg ───────────────────────────── */
 [data-theme="light"] .halftone {
-  background-image: radial-gradient(circle, rgba(0,144,204,0.12) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(0,144,204,0.10) 1.5px, transparent 1.5px);
 }
+
+/* ── Navbar & footer cards on light bg ───────────────────────────── */
+[data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .hover\:text-c:hover      { color: #0090CC !important; }
