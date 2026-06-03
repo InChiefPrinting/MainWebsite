@@ -1,7 +1,6 @@
 ---
 import { t, url } from "../i18n";
 import type { Lang } from "../i18n";
-import LogoMark from "./LogoMark.astro";
 
 const { lang = "en" } = Astro.props;
 const T = t(lang);
@@ -23,7 +22,7 @@ const T = t(lang);
       <!-- Brand column -->
       <div>
         <div class="flex items-center gap-3 mb-5">
-          <LogoMark size={32} />
+          <img src="/MainWebsite/logo.svg" alt="InChief" height="32" width="52" />
           <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief Printing</span>
         </div>
         <p class="text-white/40 text-xs leading-relaxed max-w-xs">{T.footer.tagline}</p>

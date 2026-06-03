@@ -1,7 +1,6 @@
 ---
 import { t, url, switchLangUrl, LOCALES, LANG_NAMES, RTL_LANGS } from "../i18n";
 import type { Lang } from "../i18n";
-import LogoMark from "./LogoMark.astro";
 
 const { lang = "en" } = Astro.props;
 const T = t(lang);
@@ -80,7 +79,7 @@ const navItems = [
 
     <!-- Logo -->
     <a href={url(lang, "/")} class="flex items-center gap-3 shrink-0 group">
-      <LogoMark size={28} class="group-hover:opacity-90 transition-opacity" />
+      <img src="/MainWebsite/logo.svg" alt="InChief" height="28" width="46" class="group-hover:opacity-90 transition-opacity" />
       <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief</span>
     </a>
 
@@ -197,7 +196,7 @@ const navItems = [
     <!-- Mobile header -->
     <div class="flex justify-between items-center h-14 px-6 border-b border-white/10">
       <span class="flex items-center gap-3">
-        <LogoMark size={24} />
+        <img src="/MainWebsite/logo.svg" alt="InChief" height="24" width="39" />
         <span class="text-sm font-bold tracking-[0.2em] uppercase">InChief</span>
       </span>
       <button id="closeMenu" class="text-2xl leading-none text-white/60 hover:text-white transition">✕</button>
