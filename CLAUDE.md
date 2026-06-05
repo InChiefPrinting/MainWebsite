@@ -21,20 +21,25 @@ npm run preview  # Preview the built site locally
 
 ## i18n Architecture
 
-**6 languages**: `en`, `zh`, `fr`, `ar`, `es`, `it`
+**34 languages**: `en`, `zh`, `fr`, `ar`, `es`, `it`, `ru`, `de`, `ko`, `ja`, `id`, `pt`, `nl`, `pl`, `tr`, `cs`, `hu`, `ro`, `el`, `sv`, `da`, `no`, `fi`, `uk`, `vi`, `ms`, `th`, `hi`, `bn`, `ur`, `fa`, `he`, `fil`, `sw`
 
 - URL pattern: `/MainWebsite/{lang}/page` (e.g. `/MainWebsite/zh/about`)
 - Routing: manual `[lang]` dynamic segments with `getStaticPaths()` — NOT Astro's built-in i18n
-- Arabic (`ar`): RTL layout via `dir="rtl"` on `<html>`, Noto Sans Arabic from Google Fonts
+- RTL languages (4): `ar`, `ur`, `fa`, `he` — RTL layout via `dir="rtl"` on `<html>`, set from `RTL_LANGS` in `ui.ts`. Arabic uses Noto Sans Arabic from Google Fonts.
 - Root `src/pages/index.astro`: JS browser-language detection redirect
+- Language switcher: slide-out panel (right side) with search box, shared between desktop & mobile. Each language shows native name + Chinese name. Triggered by `#langTrigger` (desktop) / `#langTriggerMobile` (mobile menu). Implemented in `Navbar.astro`.
 
 ### Key i18n Files
 
 | File | Purpose |
 |---|---|
-| `src/i18n/ui.ts` | All UI strings for all 6 languages. Single source of truth. |
+| `src/i18n/ui.ts` | Coordinator: `LOCALES`, `Lang`, `RTL_LANGS`, `LANG_NAMES`, imports + assembles the `ui` record. |
+| `src/i18n/types.ts` | `UIStrings` type definition (single source of truth for the string schema). |
+| `src/i18n/locales/{lang}.ts` | One file per language (34 total). `zh.ts` is clean; every other locale has the matching Chinese text as a `//` comment above each field for human review. |
 | `src/i18n/index.ts` | Helper utilities: `t()`, `getLangStaticPaths()`, `url()`, `switchLangUrl()` |
-| `src/i18n/solutions.ts` | Data for all 16 solution pages × 6 languages, `getSolution()`, `SOLUTION_SLUGS` |
+| `src/i18n/solutions.ts` | Data for all 16 solution pages (en/zh/fr/ar/es/it; others fall back to English via `getSolution()`), `SOLUTION_SLUGS` |
+
+**Adding a language:** create `src/i18n/locales/xx.ts` (copy an existing locale's structure, keep the zh comments), then in `ui.ts` add `xx` to `LOCALES`, `LANG_NAMES`, the import list, and the `ui` record. Add to `RTL_LANGS` if right-to-left. Also add the Chinese name to `LANG_NAMES_ZH` in `Navbar.astro`.
 
 ### i18n Helpers
 
@@ -63,10 +68,10 @@ src/pages/
     industries.astro
     case-studies.astro
     solutions/
-      [solution].astro           # 16 slugs × 6 langs = 96 pages
+      [solution].astro           # 16 slugs × 34 langs = 544 pages
 ```
 
-**Total static pages generated: 153**
+**Total static pages generated: 887** (34 langs × 10 main pages + 16 solution slugs × 34 langs + root/404 = 340 + 544 + 3)
 
 ### Solution Slugs (16)
 

@@ -8,36 +8,143 @@ import "../styles/global.css";
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
+    <!-- Inline theme script: runs before <body> renders to prevent flash -->
+    <script is:inline>
+      (function () {
+        var saved = localStorage.getItem('inchief-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          var h = new Date().getHours();
+          document.documentElement.setAttribute('data-theme', h >= 6 && h < 18 ? 'light' : 'dark');
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>404 — Page Not Found | InChief Printing</title>
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/MainWebsite/favicon.svg" />
+    <link rel="icon" href="/MainWebsite/favicon.ico" />
   </head>
+
   <body>
+    <!-- CMYK registration stripe -->
+    <div class="cmyk-stripe" aria-hidden="true">
+      <div class="stripe-c"></div>
+      <div class="stripe-m"></div>
+      <div class="stripe-y"></div>
+      <div class="stripe-k"></div>
+    </div>
+
     <Navbar lang="en" />
 
-    <main class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-32">
-      <p class="text-8xl font-bold text-industrial-blue opacity-30">404</p>
-      <h1 class="text-3xl font-bold mt-6">Page Not Found</h1>
-      <p class="text-neutral-400 mt-4 max-w-md">
-        The page you're looking for doesn't exist or may have been moved.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center mt-10">
-        <a
-          href="/MainWebsite/en/"
-          class="px-8 py-4 bg-industrial-blue text-white font-semibold hover:opacity-80 transition"
-        >
-          Back to Home
-        </a>
-        <a
-          href="/MainWebsite/en/contact"
-          class="px-8 py-4 border border-neutral-700 text-white hover:border-white transition"
-        >
-          Contact Us
-        </a>
-      </div>
+    <main>
+      <section class="relative overflow-hidden min-h-[calc(100vh-3.5rem)] flex flex-col justify-center">
+
+        <!-- Halftone dot texture (top-right quadrant) -->
+        <div class="halftone absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-60"></div>
+
+        <!-- Cyan vertical accent bar -->
+        <div class="absolute top-0 left-0 bottom-0 w-1" style="background:#00AEEF"></div>
+
+        <!-- Registration mark — top right -->
+        <div class="absolute top-10 right-10 text-white/15">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="0.75"/>
+            <circle cx="20" cy="20" r="9"  stroke="currentColor" stroke-width="0.75"/>
+            <line x1="0" y1="20" x2="40" y2="20" stroke="currentColor" stroke-width="0.75"/>
+            <line x1="20" y1="0" x2="20" y2="40" stroke="currentColor" stroke-width="0.75"/>
+          </svg>
+        </div>
+
+        <div class="container-industrial py-20 relative">
+
+          <!-- Label -->
+          <p class="label-print mb-8">Error 404 · Misregistration · 套准失败</p>
+
+          <!-- Misregistered 404 — CMYK plates slightly off; hover to register -->
+          <div class="reg404 select-none" title="Hover to register the plates">
+            <span class="c" aria-hidden="true">404</span>
+            <span class="m" aria-hidden="true">404</span>
+            <span class="y" aria-hidden="true">404</span>
+            <span class="k text-white">404</span>
+          </div>
+
+          <!-- Cyan rule + copy -->
+          <div class="flex items-start gap-6 mt-10 max-w-2xl">
+            <div class="w-px bg-c self-stretch flex-shrink-0 min-h-[3rem]"></div>
+            <div class="space-y-3">
+              <p class="text-2xl md:text-3xl font-black leading-tight">
+                This page didn't pass inspection.
+              </p>
+              <p class="text-white/60 text-base leading-relaxed">
+                该页面未通过质检 — 您要找的页面不在我们的印张上，可能已被移动、下线或输入有误。
+              </p>
+              <p class="text-white/40 text-sm">
+                The URL you requested isn't on our press sheet — it may have been moved, retired, or mistyped.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hover hint -->
+          <p class="text-[11px] text-white/30 mt-6 tracking-wide uppercase">
+            ▸ Hover the digits to register the plates · 将光标移到数字上完成套准
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-6 mt-12">
+            <a href="/MainWebsite/"
+              class="inline-flex items-center gap-3 px-8 py-4 bg-c text-black font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity">
+              Back to Home · 返回首页
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="/MainWebsite/en/contact"
+              class="text-sm text-white/40 hover:text-c transition-colors tracking-widest uppercase">
+              Contact Us · 联系我们 ↓
+            </a>
+          </div>
+
+        </div>
+      </section>
     </main>
 
     <Footer lang="en" />
+
+    <style>
+      /* ── Misregistered "404" — CMYK plates off-register ─────────────────
+         Cyan / Magenta / Yellow plates are nudged off the Key (black) plate,
+         leaving colored fringes — the classic offset misregistration defect.
+         Hovering snaps every plate back into register.                      */
+      .reg404 {
+        position: relative;
+        display: inline-block;
+        line-height: 1;
+        font-weight: 900;
+        font-size: clamp(5rem, 20vw, 14rem);
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+      }
+      .reg404 span { display: block; }
+      .reg404 .c,
+      .reg404 .m,
+      .reg404 .y {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reg404 .c { color: #00AEEF; transform: translate(-0.05em, -0.035em); }
+      .reg404 .m { color: #EC008C; transform: translate(0.045em,  0.03em);  }
+      .reg404 .y { color: #FFD900; transform: translate(0.025em, -0.05em);  }
+      .reg404 .k { position: relative; }  /* Key plate: white on dark, black on light (text-white) */
+
+      .reg404:hover .c,
+      .reg404:hover .m,
+      .reg404:hover .y { transform: translate(0, 0); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reg404 .c, .reg404 .m, .reg404 .y { transition: none; }
+      }
+    </style>
   </body>
 </html>

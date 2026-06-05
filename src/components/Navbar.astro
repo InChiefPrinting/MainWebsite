@@ -7,6 +7,19 @@ const T = t(lang);
 const isRtl = RTL_LANGS.has(lang as Lang);
 const currentPath = Astro.url.pathname;
 
+// Chinese names for each language (shown below the native name in the language panel)
+const LANG_NAMES_ZH: Record<string, string> = {
+  en: '英语', zh: '中文（简体）', fr: '法语', ar: '阿拉伯语',
+  es: '西班牙语', it: '意大利语', ru: '俄语', de: '德语',
+  ko: '韩语', ja: '日语', id: '印尼语', pt: '葡萄牙语',
+  nl: '荷兰语', pl: '波兰语', tr: '土耳其语', cs: '捷克语',
+  hu: '匈牙利语', ro: '罗马尼亚语', el: '希腊语', sv: '瑞典语',
+  da: '丹麦语', no: '挪威语', fi: '芬兰语', uk: '乌克兰语',
+  vi: '越南语', th: '泰语', hi: '印地语', bn: '孟加拉语',
+  ur: '乌尔都语', fa: '波斯语', he: '希伯来语', ms: '马来语',
+  fil: '菲律宾语', sw: '斯瓦希里语',
+};
+
 const navItems = [
   {
     label: T.nav.company,
@@ -83,14 +96,29 @@ const navItems = [
       <span class="text-sm font-bold tracking-[0.08em]">InChief</span>
     </a>
 
-    <!-- Mobile toggle — shows below lg (1024px) -->
-    <button id="menuBtn" class="lg:hidden w-8 h-8 flex flex-col justify-center gap-1.5" aria-label="Open menu">
-      <span class="block h-px bg-current"></span>
-      <span class="block h-px bg-current w-5/6"></span>
-      <span class="block h-px bg-current"></span>
-    </button>
+    <!-- Mobile right controls -->
+    <div class="lg:hidden flex items-center gap-2">
+      <!-- Theme toggle (mobile header) -->
+      <button class="theme-toggle w-8 h-8 flex items-center justify-center text-white/50 hover:text-c transition-colors" aria-label="Toggle theme">
+        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <!-- Mobile hamburger -->
+      <button id="menuBtn" class="w-8 h-8 flex flex-col justify-center gap-1.5" aria-label="Open menu">
+        <span class="block h-px bg-current"></span>
+        <span class="block h-px bg-current w-5/6"></span>
+        <span class="block h-px bg-current"></span>
+      </button>
+    </div>
 
-    <!-- Desktop nav — visible from lg (1024px) upward -->
+    <!-- Desktop nav -->
     <ul class="hidden lg:flex items-center gap-3 xl:gap-5 text-[11px] font-medium tracking-wider uppercase">
 
       {navItems.map((item) => (
@@ -99,7 +127,6 @@ const navItems = [
             {item.label}
           </span>
 
-          {/* ── Company dropdown ── */}
           {item.type === "dropdown" && (
             <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
               <div class="w-52 bg-black border border-white/15 shadow-2xl">
@@ -111,7 +138,6 @@ const navItems = [
                     {group.items.map((child) => (
                       <a href={child.href}
                         class="flex items-center gap-2 px-4 py-2.5 text-xs normal-case tracking-normal hover:text-c transition-colors">
-                        <span class="text-c opacity-0 group-hover:opacity-0">›</span>
                         {child.name}
                       </a>
                     ))}
@@ -121,11 +147,9 @@ const navItems = [
             </div>
           )}
 
-          {/* ── Solutions mega menu ── */}
           {item.type === "mega" && (
             <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block z-50">
               <div class="w-[800px] bg-black border border-white/15 shadow-2xl">
-                {/* Cyan top accent line */}
                 <div class="h-px bg-c w-full"></div>
                 <div class="p-8 grid grid-cols-4 gap-8">
                   {item.children.map((group, gi) => (
@@ -153,34 +177,34 @@ const navItems = [
         </li>
       ))}
 
-      <a href={url(lang, "/equipment")}   class="hover:text-c transition-colors whitespace-nowrap">{T.nav.equipment}</a>
-      <a href={url(lang, "/quality")}     class="hover:text-c transition-colors whitespace-nowrap">{T.nav.quality}</a>
-      <a href={url(lang, "/gallery")}     class="hover:text-c transition-colors whitespace-nowrap">{T.nav.gallery}</a>
+      <a href={url(lang, "/equipment")}    class="hover:text-c transition-colors whitespace-nowrap">{T.nav.equipment}</a>
+      <a href={url(lang, "/quality")}      class="hover:text-c transition-colors whitespace-nowrap">{T.nav.quality}</a>
+      <a href={url(lang, "/gallery")}      class="hover:text-c transition-colors whitespace-nowrap">{T.nav.gallery}</a>
       <a href={url(lang, "/case-studies")} class="hover:text-c transition-colors whitespace-nowrap">{T.nav.caseStudies}</a>
 
-      <!-- Language switcher -->
-      <li class="relative group py-4 list-none">
-        <button class="flex items-center gap-1.5 hover:text-c transition-colors" aria-label="Language">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          </svg>
-          <span>{lang.toUpperCase()}</span>
-        </button>
-        <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50">
-          <div class="bg-black border border-white/15 shadow-2xl overflow-hidden">
-            <div class="h-px bg-c w-full"></div>
-            {LOCALES.map((l) => (
-              <a href={switchLangUrl(currentPath, l as Lang)}
-                class={`lang-switch-link flex items-center gap-3 px-5 py-2.5 text-xs normal-case tracking-normal hover:text-c transition-colors ${l === lang ? 'text-c' : 'text-white/70'}`}>
-                {l === lang && <span class="w-1.5 h-1.5 rounded-full bg-c flex-shrink-0"></span>}
-                {l !== lang && <span class="w-1.5 h-1.5 flex-shrink-0"></span>}
-                {LANG_NAMES[l as Lang]}
-              </a>
-            ))}
-          </div>
-        </div>
-      </li>
+      <!-- Theme toggle (desktop) -->
+      <button class="theme-toggle w-7 h-7 flex items-center justify-center text-white/50 hover:text-c transition-colors" aria-label="Toggle theme">
+        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Language trigger (desktop) -->
+      <button id="langTrigger"
+        class="flex items-center gap-1.5 text-white/50 hover:text-c transition-colors"
+        aria-label="Select language">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span class="text-[10px] font-bold">{lang.toUpperCase()}</span>
+      </button>
 
       <a href={url(lang, "/contact")}
         class="ml-1 px-4 xl:px-5 py-2 border border-c text-c text-[11px] hover:bg-c hover:text-black transition-all font-bold tracking-widest whitespace-nowrap">
@@ -194,8 +218,7 @@ const navItems = [
 <div id="mobileMenu" class="fixed inset-0 z-[999] bg-black text-white hidden lg:hidden">
   <div class="flex flex-col h-full">
 
-    <!-- Mobile header -->
-    <div class="flex justify-between items-center h-14 px-6 border-b border-white/10">
+    <div class="flex justify-between items-center h-14 px-6 border-b border-white/10 shrink-0">
       <span class="flex items-center gap-3">
         <img src="/MainWebsite/logo.svg" alt="InChief" height="24" width="39" />
         <span class="text-sm font-bold tracking-[0.08em]">InChief</span>
@@ -235,22 +258,27 @@ const navItems = [
         </div>
       </div>
 
-      <!-- Mobile language grid -->
+      <!-- Language button (opens panel) -->
       <div>
-        <p class="text-[10px] uppercase tracking-widest text-white/35 mb-4">Language</p>
-        <div class="grid grid-cols-3 gap-2">
-          {LOCALES.map((l) => (
-            <a href={switchLangUrl(currentPath, l as Lang)}
-              class={`lang-switch-link text-center py-2 border text-xs transition-all ${l === lang ? 'border-c text-c' : 'border-white/15 text-white/60 hover:border-white/40'}`}>
-              {LANG_NAMES[l as Lang]}
-            </a>
-          ))}
-        </div>
+        <p class="text-[10px] uppercase tracking-widest text-white/35 mb-3">Language / 语言</p>
+        <button id="langTriggerMobile"
+          class="w-full flex items-center justify-between px-4 py-3 border border-white/15 hover:border-c transition-colors text-left group">
+          <span class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-c">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="text-sm text-white/80">{LANG_NAMES[lang as Lang]}</span>
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/30 group-hover:text-c transition-colors">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
       </div>
 
     </div>
 
-    <div class="p-6 border-t border-white/10">
+    <div class="p-6 border-t border-white/10 shrink-0">
       <a href={url(lang, "/contact")}
         class="block w-full text-center py-3.5 bg-c text-black text-xs font-bold tracking-widest uppercase">
         {T.nav.contactUs}
@@ -260,21 +288,123 @@ const navItems = [
   </div>
 </div>
 
+<!-- ═══ Language Panel (shared desktop + mobile) ═══ -->
+<div id="langPanel" class="fixed inset-0 z-[9999] hidden" aria-modal="true" role="dialog">
+  <!-- Backdrop -->
+  <div id="langBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- Panel (slides from right) -->
+  <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[480px] bg-black border-l border-white/10 shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-out" id="langPanelInner">
+
+    <!-- Panel header -->
+    <div class="flex items-center justify-between px-5 h-14 border-b border-white/10 shrink-0">
+      <span class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Language / 语言
+      </span>
+      <button id="langPanelClose" class="text-white/40 hover:text-white transition-colors text-xl leading-none">✕</button>
+    </div>
+
+    <!-- Search -->
+    <div class="px-4 py-3 border-b border-white/10 shrink-0">
+      <div class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 focus-within:border-c transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/30 shrink-0">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="langSearch" type="search" placeholder="Search languages..." autocomplete="off"
+          class="flex-1 bg-transparent py-2 text-sm text-white placeholder:text-white/25 outline-none" />
+      </div>
+    </div>
+
+    <!-- Language grid -->
+    <div id="langGrid" class="flex-1 overflow-y-auto p-4 grid grid-cols-3 gap-1.5">
+      {LOCALES.map((l) => (
+        <a
+          href={switchLangUrl(currentPath, l as Lang)}
+          class={`lang-switch-link flex flex-col items-center justify-center px-2 py-3 border text-center transition-all hover:border-c hover:text-c group ${l === lang ? 'border-c text-c' : 'border-white/12 text-white/70'}`}
+          data-lang-name={LANG_NAMES[l as Lang]}
+        >
+          <span class="text-xs font-semibold leading-tight">{LANG_NAMES[l as Lang]}</span>
+          {LANG_NAMES_ZH[l] && (
+            <span class="text-[9px] text-white/30 mt-0.5 leading-tight group-hover:text-c/50 transition-colors">
+              {LANG_NAMES_ZH[l]}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
 <script>
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
-  const close = document.getElementById("closeMenu");
+  // ── Mobile menu ──────────────────────────────────────────────────────────
+  const btn      = document.getElementById("menuBtn");
+  const menu     = document.getElementById("mobileMenu");
+  const closeBtn = document.getElementById("closeMenu");
 
   btn?.addEventListener("click", () => {
     menu?.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   });
-  close?.addEventListener("click", () => {
+  closeBtn?.addEventListener("click", closeMobileMenu);
+
+  function closeMobileMenu() {
     menu?.classList.add("hidden");
     document.body.style.overflow = "";
+  }
+
+  // ── Language panel ───────────────────────────────────────────────────────
+  const langPanel      = document.getElementById("langPanel");
+  const langPanelInner = document.getElementById("langPanelInner");
+  const langBackdrop   = document.getElementById("langBackdrop");
+  const langPanelClose = document.getElementById("langPanelClose");
+  const langSearch     = document.getElementById("langSearch") as HTMLInputElement | null;
+  const langGrid       = document.getElementById("langGrid");
+
+  function openLangPanel() {
+    closeMobileMenu();
+    langPanel?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => {
+      langPanelInner?.classList.remove("translate-x-full");
+    });
+    langSearch?.focus();
+  }
+
+  function closeLangPanel() {
+    langPanelInner?.classList.add("translate-x-full");
+    setTimeout(() => {
+      langPanel?.classList.add("hidden");
+      document.body.style.overflow = "";
+      if (langSearch) langSearch.value = "";
+      filterLangs("");
+    }, 300);
+  }
+
+  document.getElementById("langTrigger")?.addEventListener("click", openLangPanel);
+  document.getElementById("langTriggerMobile")?.addEventListener("click", openLangPanel);
+  langPanelClose?.addEventListener("click", closeLangPanel);
+  langBackdrop?.addEventListener("click", closeLangPanel);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLangPanel(); });
+
+  // Search / filter
+  function filterLangs(query: string) {
+    const q = query.toLowerCase().trim();
+    langGrid?.querySelectorAll<HTMLAnchorElement>("a").forEach(a => {
+      const name = (a.dataset.langName ?? "").toLowerCase();
+      const text = a.textContent?.toLowerCase() ?? "";
+      a.style.display = (!q || name.includes(q) || text.includes(q)) ? "" : "none";
+    });
+  }
+
+  langSearch?.addEventListener("input", (e) => {
+    filterLangs((e.target as HTMLInputElement).value);
   });
 
-  // Preserve scroll position across language switches
+  // ── Scroll position across language switches ─────────────────────────────
   const SCROLL_KEY = 'inchief-scroll';
   document.querySelectorAll<HTMLAnchorElement>('.lang-switch-link').forEach((link) => {
     link.addEventListener('click', () => {
@@ -286,4 +416,27 @@ const navItems = [
     sessionStorage.removeItem(SCROLL_KEY);
     requestAnimationFrame(() => window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' }));
   }
+
+  // ── Theme toggle ──────────────────────────────────────────────────────────
+  function syncThemeIcons() {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    document.querySelectorAll<SVGElement>('.theme-icon-sun').forEach(el => {
+      el.style.display = isDark ? 'block' : 'none';
+    });
+    document.querySelectorAll<SVGElement>('.theme-icon-moon').forEach(el => {
+      el.style.display = isDark ? 'none' : 'block';
+    });
+  }
+
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('inchief-theme', next);
+      syncThemeIcons();
+    });
+  });
+
+  syncThemeIcons();
 </script>
